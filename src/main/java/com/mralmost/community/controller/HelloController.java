@@ -1,4 +1,4 @@
-package com.mralmost.controller;
+package com.mralmost.community.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
