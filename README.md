@@ -11,6 +11,8 @@ CREATE TABLE USER
     GMT_CREATE BIGINT,
     GMT_MODIFIED BIGINT
 );
+
+alter table USER add bio varchar(256) null;
 ```
 ## 在Terminal中使用到的所有命令:
 ```text

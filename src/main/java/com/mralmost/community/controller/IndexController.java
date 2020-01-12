@@ -1,6 +1,6 @@
 package com.mralmost.community.controller;
 
-import com.mralmost.community.Model.User;
+import com.mralmost.community.model.User;
 import com.mralmost.community.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

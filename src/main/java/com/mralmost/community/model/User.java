@@ -1,4 +1,4 @@
-package com.mralmost.community.Model;
+package com.mralmost.community.model;
 
 /**
  * @author Lxj
@@ -11,8 +11,8 @@ public class User {
     private String name;
     private String accountId;
     private String token;
-    private Long createDate;
-    private Long modifiedDate;
+    private Long gmtCreate;
+    private Long gmtModified;
 
     public Integer getId() {
         return id;
@@ -46,19 +46,19 @@ public class User {
         this.token = token;
     }
 
-    public Long getCreateDate() {
-        return createDate;
+    public Long getGmtCreate() {
+        return gmtCreate;
     }
 
-    public void setCreateDate(Long createDate) {
-        this.createDate = createDate;
+    public void setGmtCreate(Long gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 
-    public Long getModifiedDate() {
-        return modifiedDate;
+    public Long getGmtModified() {
+        return gmtModified;
     }
 
-    public void setModifiedDate(Long modifiedDate) {
-        this.modifiedDate = modifiedDate;
+    public void setGmtModified(Long gmtModified) {
+        this.gmtModified = gmtModified;
     }
 }
