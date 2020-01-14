@@ -1,15 +1,30 @@
-body{
+body {
     background-color: #efefef;
 }
 
-.main{
+.main {
     margin-top: 40px;
     margin-right: 50px;
     margin-left: 50px;
     background-color: white;
 }
 
-.btn-publish{
+.btn-publish {
     float: right;
     margin-bottom: 15px;
+}
+
+.error {
+    float: right;
+}
+
+.avatar-img {
+    width: 58px;
+    height: 58px;
+}
+
+.text-desc {
+    font-size: 12px;
+    font-weight: normal;
+    color: #999;
 }

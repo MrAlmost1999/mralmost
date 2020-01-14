@@ -1,15 +1,16 @@
-package com.mralmost.community.model;
+package com.mralmost.community.dto;
 
+import com.mralmost.community.model.User;
 import lombok.Data;
 
 /**
  * @author Lxj
- * @Package com.mralmost.community.model
+ * @Package com.mralmost.community.dto
  * @Description TODO
- * @date: 2020/1/12
+ * @date: 2020/1/14
  */
 @Data
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String description;
@@ -20,4 +21,5 @@ public class Question {
     private Integer commentCount;
     private Integer likeCount;
     private String tag;
+    private User user;
 }
