@@ -1,18 +1,23 @@
 package com.mralmost.community.controller;
 
-import com.mralmost.community.dto.QuestionDTO;
-import com.mralmost.community.mapper.QuestionMapper;
-import com.mralmost.community.model.User;
-import com.mralmost.community.mapper.UserMapper;
-import com.mralmost.community.service.QuestionService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+        import com.github.pagehelper.PageHelper;
+        import com.github.pagehelper.PageInfo;
+        import com.mralmost.community.dto.QuestionDTO;
+        import com.mralmost.community.model.Question;
+        import com.mralmost.community.model.User;
+        import com.mralmost.community.mapper.UserMapper;
+        import com.mralmost.community.service.QuestionService;
+        import com.mralmost.community.service.UserService;
+        import org.springframework.beans.factory.annotation.Autowired;
+        import org.springframework.stereotype.Controller;
+        import org.springframework.ui.Model;
+        import org.springframework.web.bind.annotation.GetMapping;
+        import org.springframework.web.bind.annotation.RequestParam;
+        import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
+        import javax.servlet.http.Cookie;
+        import javax.servlet.http.HttpServletRequest;
+        import java.util.List;
 
 /**
  * @author Lxj
@@ -29,8 +34,13 @@ public class IndexController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("/")
-    public String index(HttpServletRequest request, Model model) {
+    @Autowired
+    private UserService userService;
+
+    @GetMapping(value = {"/","index.html","index"})
+    public String index(HttpServletRequest request,
+                        @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                        Model model) {
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies) {
@@ -44,10 +54,18 @@ public class IndexController {
                 }
             }
         }
+        //设置起始页码和每页最大显示数量
+        PageHelper.startPage(pageNum, 6);
+        List<Question> questionList = questionService.findAll();
 
-        List<QuestionDTO> questionList = questionService.findAll();
-        model.addAttribute("questionList" ,questionList);
-
+        //设置连续显示的页数
+        PageInfo<Question> pageInfo = new PageInfo<Question>(questionList,5);
+        model.addAttribute("pageInfo", pageInfo);
+        if (pageNum>pageInfo.getPages()){
+            model.addAttribute("error","已经是最后一页了哦!");
+        }
+        List<QuestionDTO> questionDTOList = userService.findAll(questionList);
+        model.addAttribute("questionDTOList", questionDTOList);
         return "index";
     }
 }

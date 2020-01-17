@@ -24,19 +24,11 @@ public class QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
 
-    @Autowired
-    private UserMapper userMapper;
+    public List<Question> findAll() {
+        return questionMapper.findAll();
+    }
 
-    public List<QuestionDTO> findAll() {
-        List<Question> questions = questionMapper.findAll();
-        List<QuestionDTO> questionDTOList = new ArrayList<>();
-        for (Question question : questions) {
-            User user=userMapper.findById(question.getCreator());
-            QuestionDTO questionDTO = new QuestionDTO();
-            BeanUtils.copyProperties(question,questionDTO);
-            questionDTO.setUser(user);
-            questionDTOList.add(questionDTO);
-        }
-        return questionDTOList;
+    public List<Question> findById(Integer id) {
+        return questionMapper.findById(id);
     }
 }

@@ -2,6 +2,7 @@ body {
     background-color: #efefef;
 }
 
+/*设置界面格式*/
 .main {
     margin-top: 40px;
     margin-right: 50px;
@@ -9,22 +10,40 @@ body {
     background-color: white;
 }
 
+/*发布按钮*/
 .btn-publish {
     float: right;
     margin-bottom: 15px;
 }
 
+/*错误信息*/
 .error {
     float: right;
 }
 
+/*主页文章头像*/
 .avatar-img {
     width: 58px;
     height: 58px;
 }
 
+/*发布界面主体框*/
 .text-desc {
     font-size: 12px;
     font-weight: normal;
     color: #999;
+}
+
+/*分页导航*/
+.pagination {
+    float: right;
+}
+
+/*主体内容*/
+.body_left{
+    border-right:1px solid #e6e6e6;
+}
+
+.profile .section{
+    margin-top: 20px;
 }
