@@ -4,6 +4,7 @@ import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.model.Question;
 import com.mralmost.community.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,15 +24,27 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuestionDTO> findAll(List<Question> questions){
+    public List<QuestionDTO> findAll(List<Question> questions) {
         List<QuestionDTO> questionDTOList = new ArrayList<QuestionDTO>();
         for (Question question : questions) {
-            User user=userMapper.findById(question.getCreator());
+            User user = userMapper.findById(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
-            BeanUtils.copyProperties(question,questionDTO);
+            BeanUtils.copyProperties(question, questionDTO);
             questionDTO.setUser(user);
             questionDTOList.add(questionDTO);
         }
         return questionDTOList;
+    }
+
+    public void insert(User user) {
+        userMapper.insert(user);
+    }
+
+    public User findByToken(@Param("token") String token) {
+        return userMapper.findByToken(token);
+    }
+
+    public User findById(@Param("id") Integer id) {
+        return userMapper.findById(id);
     }
 }

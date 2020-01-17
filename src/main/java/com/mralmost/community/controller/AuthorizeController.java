@@ -5,6 +5,7 @@ import com.mralmost.community.dto.AccessTokenDTO;
 import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.provider.GithubProvider;
 import com.mralmost.community.dto.GithubUser;
+import com.mralmost.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,7 @@ public class AuthorizeController {
     private String redirectUri;
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @GetMapping("/callback")
     public String callback(@RequestParam("code") String code,
@@ -63,7 +64,7 @@ public class AuthorizeController {
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             user.setAvatarUrl(githubUser.getAvatarUrl());
-            userMapper.insert(user);
+            userService.insert(user);
             response.addCookie(new Cookie("token",token));
             return "redirect:/";
         } else {

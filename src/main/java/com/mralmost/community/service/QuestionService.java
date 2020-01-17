@@ -31,4 +31,10 @@ public class QuestionService {
     public List<Question> findById(Integer id) {
         return questionMapper.findById(id);
     }
+
+    public void insert(Question question){
+        questionMapper.insert(question);
+    }
+
+
 }
