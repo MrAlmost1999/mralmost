@@ -1,6 +1,5 @@
 package com.mralmost.community.mapper;
 
-import com.mralmost.community.model.Question;
 import com.mralmost.community.model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -24,4 +23,5 @@ public interface UserMapper {
 
     @Select("select * from user where id=#{id}")
     User findById(@Param("id") Integer id);
+
 }

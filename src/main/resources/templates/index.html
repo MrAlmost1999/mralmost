@@ -25,10 +25,11 @@
             <hr>
 
             <!-- 分页数据 -->
-            <div class="media" th:each="question : ${questionDTOList}">
+            <div class="media" th:each="question : ${pageInfo.list}">
                 <div class="media-left">
                     <a href="#">
-                        <img class="media-object img-rounded avatar-img" th:src="${question.user.avatarUrl}" alt="头像">
+                        <img class="media-object img-rounded avatar-img" th:src="${question.user.avatarUrl}"
+                             alt="头像">
                     </a>
                 </div>
                 <div class="media-body">
@@ -50,7 +51,8 @@
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
-                    <li th:each="num : ${pageInfo.navigatepageNums}" th:class="${num==pageInfo.pageNum?'active':''}">
+                    <li th:each="num : ${pageInfo.navigatepageNums}"
+                        th:class="${num==pageInfo.pageNum?'active':''}">
                         <a href="#" th:href="@{/index?pageNum=}+${num}">[[${num}]]</a>
                     </li>
                     <li th:if="${not pageInfo.isLastPage}">

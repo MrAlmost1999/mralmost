@@ -25,7 +25,7 @@
             <hr>
 
             <!-- 分页数据 -->
-            <div class="media" th:each="question : ${questionDTOList}">
+            <div class="media" th:each="question : ${pageInfo.list}">
                 <div class="media-left">
                     <a href="#">
                         <img class="media-object img-rounded avatar-img" th:src="${question.user.avatarUrl}" alt="头像">
@@ -46,16 +46,16 @@
                 <ul class="pagination">
                     <li th:if="${not pageInfo.isFirstPage}">
                         <a href="#" aria-label="Previous"
-                           th:href="@{/profile(action=${section},pageNum=${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1})}">
+                           th:href="@{/profile(url=${section},pageNum=${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1})}">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <li th:each="num : ${pageInfo.navigatepageNums}" th:class="${num==pageInfo.pageNum?'active':''}">
-                        <a href="#" th:href="@{/profile(action=${section},pageNum=${num})}">[[${num}]]</a>
+                        <a href="#" th:href="@{/profile(url=${section},pageNum=${num})}">[[${num}]]</a>
                     </li>
                     <li th:if="${not pageInfo.isLastPage}">
                         <a href="#" aria-label="Next"
-                           th:href="@{/profile(action=${section},pageNum=${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1})}">
+                           th:href="@{/profile(url=${section},pageNum=${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1})}">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>
@@ -66,8 +66,8 @@
         <!-- 右边 -->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="list-group section">
-                <a th:href="@{/profile(action=questions)}" th:class="${section=='questions'}?'list-group-item active':'list-group-item'">我的问题</a>
-                <a th:href="@{/profile(action=replies)}" th:class="${section=='replies'}?'list-group-item active':'list-group-item'">
+                <a th:href="@{/profile(url=questions)}" th:class="${section=='questions'}?'list-group-item active':'list-group-item'">我的问题</a>
+                <a th:href="@{/profile(url=replies)}" th:class="${section=='replies'}?'list-group-item active':'list-group-item'">
                     最新回复<span class="badge">14</span></a>
             </div>
         </div>

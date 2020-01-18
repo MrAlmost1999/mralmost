@@ -24,11 +24,11 @@ public class QuestionService {
     @Autowired
     private QuestionMapper questionMapper;
 
-    public List<Question> findAll() {
+    public List<QuestionDTO> findAll() {
         return questionMapper.findAll();
     }
 
-    public List<Question> findById(Integer id) {
+    public List<QuestionDTO> findById(Integer id) {
         return questionMapper.findById(id);
     }
 

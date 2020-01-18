@@ -24,18 +24,6 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuestionDTO> findAll(List<Question> questions) {
-        List<QuestionDTO> questionDTOList = new ArrayList<QuestionDTO>();
-        for (Question question : questions) {
-            User user = userMapper.findById(question.getCreator());
-            QuestionDTO questionDTO = new QuestionDTO();
-            BeanUtils.copyProperties(question, questionDTO);
-            questionDTO.setUser(user);
-            questionDTOList.add(questionDTO);
-        }
-        return questionDTOList;
-    }
-
     public void insert(User user) {
         userMapper.insert(user);
     }

@@ -1,9 +1,8 @@
 package com.mralmost.community.mapper;
 
+import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.model.Question;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -19,9 +18,17 @@ public interface QuestionMapper {
     @Insert("insert into question(title,description,gmt_create,gmt_modified,creator,tag) values(#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
     void insert(Question question);
 
-    @Select("select * from question")
-    List<Question> findAll();
+    @Select("select * from question,user where question.creator=user.id")
+    @Results({
+            @Result(property = "user",column = "creator",
+                    one = @One(select = "com.mralmost.community.mapper.UserMapper.findById"))
+    })
+    List<QuestionDTO> findAll();
 
-    @Select("select * from question where creator=#{id}")
-    List<Question> findById(Integer id);
+    @Select("select * from question,user where question.creator=user.id and question.creator=#{id}")
+    @Results({
+            @Result(property = "user",column = "creator",
+            one = @One(select = "com.mralmost.community.mapper.UserMapper.findById"))
+    })
+    List<QuestionDTO> findById(Integer id);
 }
