@@ -24,11 +24,22 @@ public class PublishController {
     @Autowired
     private QuestionService questionService;
 
+    //用于去到publish.html(发布问题)界面
     @GetMapping("/publish")
     public String publish() {
         return "publish";
     }
 
+    /**
+     * 用于发布问题
+     *
+     * @param title       问题标题
+     * @param description 问题描述
+     * @param tag         标签
+     * @param request
+     * @param model
+     * @return
+     */
     @PostMapping("/publish")
     public String doPublish(
             @RequestParam("title") String title,

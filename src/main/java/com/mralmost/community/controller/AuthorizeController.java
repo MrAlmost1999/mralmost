@@ -1,10 +1,9 @@
 package com.mralmost.community.controller;
 
-import com.mralmost.community.model.User;
 import com.mralmost.community.dto.AccessTokenDTO;
-import com.mralmost.community.mapper.UserMapper;
-import com.mralmost.community.provider.GithubProvider;
 import com.mralmost.community.dto.GithubUser;
+import com.mralmost.community.model.User;
+import com.mralmost.community.provider.GithubProvider;
 import com.mralmost.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +19,7 @@ import java.util.UUID;
 /**
  * @author Lxj
  * @Package com.mralmost.controller
- * @Description TODO
+ * @Description TODO 保存用户信息和退出登录的controller
  * @date: 2020/1/9
  */
 @Controller
@@ -41,10 +40,17 @@ public class AuthorizeController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 保存用户信息
+     *
+     * @param code
+     * @param state
+     * @param response
+     * @return
+     */
     @GetMapping("/callback")
     public String callback(@RequestParam("code") String code,
                            @RequestParam("state") String state,
-                           HttpServletRequest request,
                            HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
@@ -62,8 +68,8 @@ public class AuthorizeController {
             user.setName(githubUser.getName());
             user.setAccountId(String.valueOf(githubUser.getId()));
             user.setAvatarUrl(githubUser.getAvatarUrl());
-            userService.createOrUpdate(user,response);
-//            response.addCookie(new Cookie("token", token));
+            //首次登陆则添加,不是则根据实际情况修改用户信息
+            userService.createOrUpdate(user, response);
             return "redirect:/";
         } else {
             //登录失败
@@ -71,11 +77,18 @@ public class AuthorizeController {
         }
     }
 
+    /**
+     * 退出登录
+     *
+     * @param request
+     * @param response
+     * @return
+     */
     @GetMapping("/logOut")
     public String logOut(HttpServletRequest request,
                          HttpServletResponse response) {
         request.getSession().removeAttribute("user");
-        Cookie token = new Cookie("token",null);
+        Cookie token = new Cookie("token", null);
         token.setMaxAge(0);
         response.addCookie(token);
         return "redirect:/";

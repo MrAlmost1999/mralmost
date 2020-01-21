@@ -27,6 +27,7 @@ public class UserLoginInterceptor implements HandlerInterceptor {
     //执行前
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+        //获取用户登录态
         Cookie[] cookies = request.getCookies();
         if (cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies) {
@@ -41,11 +42,13 @@ public class UserLoginInterceptor implements HandlerInterceptor {
         }
         return true;
     }
+
     //执行中
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
 
     }
+
     //执行后
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {

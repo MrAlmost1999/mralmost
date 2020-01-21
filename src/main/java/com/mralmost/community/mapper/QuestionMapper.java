@@ -15,9 +15,11 @@ import java.util.List;
 @Mapper
 public interface QuestionMapper {
 
+    //发布问题
     @Insert("insert into question(title,description,gmt_create,gmt_modified,creator,tag) values(#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
     void insert(Question question);
 
+    //查询全部问题关联用户信息
     @Select("select * from question")
     @Results({
             @Result(property = "user", column = "creator",
@@ -25,6 +27,7 @@ public interface QuestionMapper {
     })
     List<QuestionDTO> findAll();
 
+    //查询问题关联用户信息
     @Select("select * from question,user where question.creator=user.id and question.creator=#{id}")
     @Results({
             @Result(property = "user", column = "creator",
@@ -32,6 +35,7 @@ public interface QuestionMapper {
     })
     List<QuestionDTO> findByCreator(Integer id);
 
+    //根据问题id查询用户信息
     @Select("select * from question where id=#{id}")
     @Results({
             @Result(property = "user", column = "creator",

@@ -20,6 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        //注册用户拦截器
         registry.addInterceptor(userLoginInterceptor).addPathPatterns("/**");
     }
 }
