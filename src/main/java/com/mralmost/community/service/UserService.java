@@ -9,6 +9,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,4 +37,24 @@ public class UserService {
     public User findById(@Param("id") Integer id) {
         return userMapper.findById(id);
     }
+
+    public void createOrUpdate(User user,
+                               HttpServletResponse response){
+        User byAccountId = userMapper.findByAccountId(user.getAccountId());
+        //用户数据为空时插入用户数据,不为空时更新用户数据
+        if(byAccountId==null){
+            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtModified(user.getGmtCreate());
+            userMapper.insert(user);
+        }else{
+            user.setId(byAccountId.getId());
+            user.setName(byAccountId.getName());
+            user.setToken(byAccountId.getToken());
+            user.setGmtModified(byAccountId.getGmtModified());
+            user.setAvatarUrl(byAccountId.getAvatarUrl());
+            response.addCookie(new Cookie("token",user.getToken()));
+            userMapper.update(user);
+        }
+    }
+
 }

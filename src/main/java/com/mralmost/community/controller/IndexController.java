@@ -33,6 +33,7 @@ public class IndexController {
                         Model model) {
         //设置起始页码和每页最大显示数量
         PageHelper.startPage(pageNum, 6);
+
         List<QuestionDTO> questionList = questionService.findAll();
         //设置连续显示的页数
         PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList,5);

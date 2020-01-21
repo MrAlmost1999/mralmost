@@ -40,10 +40,21 @@ body {
 }
 
 /*主体内容*/
-.body_left{
-    border-right:1px solid #e6e6e6;
+.body_left {
+    border-right: 1px solid #e6e6e6;
 }
 
-.profile .section{
+.profile .section {
     margin-top: 20px;
+}
+
+/*横线*/
+.community-ledgement {
+    width: 100%;
+}
+
+/*标签*/
+.community-menu {
+    font-size: 13px;
+    color: #999;
 }

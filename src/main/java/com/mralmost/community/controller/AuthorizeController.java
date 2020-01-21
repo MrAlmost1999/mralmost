@@ -54,22 +54,30 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = gitHubProvider.getUser(accessToken);
-        if (githubUser != null && githubUser.getId()!=null) {
+        if (githubUser != null && githubUser.getId() != null) {
             //登录成功
             User user = new User();
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(githubUser.getName());
             user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
             user.setAvatarUrl(githubUser.getAvatarUrl());
-            userService.insert(user);
-            response.addCookie(new Cookie("token",token));
+            userService.createOrUpdate(user,response);
+//            response.addCookie(new Cookie("token", token));
             return "redirect:/";
         } else {
             //登录失败
             return "redirect:/";
         }
+    }
+
+    @GetMapping("/logOut")
+    public String logOut(HttpServletRequest request,
+                         HttpServletResponse response) {
+        request.getSession().removeAttribute("user");
+        Cookie token = new Cookie("token",null);
+        token.setMaxAge(0);
+        response.addCookie(token);
+        return "redirect:/";
     }
 }

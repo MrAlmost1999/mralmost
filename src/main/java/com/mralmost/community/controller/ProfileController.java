@@ -3,7 +3,6 @@ package com.mralmost.community.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mralmost.community.dto.QuestionDTO;
-import com.mralmost.community.model.Question;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
 import com.mralmost.community.service.UserService;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
@@ -52,8 +50,8 @@ public class ProfileController {
         }
 
         PageHelper.startPage(pageNum, 6);
-        List<QuestionDTO> questionList = questionService.findById(user.getId());
-        PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList);
+        List<QuestionDTO> questionList = questionService.findByCreator(user.getId());
+        PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList,5);
         model.addAttribute("pageInfo", pageInfo);
         return "profile";
     }

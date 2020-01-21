@@ -35,12 +35,11 @@ public class UserLoginInterceptor implements HandlerInterceptor {
                     User user = userService.findByToken(token);
                     if (user != null) {
                         request.getSession().setAttribute("user", user);
-                        return true;
                     }
                 }
             }
         }
-        return false;
+        return true;
     }
     //执行中
     @Override
