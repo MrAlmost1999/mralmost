@@ -48,17 +48,17 @@
                 <ul class="pagination">
                     <li th:if="${not pageInfo.isFirstPage}">
                         <a href="#" aria-label="Previous"
-                           th:href="@{/index?pageNum=}+${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1}">
+                           th:href="@{'/'+${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1}}">
                             <span aria-hidden="true">&laquo;</span>
                         </a>
                     </li>
                     <li th:each="num : ${pageInfo.navigatepageNums}"
                         th:class="${num==pageInfo.pageNum?'active':''}">
-                        <a href="#" th:href="@{/index?pageNum=}+${num}">[[${num}]]</a>
+                        <a href="#" th:href="@{'/'+${num}}">[[${num}]]</a>
                     </li>
                     <li th:if="${not pageInfo.isLastPage}">
                         <a href="#" aria-label="Next"
-                           th:href="@{/index?pageNum=}+${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1}">
+                           th:href="@{'/'+${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1}}">
                             <span aria-hidden="true">&raquo;</span>
                         </a>
                     </li>

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.Cookie;
@@ -31,10 +32,10 @@ public class ProfileController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("/profile")
+    @GetMapping("/profile/{url}/{pageNum}")
     public String profile(HttpServletRequest request,
-                          @RequestParam(name = "url") String url,
-                          @RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+                          @PathVariable(name = "url") String url,
+                          @PathVariable(name = "pageNum") Integer pageNum,
                           Model model) {
         Cookie[] cookies = request.getCookies();
         User user = (User) request.getSession().getAttribute("user");

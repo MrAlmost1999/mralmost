@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -28,9 +29,13 @@ public class IndexController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = {"/","index.html","index"})
-    public String index(@RequestParam(value = "pageNum", defaultValue = "1") Integer pageNum,
+    @GetMapping(value = {"/{pageNum}","/"})
+    public String index(@PathVariable(name = "pageNum",required = false) Integer pageNum,
                         Model model) {
+        //当第一次访问请求时pageNum未传入时设置为1
+        if(pageNum==null || pageNum.equals("")){
+            pageNum=1;
+        }
         //设置起始页码和每页最大显示数量
         PageHelper.startPage(pageNum, 6);
 
