@@ -1,5 +1,6 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.model.Question;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -42,9 +44,10 @@ public class PublishController {
      */
     @PostMapping("/publish")
     public String doPublish(
-            @RequestParam("title") String title,
-            @RequestParam("description") String description,
-            @RequestParam("tag") String tag,
+            @RequestParam(name = "title", required = false) String title,
+            @RequestParam(name = "description", required = false) String description,
+            @RequestParam(name = "tag", required = false) String tag,
+            @RequestParam(name = "id", required = false) Integer id,
             HttpServletRequest request,
             Model model) {
 
@@ -76,15 +79,25 @@ public class PublishController {
             return "publish";
         }
 
-        //发布问题
+        //发布or修改问题
         Question question = new Question();
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);
         question.setCreator(user.getId());
-        question.setGmtCreate(System.currentTimeMillis());
-        question.setGmtModified(question.getGmtModified());
-        questionService.insert(question);
+        question.setId(id);
+        questionService.insertOrUpdate(question);
         return "redirect:/";
+    }
+
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") Integer id,
+                       Model model) {
+        QuestionDTO byId = questionService.findById(id);
+        model.addAttribute("title", byId.getTitle());
+        model.addAttribute("description", byId.getDescription());
+        model.addAttribute("tag", byId.getTag());
+        model.addAttribute("id", byId.getId());
+        return "/publish";
     }
 }

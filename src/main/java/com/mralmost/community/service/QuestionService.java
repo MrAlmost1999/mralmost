@@ -28,8 +28,20 @@ public class QuestionService {
         return questionMapper.findByCreator(id);
     }
 
-    public void insert(Question question) {
-        questionMapper.insert(question);
+    /**
+     * id为主键自增长列,当id为null时,为插入操作,执行插入方法,不为null时为更新操作,执行更新方法
+     *
+     * @param question 插入或更新的信息
+     */
+    public void insertOrUpdate(Question question) {
+        if (question.getId() == null) {
+            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtModified(question.getGmtModified());
+            questionMapper.insert(question);
+        } else {
+            question.setGmtModified(System.currentTimeMillis());
+            questionMapper.update(question);
+        }
     }
 
     public QuestionDTO findById(Integer id) {

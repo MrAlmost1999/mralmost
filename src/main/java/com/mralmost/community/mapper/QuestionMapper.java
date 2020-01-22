@@ -42,4 +42,7 @@ public interface QuestionMapper {
                     one = @One(select = "com.mralmost.community.mapper.UserMapper.findById"))
     })
     QuestionDTO findById(Integer id);
+
+    @Update("update question set title=#{title},description=#{description},tag=#{tag},gmt_modified=#{gmtModified} where id=#{id}")
+    void update(Question question);
 }

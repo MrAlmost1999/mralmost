@@ -34,4 +34,6 @@ public class QuestionController {
         model.addAttribute("question", question);
         return "question";
     }
+
+
 }
