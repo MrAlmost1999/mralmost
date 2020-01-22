@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>MrAlmost</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="application/javascript" src="/js/jquery-3.4.1.js" th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}">
+    <link rel="stylesheet" href="/css/community.css" th:href="@{/css/community.css}">
+</head>
+<body>
+<div class="jumbotron errorPage">
+    <h1>出错啦!</h1>
+    <p th:text="${massage!=null?massage:'服务器已经送进ICU了,请稍微等待一下吧...'}"></p>
+    <p><a class="btn btn-primary btn-lg" th:href="@{/}" role="button">回到首页</a></p>
+</div>
+</body>
+</html>

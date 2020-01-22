@@ -47,9 +47,12 @@
             <nav aria-label="Page navigation pagination">
                 <ul class="pagination">
                     <li th:if="${not pageInfo.isFirstPage}">
+                        <a href="#" th:href="@{/1}">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
                         <a href="#" aria-label="Previous"
                            th:href="@{'/'+${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1}}">
-                            <span aria-hidden="true">&laquo;</span>
+                            <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="num : ${pageInfo.navigatepageNums}"
@@ -59,7 +62,10 @@
                     <li th:if="${not pageInfo.isLastPage}">
                         <a href="#" aria-label="Next"
                            th:href="@{'/'+${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1}}">
-                            <span aria-hidden="true">&raquo;</span>
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                        <a href="#" th:href="@{'/'+${pageInfo.pages}}">
+                            <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
                 </ul>

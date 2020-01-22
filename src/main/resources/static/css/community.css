@@ -58,3 +58,8 @@ body {
     font-size: 13px;
     color: #999;
 }
+
+/*错误页面*/
+.errorPage{
+    margin: 45px;
+}

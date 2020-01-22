@@ -1,6 +1,8 @@
 package com.mralmost.community.service;
 
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.mapper.QuestionMapper;
 import com.mralmost.community.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +47,10 @@ public class QuestionService {
     }
 
     public QuestionDTO findById(Integer id) {
-        return questionMapper.findById(id);
+        QuestionDTO question = questionMapper.findById(id);
+        if (question == null) {
+            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+        }
+        return question;
     }
 }

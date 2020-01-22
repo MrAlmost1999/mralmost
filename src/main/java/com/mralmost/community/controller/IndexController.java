@@ -3,8 +3,11 @@ package com.mralmost.community.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.service.QuestionService;
 import com.mralmost.community.service.UserService;
+import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,13 +47,13 @@ public class IndexController {
         //设置起始页码和每页最大显示数量
         PageHelper.startPage(pageNum, 6);
         List<QuestionDTO> questionList = questionService.findAll();
+        //当访问返回的数据为null时,显示异常信息
+        if(questionList.size()==0){
+            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+        }
         //设置连续显示的页数
         PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
         model.addAttribute("pageInfo", pageInfo);
-        //最后一页时,显示提示信息
-        if (pageNum > pageInfo.getPages()) {
-            model.addAttribute("error", "已经是最后一页了哦!");
-        }
         return "index";
     }
 }

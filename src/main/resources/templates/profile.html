@@ -32,7 +32,8 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <a th:href="@{'/question/'+${question.id}}"><h4 class="media-heading" th:text="${question.title}"></h4></a>
+                    <a th:href="@{'/question/'+${question.id}}"><h4 class="media-heading"
+                                                                    th:text="${question.title}"></h4></a>
                     [[${question.description}]]<br>
                     <span class="text-desc">
                         [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
@@ -45,9 +46,12 @@
             <nav aria-label="Page navigation pagination">
                 <ul class="pagination">
                     <li th:if="${not pageInfo.isFirstPage}">
+                        <a href="#" th:href="@{'/profile/'+${section}+'/'+1}">
+                            <span aria-hidden="true">&lt;&lt;</span>
+                        </a>
                         <a href="#" aria-label="Previous"
                            th:href="@{'/profile/'+${section}+'/'+${pageInfo.pageNum-1==0?1:pageInfo.pageNum-1}}">
-                            <span aria-hidden="true">&laquo;</span>
+                            <span aria-hidden="true">&lt;</span>
                         </a>
                     </li>
                     <li th:each="num : ${pageInfo.navigatepageNums}" th:class="${num==pageInfo.pageNum?'active':''}">
@@ -56,7 +60,10 @@
                     <li th:if="${not pageInfo.isLastPage}">
                         <a href="#" aria-label="Next"
                            th:href="@{'/profile/'+${section}+'/'+${pageInfo.pageNum+1>=pageInfo.pages?pageInfo.pages:pageInfo.pageNum+1}}">
-                            <span aria-hidden="true">&raquo;</span>
+                            <span aria-hidden="true">&gt;</span>
+                        </a>
+                        <a href="#" th:href="@{'/profile/'+${section}+'/'+${pageInfo.pages}}">
+                            <span aria-hidden="true">&gt;&gt;</span>
                         </a>
                     </li>
                 </ul>

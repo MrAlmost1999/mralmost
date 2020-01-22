@@ -3,6 +3,8 @@ package com.mralmost.community.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
 import com.mralmost.community.service.UserService;
@@ -64,6 +66,10 @@ public class ProfileController {
         //获取并存储界面数据信息
         PageHelper.startPage(pageNum, 6);
         List<QuestionDTO> questionList = questionService.findByCreator(user.getId());
+        //当访问返回的数据为null时,显示异常信息
+        if(questionList.size()==0){
+            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+        }
         PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
         model.addAttribute("pageInfo", pageInfo);
         return "profile";
