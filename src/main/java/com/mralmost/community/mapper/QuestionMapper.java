@@ -43,6 +43,11 @@ public interface QuestionMapper {
     })
     QuestionDTO findById(Integer id);
 
+    //编辑问题
     @Update("update question set title=#{title},description=#{description},tag=#{tag},gmt_modified=#{gmtModified} where id=#{id}")
-    void update(Question question);
+    void edit(Question question);
+
+    //累加阅读数
+    @Update("update question set view_count=view_count+1 where id=#{id}")
+    void updateViewCount(Integer id);
 }
