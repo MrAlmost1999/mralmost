@@ -34,7 +34,7 @@ public class QuestionDTO {
     /**
      * 问题关联用户的id
      */
-    private Integer creator;
+    private Long creator;
     /**
      * 问题访问数
      */

@@ -19,11 +19,11 @@ public class Record {
     /**
      * 用户id
      */
-    private Integer userId;
+    private Long userId;
     /**
      * 问题id
      */
-    private Integer questionId;
+    private Long questionId;
     /**
      * 浏览时间
      */

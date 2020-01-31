@@ -13,7 +13,7 @@ public class Question {
     /**
      * 问题id
      */
-    private Integer id;
+    private Long id;
     /**
      * 问题标题
      */
@@ -33,7 +33,7 @@ public class Question {
     /**
      * 问题关联用户的id
      */
-    private Integer creator;
+    private Long creator;
     /**
      * 问题访问数
      */

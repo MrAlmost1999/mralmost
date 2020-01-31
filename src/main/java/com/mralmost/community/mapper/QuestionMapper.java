@@ -33,7 +33,7 @@ public interface QuestionMapper {
             @Result(property = "user", column = "creator",
                     one = @One(select = "com.mralmost.community.mapper.UserMapper.findById"))
     })
-    List<QuestionDTO> findByCreator(Integer id);
+    List<QuestionDTO> findByCreator(Long id);
 
     //根据问题id查询用户信息
     @Select("select * from question where id=#{id}")
@@ -41,7 +41,7 @@ public interface QuestionMapper {
             @Result(property = "user", column = "creator",
                     one = @One(select = "com.mralmost.community.mapper.UserMapper.findById"))
     })
-    QuestionDTO findById(Integer id);
+    QuestionDTO findById(Long id);
 
     //编辑问题
     @Update("update question set title=#{title},description=#{description},tag=#{tag},gmt_modified=#{gmtModified} where id=#{id}")
@@ -49,5 +49,5 @@ public interface QuestionMapper {
 
     //累加阅读数
     @Update("update question set view_count=view_count+1 where id=#{id}")
-    void updateViewCount(Integer id);
+    void updateViewCount(Long id);
 }

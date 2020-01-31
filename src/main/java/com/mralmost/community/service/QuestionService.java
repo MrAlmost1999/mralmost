@@ -32,7 +32,7 @@ public class QuestionService {
         return questionMapper.findAll();
     }
 
-    public List<QuestionDTO> findByCreator(Integer id) {
+    public List<QuestionDTO> findByCreator(Long id) {
         return questionMapper.findByCreator(id);
     }
 
@@ -58,7 +58,7 @@ public class QuestionService {
      * @param id 问题主键id
      * @return
      */
-    public QuestionDTO findById(Integer id) {
+    public QuestionDTO findById(Long id) {
         QuestionDTO question = questionMapper.findById(id);
         if (question == null) {
             throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
