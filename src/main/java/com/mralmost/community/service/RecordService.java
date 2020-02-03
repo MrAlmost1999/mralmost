@@ -2,8 +2,12 @@ package com.mralmost.community.service;
 
 import com.mralmost.community.mapper.RecordMapper;
 import com.mralmost.community.model.Record;
+import com.mralmost.community.model.RecordExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * @author Lxj
@@ -24,23 +28,27 @@ public class RecordService {
      * @return 有则返回true, 没有则false
      */
     public boolean select(Record record) {
-        Record select = recordMapper.select(record);
-        if (select != null) {
-            return true;
+        RecordExample example = new RecordExample();
+        example.createCriteria().andUserIdEqualTo(record.getUserId()).andQuestionIdEqualTo(record.getQuestionId());
+        List<Record> records = recordMapper.selectByExample(example);
+        if (records.size() == 0) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     /**
      * 插入或修改浏览记录,当用户未登录时不做任何操作
      *
      * @param record
-     * @return 查到了执行修改返回true,没有查到执行插入返回false
+     * @return 查到了执行修改返回true, 没有查到执行插入返回false
      */
     public boolean insertOrUpdate(Record record) {
         boolean flag = select(record);
         if (flag) {
-            recordMapper.update(record);
+            RecordExample example = new RecordExample();
+            example.createCriteria().andRecordDateEqualTo(new Date());
+            recordMapper.updateByExampleSelective(record, example);
             return true;
         } else {
             recordMapper.insert(record);

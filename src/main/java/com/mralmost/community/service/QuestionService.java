@@ -3,10 +3,12 @@ package com.mralmost.community.service;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
+import com.mralmost.community.mapper.QuestionCustomMapper;
 import com.mralmost.community.mapper.QuestionMapper;
 import com.mralmost.community.mapper.RecordMapper;
-import com.mralmost.community.model.Question;
-import com.mralmost.community.model.Record;
+import com.mralmost.community.mapper.UserMapper;
+import com.mralmost.community.model.*;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,14 +28,20 @@ public class QuestionService {
     private QuestionMapper questionMapper;
 
     @Autowired
+    private QuestionCustomMapper questionCustomMapper;
+
+    @Autowired
     private RecordService recordService;
 
+    @Autowired
+    private UserMapper userMapper;
+
     public List<QuestionDTO> findAll() {
-        return questionMapper.findAll();
+        return questionCustomMapper.selectQuestionWithUser();
     }
 
-    public List<QuestionDTO> findByCreator(Long id) {
-        return questionMapper.findByCreator(id);
+    public List<QuestionDTO> findByCreator(Long creator) {
+        return questionCustomMapper.selectQuestionWithUserByCreator(creator);
     }
 
     /**
@@ -47,8 +55,7 @@ public class QuestionService {
             question.setGmtModified(question.getGmtModified());
             questionMapper.insert(question);
         } else {
-            question.setGmtModified(System.currentTimeMillis());
-            questionMapper.edit(question);
+            questionMapper.updateByPrimaryKeySelective(question);
         }
     }
 
@@ -59,11 +66,12 @@ public class QuestionService {
      * @return
      */
     public QuestionDTO findById(Long id) {
-        QuestionDTO question = questionMapper.findById(id);
-        if (question == null) {
-            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
-        }
-        return question;
+        Question question = questionMapper.selectByPrimaryKey(id);
+        User user = userMapper.selectByPrimaryKey(question.getCreator());
+        QuestionDTO questionDTO = new QuestionDTO();
+        BeanUtils.copyProperties(question, questionDTO);
+        questionDTO.setUser(user);
+        return questionDTO;
     }
 
     /**
@@ -75,7 +83,10 @@ public class QuestionService {
         //先查询该用户是否有浏览过此条记录,没有过则累加阅读数,有则修改浏览时间
         boolean flag = recordService.insertOrUpdate(record);
         if (!flag) {
-            questionMapper.updateViewCount(record.getQuestionId());
+            Question question = new Question();
+            question.setGmtModified(System.currentTimeMillis());
+            question.setId(record.getQuestionId());
+            questionCustomMapper.updateViewCountAndGmtModified(question);
         }
     }
 }

@@ -25,14 +25,14 @@ public class CommentController {
     @ResponseBody
     @RequestMapping(value = "/comment",method= RequestMethod.POST)
     public Object addComment(@RequestBody CommentDTO commentDTO){
-        Comment comment = new Comment();
-        comment.setParentId(commentDTO.getParentId());
-        comment.setType(commentDTO.getType());
-        comment.setContent(commentDTO.getContent());
-        comment.setGmtCreate(System.currentTimeMillis());
-        comment.setGmtModified(System.currentTimeMillis());
-        comment.setCommentator(1L);
-        commentService.insert(comment);
+//        Comment comment = new Comment();
+//        comment.setParentId(commentDTO.getParentId());
+//        comment.setType(commentDTO.getType());
+//        comment.setContent(commentDTO.getContent());
+//        comment.setGmtCreate(System.currentTimeMillis());
+//        comment.setGmtModified(System.currentTimeMillis());
+//        comment.setCommentator(1L);
+//        commentService.insert(comment);
         return null;
     }
 }

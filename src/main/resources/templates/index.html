@@ -33,8 +33,8 @@
                     </a>
                 </div>
                 <div class="media-body">
-                    <a th:href="@{'/question/'+${question.id}}"><h4 class="media-heading"
-                                                                    th:text="${question.title}"></h4></a>
+                    <a th:href="@{'/question/'+${question.id}}">
+                        <h4 class="media-heading" th:text="${question.title}"></h4></a>
                     [[${question.description}]]<br>
                     <span class="text-desc">
                             [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span

@@ -36,12 +36,11 @@ public class QuestionController {
                            Model model) {
         //获取问题信息
         QuestionDTO question = questionService.findById(id);
-        question.setCreator(question.getUser().getId());
         model.addAttribute("question", question);
 
         //获取用户信息
         User user = (User) request.getSession().getAttribute("user");
-        //累加阅读数量
+        //用户已登录时累加阅读数量,未登录不做任何修改
         if (user != null) {
             Record record = new Record();
             record.setUserId(user.getId());

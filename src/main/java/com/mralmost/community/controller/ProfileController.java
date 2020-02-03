@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
@@ -48,7 +47,6 @@ public class ProfileController {
                           @PathVariable(name = "pageNum") Integer pageNum,
                           Model model) {
         //获取存储用户信息的cookie,为null时则返回首页并且显示提示信息
-        Cookie[] cookies = request.getCookies();
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             model.addAttribute("error", "请先登录!");

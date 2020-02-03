@@ -6,8 +6,6 @@ import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.service.QuestionService;
-import com.mralmost.community.service.UserService;
-import org.apache.tomcat.jni.Error;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,9 +25,6 @@ public class IndexController {
 
     @Autowired
     private QuestionService questionService;
-
-    @Autowired
-    private UserService userService;
 
     /**
      * 首页
