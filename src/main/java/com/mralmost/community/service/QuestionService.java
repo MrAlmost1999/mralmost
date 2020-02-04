@@ -53,7 +53,7 @@ public class QuestionService {
         if (question.getId() == null) {
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(question.getGmtModified());
-            questionMapper.insert(question);
+            questionMapper.insertSelective(question);
         } else {
             questionMapper.updateByPrimaryKeySelective(question);
         }

@@ -36,7 +36,7 @@ public class ProfileController {
      * 处理导航栏"我的问题"请求
      *
      * @param request
-     * @param url 请求url
+     * @param url     请求url
      * @param pageNum 请求页数
      * @param model
      * @return
@@ -44,7 +44,7 @@ public class ProfileController {
     @GetMapping("/profile/{url}/{pageNum}")
     public String profile(HttpServletRequest request,
                           @PathVariable(name = "url") String url,
-                          @PathVariable(name = "pageNum") Integer pageNum,
+                          @PathVariable(name = "pageNum") String pageNum,
                           Model model) {
         //获取存储用户信息的cookie,为null时则返回首页并且显示提示信息
         User user = (User) request.getSession().getAttribute("user");
@@ -62,10 +62,10 @@ public class ProfileController {
         }
 
         //获取并存储界面数据信息
-        PageHelper.startPage(pageNum, 6);
+        PageHelper.startPage(Integer.parseInt(pageNum), 6);
         List<QuestionDTO> questionList = questionService.findByCreator(user.getId());
         //当访问返回的数据为null时,显示异常信息
-        if(questionList.size()==0){
+        if (questionList.size() == 0) {
             throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
         }
         PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
