@@ -10,6 +10,7 @@ import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author Lxj
@@ -34,6 +35,7 @@ public class CommentService {
      *
      * @param comment 评论信息
      */
+    @Transactional
     public void insertSelective(Comment comment) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
             throw new CustomException(ErrorCode.TARGET_PARENT_NOT_FOUND);
