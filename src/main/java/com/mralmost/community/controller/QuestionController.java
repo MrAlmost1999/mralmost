@@ -1,6 +1,8 @@
 package com.mralmost.community.controller;
 
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Record;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
@@ -31,12 +33,17 @@ public class QuestionController {
      * @return
      */
     @GetMapping("/question/{id}")
-    public String question(@PathVariable(name = "id") Long id,
+    public String question(@PathVariable(name = "id") String id,
                            HttpServletRequest request,
                            Model model) {
         //获取问题信息
-        QuestionDTO question = questionService.findById(id);
-        model.addAttribute("question", question);
+        QuestionDTO question = null;
+        try {
+            question = questionService.findById(Long.valueOf(id));
+            model.addAttribute("question", question);
+        } catch (Exception e) {
+            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+        }
 
         //获取用户信息
         User user = (User) request.getSession().getAttribute("user");
@@ -44,7 +51,7 @@ public class QuestionController {
         if (user != null) {
             Record record = new Record();
             record.setUserId(user.getId());
-            record.setQuestionId(id);
+            record.setQuestionId(Long.valueOf(id));
             record.setRecordDate(new Date());
             questionService.updateViewCount(record);
         }

@@ -11,15 +11,15 @@ import lombok.Data;
 @Data
 public class CommentDTO {
     /**
-     * 评论内容
-     */
-    private String content;
-    /**
      * 父类id
      */
     private Long parentId;
     /**
+     * 评论内容
+     */
+    private String content;
+    /**
      * 父类类型
      */
-    private Long type;
+    private Integer type;
 }

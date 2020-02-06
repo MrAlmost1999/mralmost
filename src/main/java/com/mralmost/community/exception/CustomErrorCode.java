@@ -7,5 +7,7 @@ package com.mralmost.community.exception;
  * @date: 2020/1/22
  */
 public interface CustomErrorCode {
-    String getMassage();
+    String getMessage();
+
+    Integer getCode();
 }

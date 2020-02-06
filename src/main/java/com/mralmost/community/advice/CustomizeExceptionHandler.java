@@ -1,12 +1,18 @@
 package com.mralmost.community.advice;
 
+import com.alibaba.fastjson.JSON;
+import com.mralmost.community.dto.ResultDTO;
 import com.mralmost.community.exception.CustomException;
-import org.springframework.http.HttpStatus;
+import com.mralmost.community.exception.ErrorCode;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * @author Lxj
@@ -19,23 +25,37 @@ public class CustomizeExceptionHandler {
 
     @ExceptionHandler
     ModelAndView handler(HttpServletRequest request,
-                         Throwable e) {
-        HttpStatus status = getStatus(request);
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("error");
-        if (e instanceof CustomException) {
-            modelAndView.addObject("massage", ((CustomException) e).getMassage());
+                         HttpServletResponse response,
+                         Throwable e,
+                         Model model) {
+        String contentType = request.getContentType();
+        //时json请求则返回错误信息,不是则返回错误页面
+        if ("application/json".equals(contentType)) {
+            ResultDTO resultDTO;
+            if (e instanceof CustomException) {
+                resultDTO = ResultDTO.errorOf((CustomException) e);
+            } else {
+                resultDTO = ResultDTO.errorOf(ErrorCode.SYSTEM_ERROR);
+            }
+            try {
+                response.setCharacterEncoding("UTF-8");
+                response.setContentType("application/json");
+                response.setStatus(200);
+                PrintWriter out = response.getWriter();
+                out.write(JSON.toJSONString(resultDTO));
+                out.close();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+            return null;
         } else {
-            modelAndView.addObject("massage", "服务器冒烟了,要不你稍后再试试!");
+            if (e instanceof CustomException) {
+                model.addAttribute("message", e.getMessage());
+            } else {
+                model.addAttribute("message", ErrorCode.SYSTEM_ERROR);
+            }
+            return new ModelAndView("error");
         }
-        return modelAndView;
     }
 
-    private HttpStatus getStatus(HttpServletRequest request) {
-        Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
-        if (statusCode == null) {
-            return HttpStatus.INTERNAL_SERVER_ERROR;
-        }
-        return HttpStatus.valueOf(statusCode);
-    }
 }

@@ -12,7 +12,7 @@
 <body>
 <div class="jumbotron errorPage">
     <h1>出错啦!</h1>
-    <p th:text="${massage!=null?massage:'服务器已经送进ICU了,请稍微等待一下吧...'}"></p>
+    <p th:text="${message!=null?message:'服务器已经送进ICU了,请稍微等待一下吧...'}"></p>
     <p><a class="btn btn-primary btn-lg" th:href="@{/}" role="button">回到首页</a></p>
 </div>
 </body>

@@ -28,5 +28,12 @@ public interface QuestionCustomMapper {
      */
     List<QuestionDTO> selectQuestionWithUserByCreator(Long creator);
 
-    void updateViewCountAndGmtModified(Question question);
+    /**
+     * 修改阅读时间和阅读数
+     *
+     * @param question
+     */
+    int updateViewCountAndGmtModified(Question question);
+
+    int incCommentCount(Question question);
 }

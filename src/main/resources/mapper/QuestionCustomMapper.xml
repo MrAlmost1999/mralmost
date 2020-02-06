@@ -45,4 +45,9 @@
         view_count = view_count+1
         where id = #{id,jdbcType=BIGINT}
     </update>
+    <update id="incCommentCount" parameterType="com.mralmost.community.model.Question">
+        update question set
+        comment_count = comment_count+1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
 </mapper>

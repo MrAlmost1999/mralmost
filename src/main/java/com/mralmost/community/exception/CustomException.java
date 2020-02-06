@@ -6,18 +6,20 @@ package com.mralmost.community.exception;
  * @Description TODO 用于处理运行时异常
  * @date: 2020/1/22
  */
-public class CustomException extends RuntimeException{
-    private String massage;
+public class CustomException extends RuntimeException {
+    private String message;
+    private Integer code;
 
     public CustomException(CustomErrorCode errorCode) {
-        this.massage=errorCode.getMassage();
+        this.code = errorCode.getCode();
+        this.message = errorCode.getMessage();
     }
 
-    public CustomException(String massage) {
-        this.massage = massage;
+    public String getMessage() {
+        return message;
     }
 
-    public String getMassage() {
-        return massage;
+    public Integer getCode() {
+        return code;
     }
 }
