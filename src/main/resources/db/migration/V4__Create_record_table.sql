@@ -25,7 +25,7 @@ CREATE TABLE `record`  (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键自增',
   `user_id` bigint(11) NOT NULL,
   `question_id` bigint(11) NOT NULL,
-  `record_date` date NOT NULL,
+  `record_date` date NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id_FK`(`user_id`) USING BTREE,
   INDEX `question_id_FK`(`question_id`) USING BTREE

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,6 +31,13 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
 
+    /**
+     * 发布回复
+     *
+     * @param commentDTO
+     * @param request
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/comment", method = RequestMethod.POST)
     public Object addComment(@RequestBody CommentDTO commentDTO,
@@ -42,8 +50,7 @@ public class CommentController {
         comment.setParentId(commentDTO.getParentId());
         comment.setType(commentDTO.getType());
         comment.setContent(commentDTO.getContent());
-        comment.setGmtCreate(System.currentTimeMillis());
-        comment.setGmtModified(System.currentTimeMillis());
+        comment.setGmtCreate(new Date());
         comment.setCommentator(user.getId());
         commentService.insertSelective(comment);
         Map<Object, Object> hashMap = new HashMap<>();

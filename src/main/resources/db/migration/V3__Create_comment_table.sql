@@ -26,11 +26,11 @@ CREATE TABLE `comment`
     `id`            bigint(20)                                               NOT NULL AUTO_INCREMENT COMMENT '主键',
     `parent_id`     bigint(20)                                               NOT NULL COMMENT '父类id',
     `type`          int(11)                                                  NOT NULL COMMENT '父类类型',
-    `commentator`   int(11)                                                  NOT NULL COMMENT '评论人id',
-    `gmt_create`    bigint(20)                                               NOT NULL COMMENT '创建时间',
-    `gmt_modified`  bigint(20)                                               NOT NULL COMMENT '修改时间',
-    `like_count`    bigint(20)                                               NOT NULL COMMENT '点赞数',
-    `comment_count` bigint(20)                                               NOT NULL COMMENT '评论数',
+    `commentator`   bigint(20)                                               NOT NULL COMMENT '评论人id',
+    `gmt_create`    date                                                     NULL COMMENT '创建时间',
+    `gmt_modified`  date                                                     NULL COMMENT '修改时间',
+    `like_count`    bigint(20) DEFAULT 0                                     NOT NULL COMMENT '点赞数',
+    `comment_count` bigint(20) DEFAULT 0                                     NOT NULL COMMENT '评论数',
     `content`       varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
     PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB

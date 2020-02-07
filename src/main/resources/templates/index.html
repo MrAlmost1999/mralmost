@@ -38,7 +38,7 @@
                     [[${question.description}]]<br>
                     <span class="text-desc">
                             [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
-                            th:text="${#dates.format(question.gmtCreate,'yyyy MM dd')}"></span>
+                            th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd hh:mm:ss')}"></span>
                     </span>
                 </div>
             </div>
@@ -79,6 +79,14 @@
     </div>
 
 </div>
-
+<script type="application/javascript">
+    $(function () {
+        var item = window.localStorage.getItem("closable");
+        if (item == "true") {
+            window.close();
+            window.localStorage.removeItem("closable");
+        }
+    });
+</script>
 </body>
 </html>

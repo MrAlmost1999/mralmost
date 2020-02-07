@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -35,7 +36,7 @@ public class UserService {
         UserExample example = new UserExample();
         example.createCriteria().andTokenEqualTo(token);
         List<User> users = userMapper.selectByExample(example);
-        if(users.size()==0){
+        if (users.size() == 0) {
             return null;
         }
         return users.get(0);
@@ -52,7 +53,7 @@ public class UserService {
         List<User> users = userMapper.selectByExample(userExample);
         //用户数据为空时插入用户数据,不为空时更新用户数据
         if (users.size() == 0) {
-            user.setGmtCreate(System.currentTimeMillis());
+            user.setGmtCreate(new Date());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         } else {

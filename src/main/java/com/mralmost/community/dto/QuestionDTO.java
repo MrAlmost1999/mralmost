@@ -3,6 +3,8 @@ package com.mralmost.community.dto;
 import com.mralmost.community.model.User;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
  * @author Lxj
  * @Package com.mralmost.community.dto
@@ -26,11 +28,11 @@ public class QuestionDTO {
     /**
      * 问题创建时间
      */
-    private Long gmtCreate;
+    private Date gmtCreate;
     /**
      * 问题修改时间
      */
-    private Long gmtModified;
+    private Date gmtModified;
     /**
      * 问题关联用户的id
      */

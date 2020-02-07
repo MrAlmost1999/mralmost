@@ -16,6 +16,13 @@ body {
     margin-bottom: 15px;
 }
 
+/*回复按钮*/
+.btn-comment {
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
 /*错误信息*/
 .error {
     float: right;
@@ -60,6 +67,21 @@ body {
 }
 
 /*错误页面*/
-.errorPage{
+.errorPage {
     margin: 45px;
+}
+
+/*头像边的用户名样式*/
+.media-body {
+    padding-top: 16px;
+}
+
+/*回复问题框*/
+.comment {
+    margin: 10px 0;
+}
+
+/*设置用户昵称颜色*/
+.username {
+    color: #155faa;
 }

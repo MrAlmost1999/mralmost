@@ -51,7 +51,7 @@ public class QuestionService {
      */
     public void insertOrUpdate(Question question) {
         if (question.getId() == null) {
-            question.setGmtCreate(System.currentTimeMillis());
+            question.setGmtCreate(new Date());
             question.setGmtModified(question.getGmtModified());
             questionMapper.insertSelective(question);
         } else {
@@ -84,7 +84,7 @@ public class QuestionService {
         boolean flag = recordService.insertOrUpdate(record);
         if (!flag) {
             Question question = new Question();
-            question.setGmtModified(System.currentTimeMillis());
+            question.setGmtModified(new Date());
             question.setId(record.getQuestionId());
             questionCustomMapper.updateViewCountAndGmtModified(question);
         }
