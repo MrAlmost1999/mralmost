@@ -5,11 +5,11 @@ import lombok.Data;
 /**
  * @author Lxj
  * @Package com.mralmost.community.dto
- * @Description TODO 评论DTO
+ * @Description TODO 从前端接收到的评论DTO
  * @date: 2020/1/30
  */
 @Data
-public class CommentDTO {
+public class CommentReceiveDTO {
     /**
      * 父类id
      */

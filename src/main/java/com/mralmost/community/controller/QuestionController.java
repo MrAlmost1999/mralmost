@@ -1,19 +1,23 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Record;
 import com.mralmost.community.model.User;
+import com.mralmost.community.service.CommentService;
 import com.mralmost.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Lxj
@@ -27,6 +31,9 @@ public class QuestionController {
     @Autowired
     private QuestionService questionService;
 
+    @Autowired
+    private CommentService commentService;
+
     /**
      * @param id    问题主键id
      * @param model
@@ -37,10 +44,13 @@ public class QuestionController {
                            HttpServletRequest request,
                            Model model) {
         //获取问题信息
-        QuestionDTO question = null;
+        QuestionDTO question;
+        List<CommentReturnDTO> comments;
         try {
             question = questionService.findById(Long.valueOf(id));
+            comments = commentService.listByQuestionId(Long.valueOf(id));
             model.addAttribute("question", question);
+            model.addAttribute("comments", comments);
         } catch (Exception e) {
             throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
         }
@@ -55,8 +65,8 @@ public class QuestionController {
             record.setRecordDate(new Date());
             questionService.updateViewCount(record);
         }
+
         return "question";
     }
-
 
 }

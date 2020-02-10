@@ -62,7 +62,8 @@ body {
 
 /*标签*/
 .community-menu {
-    font-size: 13px;
+    font-size: 14px;
+    float: right;
     color: #999;
 }
 
@@ -76,6 +77,12 @@ body {
     padding-top: 16px;
 }
 
+/*回复信息样式*/
+.commentInfo {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
 /*回复问题框*/
 .comment {
     margin: 10px 0;
@@ -84,4 +91,19 @@ body {
 /*设置用户昵称颜色*/
 .username {
     color: #155faa;
+}
+
+/*编辑,删除,点赞,评论等按钮*/
+.icon {
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #499ef3;
+}
+
+.btn-delete-comment {
+    border: none;
+    background-color: white;
 }

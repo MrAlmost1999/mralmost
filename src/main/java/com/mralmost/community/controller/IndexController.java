@@ -40,7 +40,7 @@ public class IndexController {
             pageNum = "1";
         }
         //设置起始页码和每页最大显示数量
-        PageHelper.startPage(Integer.parseInt(pageNum), 6);
+        PageHelper.startPage(Integer.parseInt(pageNum), 5);
         List<QuestionDTO> questionList = questionService.findAll();
         //当访问返回的数据为null时,显示异常信息
         if (questionList.size() == 0) {

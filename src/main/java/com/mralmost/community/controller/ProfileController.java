@@ -62,7 +62,7 @@ public class ProfileController {
         }
 
         //获取并存储界面数据信息
-        PageHelper.startPage(Integer.parseInt(pageNum), 6);
+        PageHelper.startPage(Integer.parseInt(pageNum), 5);
         List<QuestionDTO> questionList = null;
         try {
             questionList = questionService.findByCreator(user.getId());

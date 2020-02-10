@@ -1,18 +1,15 @@
 package com.mralmost.community.controller;
 
-import com.mralmost.community.dto.CommentDTO;
+import com.mralmost.community.dto.CommentReceiveDTO;
 import com.mralmost.community.dto.ResultDTO;
-import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.CommentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -34,27 +31,37 @@ public class CommentController {
     /**
      * 发布回复
      *
-     * @param commentDTO
+     * @param commentReceiveDTO
      * @param request
      * @return
      */
     @ResponseBody
-    @RequestMapping(value = "/comment", method = RequestMethod.POST)
-    public Object addComment(@RequestBody CommentDTO commentDTO,
+    @PostMapping("/comment")
+    public Object addComment(@RequestBody CommentReceiveDTO commentReceiveDTO,
                              HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             return ResultDTO.errorOf(ErrorCode.NO_LOGIN);
         }
+        if (commentReceiveDTO == null || StringUtils.isBlank(commentReceiveDTO.getContent())) {
+            return ResultDTO.errorOf(ErrorCode.COMMENT_IS_EMPTY);
+        }
         Comment comment = new Comment();
-        comment.setParentId(commentDTO.getParentId());
-        comment.setType(commentDTO.getType());
-        comment.setContent(commentDTO.getContent());
+        comment.setParentId(commentReceiveDTO.getParentId());
+        comment.setType(commentReceiveDTO.getType());
+        comment.setContent(commentReceiveDTO.getContent());
         comment.setGmtCreate(new Date());
         comment.setCommentator(user.getId());
         commentService.insertSelective(comment);
         Map<Object, Object> hashMap = new HashMap<>();
         hashMap.put("message", "成功");
+        return ResultDTO.okOf();
+    }
+
+    @ResponseBody
+    @DeleteMapping("/comment")
+    public Object delComment(String commentId) {
+        commentService.deleteComment(Long.valueOf(commentId));
         return ResultDTO.okOf();
     }
 }
