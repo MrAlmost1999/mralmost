@@ -28,12 +28,13 @@
                         <a class="dropdown-toggle" href="/publish" role="button">发布</a>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-haspopup="true"
                            aria-expanded="false" th:if="${session.user!=null}">[[${session.user.getName()}]] <span
                                 class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <li><a th:href="@{/profile/questions/1}">我的问题</a></li>
-                            <li><a href="#">个人资料</a></li>
+                            <li><a href="javascript:void(0)">个人资料</a></li>
                             <li><a th:href="@{/logOut}">退出登录</a></li>
                         </ul>
                     </li>

@@ -1,7 +1,6 @@
 package com.mralmost.community.service;
 
 import com.mralmost.community.dto.CommentReturnDTO;
-import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
@@ -11,11 +10,9 @@ import com.mralmost.community.mapper.QuestionMapper;
 import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.model.*;
 import org.springframework.beans.BeanUtils;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.ui.Model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,13 +75,14 @@ public class CommentService {
     /**
      * 根据问题Id查询评论
      *
-     * @param id 问题id
+     * @param id   问题id
+     * @param type
      * @return
      */
-    public List<CommentReturnDTO> listByQuestionId(Long id) {
+    public List<CommentReturnDTO> listByTargetId(Long id, CommentTypeEnum type) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+                .andTypeEqualTo(type.getType());
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if (comments.size() == 0) {

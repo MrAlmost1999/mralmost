@@ -1,7 +1,9 @@
 package com.mralmost.community.controller;
 
 import com.mralmost.community.dto.CommentReceiveDTO;
+import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.ResultDTO;
+import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.User;
@@ -9,11 +11,13 @@ import com.mralmost.community.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -63,5 +67,13 @@ public class CommentController {
     public Object delComment(String commentId) {
         commentService.deleteComment(Long.valueOf(commentId));
         return ResultDTO.okOf();
+    }
+
+    @ResponseBody
+    @GetMapping("/comment/{id}")
+    public ResultDTO<List<CommentReturnDTO>> getComments(@PathVariable(name = "id") String id,
+                                                         Model model) {
+        List<CommentReturnDTO> commentReturnDTOList = commentService.listByTargetId(Long.valueOf(id), CommentTypeEnum.COMMENT);
+        return ResultDTO.okOf(commentReturnDTOList);
     }
 }

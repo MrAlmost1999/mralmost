@@ -51,6 +51,7 @@ body {
     border-right: 1px solid #e6e6e6;
 }
 
+/*我的问题界面右边栏*/
 .profile .section {
     margin-top: 20px;
 }
@@ -107,3 +108,21 @@ body {
     border: none;
     background-color: white;
 }
+
+/*显示二级回复按钮*/
+.active {
+    color: #499ef3;
+}
+
+.second-comment {
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.second-comment-box {
+    margin-top: 15px;
+}
+
+.

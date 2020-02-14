@@ -2,6 +2,7 @@ package com.mralmost.community.controller;
 
 import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Record;
@@ -13,7 +14,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -48,7 +48,7 @@ public class QuestionController {
         List<CommentReturnDTO> comments;
         try {
             question = questionService.findById(Long.valueOf(id));
-            comments = commentService.listByQuestionId(Long.valueOf(id));
+            comments = commentService.listByTargetId(Long.valueOf(id), CommentTypeEnum.QUESTION);
             model.addAttribute("question", question);
             model.addAttribute("comments", comments);
         } catch (Exception e) {
