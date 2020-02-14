@@ -25,7 +25,7 @@
                 </h3>
                 <span class="text-desc">
                 作者：[[${question.user.name}]]&nbsp;|&nbsp;
-                发布时间：[[${#dates.format(question.gmtCreate,'yyyy-MM-dd')}]]&nbsp;|&nbsp;
+                发布时间：[[${question.gmtCreate}]]&nbsp;|&nbsp;
                 阅读数：[[${question.viewCount}]]
             </span>
                 <hr class="community-ledgement">
@@ -55,38 +55,24 @@
                         <span th:if="${session.user!=null}">
                             <button th:if="${comment.commentator==session.user.getId()}"
                                     class="pull-right glyphicon glyphicon-trash icon btn-delete-comment"
-                                    th:value="${comment.id}"></button></span>
+                                    th:value="${comment.id}"></button>
+                            <input type="hidden" id="user-id" th:value="${session.user.getId()}">
+                        </span>
                         <div th:text="${comment.content}"></div>
                         <div>
                             <span class="glyphicon glyphicon-thumbs-up icon"></span>
                             <span class="glyphicon glyphicon-thumbs-down icon"></span>
-                            <span class="glyphicon glyphicon-comment icon" th:data-id="${comment.id}"></span>
+                            <span class="comment-count">
+                                <span class="glyphicon glyphicon-comment"
+                                      th:data-id="${comment.id}"></span>
+                                <span>[[${comment.commentCount}]]</span>
+                            </span>
                             <span class="community-menu"
-                                  th:text="${#dates.format(comment.gmtCreate,'yyyy-MM-dd')}"></span>
+                                  th:text="${comment.gmtCreate}"></span>
                         </div>
                         <!-- 二级评论 -->
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse second-comment"
                              th:id="${'comment-'+comment.id}">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="media commentInfo" th:each="comment : ${comments}">
-                                    <div class="media-left">
-                                        <a href="#">
-                                            <img class="media-object img-rounded avatar-img"
-                                                 th:src="${comment.user.avatarUrl}"
-                                                 alt="头像">
-                                        </a>
-                                    </div>
-                                    <div class="media-body">
-                                        <span><a href="#" class="]"
-                                                 th:text="${comment.user.name}"></a></span>
-                                        <span th:if="${session.user!=null}">
-                                        <button th:if="${comment.commentator==session.user.getId() || question.creator==session.user.getId()}"
-                                                class="pull-right glyphicon glyphicon-trash icon btn-delete-comment"
-                                                th:value="${comment.id}"></button></span>
-                                        <div th:text="${comment.content}"></div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 second-comment-box">
                                 <input type="text" class="form-control" placeholder="评论一下......"
                                        th:id="${'input-'+comment.id}">

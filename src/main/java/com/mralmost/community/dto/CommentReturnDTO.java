@@ -17,8 +17,8 @@ public class CommentReturnDTO {
     private Long parentId;
     private Integer type;
     private Long commentator;
-    private Date gmtCreate;
-    private Date gmtModified;
+    private String gmtCreate;
+    private String gmtModified;
     private Long likeCount;
     private Long commentCount;
     private String content;

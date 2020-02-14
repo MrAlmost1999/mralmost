@@ -1,5 +1,6 @@
 package com.mralmost.community.service;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
@@ -51,7 +52,7 @@ public class QuestionService {
      */
     public void insertOrUpdate(Question question) {
         if (question.getId() == null) {
-            question.setGmtCreate(new Date());
+            question.setGmtCreate(DateFormat.dateFormat(new Date()));
             question.setGmtModified(question.getGmtModified());
             questionMapper.insertSelective(question);
         } else {
@@ -84,7 +85,7 @@ public class QuestionService {
         boolean flag = recordService.insertOrUpdate(record);
         if (!flag) {
             Question question = new Question();
-            question.setGmtModified(new Date());
+            question.setGmtModified(DateFormat.dateFormat(new Date()));
             question.setId(record.getQuestionId());
             questionCustomMapper.updateViewCountAndGmtModified(question);
         }

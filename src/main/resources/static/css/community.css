@@ -81,6 +81,7 @@ body {
 /*回复信息样式*/
 .commentInfo {
     border-bottom: 1px solid #eee;
+    padding-top: 5px;
     padding-bottom: 5px;
 }
 
@@ -104,6 +105,15 @@ body {
     color: #499ef3;
 }
 
+.comment-count {
+    cursor: pointer;
+}
+
+.comment-count:hover {
+    color: #499ef3;
+}
+
+
 .btn-delete-comment {
     border: none;
     background-color: white;
@@ -118,11 +128,14 @@ body {
     border-radius: 5px;
     margin-top: 10px;
     border: 1px solid #eee;
-    padding-top: 15px;
+    padding-top: 5px;
 }
 
 .second-comment-box {
     margin-top: 15px;
 }
 
-.
+.comment-count {
+    margin: 0px;
+    padding: 0px;
+}

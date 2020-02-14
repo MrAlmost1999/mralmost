@@ -1,5 +1,6 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.CommentReceiveDTO;
 import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.ResultDTO;
@@ -9,12 +10,13 @@ import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
+import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -54,7 +56,7 @@ public class CommentController {
         comment.setParentId(commentReceiveDTO.getParentId());
         comment.setType(commentReceiveDTO.getType());
         comment.setContent(commentReceiveDTO.getContent());
-        comment.setGmtCreate(new Date());
+        comment.setGmtCreate(DateFormat.dateFormat(new Date()));
         comment.setCommentator(user.getId());
         commentService.insertSelective(comment);
         Map<Object, Object> hashMap = new HashMap<>();
@@ -71,9 +73,9 @@ public class CommentController {
 
     @ResponseBody
     @GetMapping("/comment/{id}")
-    public ResultDTO<List<CommentReturnDTO>> getComments(@PathVariable(name = "id") String id,
-                                                         Model model) {
+    public ResultDTO<List<CommentReturnDTO>> getComments(@PathVariable(name = "id") String id) {
         List<CommentReturnDTO> commentReturnDTOList = commentService.listByTargetId(Long.valueOf(id), CommentTypeEnum.COMMENT);
         return ResultDTO.okOf(commentReturnDTOList);
     }
+
 }

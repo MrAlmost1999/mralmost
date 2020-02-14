@@ -1,5 +1,6 @@
 package com.mralmost.community.service;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.mapper.RecordMapper;
 import com.mralmost.community.model.Record;
 import com.mralmost.community.model.RecordExample;
@@ -47,7 +48,7 @@ public class RecordService {
         boolean flag = select(record);
         if (flag) {
             RecordExample example = new RecordExample();
-            example.createCriteria().andRecordDateEqualTo(new Date());
+            example.createCriteria().andRecordDateEqualTo(DateFormat.dateFormat(new Date()));
             recordMapper.updateByExampleSelective(record, example);
             return true;
         } else {

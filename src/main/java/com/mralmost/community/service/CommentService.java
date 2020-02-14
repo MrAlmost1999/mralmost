@@ -4,10 +4,7 @@ import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
-import com.mralmost.community.mapper.CommentMapper;
-import com.mralmost.community.mapper.QuestionCustomMapper;
-import com.mralmost.community.mapper.QuestionMapper;
-import com.mralmost.community.mapper.UserMapper;
+import com.mralmost.community.mapper.*;
 import com.mralmost.community.model.*;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +36,9 @@ public class CommentService {
     private QuestionCustomMapper questionCustomMapper;
 
     @Autowired
+    private CommentCustomMapper commentCustomMapper;
+
+    @Autowired
     private UserMapper userMapper;
 
     /**
@@ -61,6 +61,7 @@ public class CommentService {
                 throw new CustomException(ErrorCode.COMMENT_NOT_FOUNT);
             }
             commentMapper.insertSelective(comment);
+            commentCustomMapper.incCommentCommentCount(comment);
         } else {
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -68,7 +69,7 @@ public class CommentService {
                 throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
             }
             commentMapper.insertSelective(comment);
-            questionCustomMapper.incCommentCount(question);
+            questionCustomMapper.incQuestionCommentCount(question);
         }
     }
 
@@ -83,7 +84,7 @@ public class CommentService {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andParentIdEqualTo(id)
                 .andTypeEqualTo(type.getType());
-        commentExample.setOrderByClause("gmt_create desc");
+        commentExample.setOrderByClause("gmt_create asc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if (comments.size() == 0) {
             return null;

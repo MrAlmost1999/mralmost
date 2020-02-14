@@ -1,5 +1,6 @@
 package com.mralmost.community.service;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.model.Question;
@@ -53,7 +54,7 @@ public class UserService {
         List<User> users = userMapper.selectByExample(userExample);
         //用户数据为空时插入用户数据,不为空时更新用户数据
         if (users.size() == 0) {
-            user.setGmtCreate(new Date());
+            user.setGmtCreate(DateFormat.dateFormat(new Date()));
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         } else {

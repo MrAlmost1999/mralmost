@@ -75,34 +75,60 @@ $(".glyphicon-comment").click(function () {
     var comment = $("#comment-" + commentId);
     if (!$(".collapse").hasClass("in")) {
         $.getJSON("/comment/" + commentId, function (data) {
-            // var commentBody = $("comment-body-" + commentId);
-            // var items = [];
-            //
-            // $.each(data, function (comment) {
-            //     var c = $("<div/>", {
-            //         "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12",
-            //         html: comment.content
-            //     });
-            //     items.push(c);
-            // });
-            //
-            // $("<div/>", {
-            //     "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse second-comment",
-            //     "id": "comment-" + commentId,
-            //     html: items.join("")
-            // }).appendTo(commentBody);
+            if (data.data == null) {
+                return;
+            } else {
+                var subCommentContainer = $("#comment-" + commentId);
+                if (subCommentContainer.children().length != 1) {
+                } else {
+                    $.each(data.data.reverse(), function (index, comment) {
+                        var mediaLeftElement = $("<div/>", {
+                            "class": "media-left"
+                        }).append($("<img/>", {
+                            "class": "media-object img-rounded avatar-img",
+                            "src": comment.user.avatarUrl
+                        }));
 
+                        var mediaBodyElement = $("<div/>", {
+                            "class": "media-body"
+                        }).append($("<a/>", {
+                            "html": comment.user.name,
+                            "href": "#",
+                            "class": "media-heading username"
+                        }));
+                        var userId = $("#user-id").val();
+                        if (userId != null) {
+                            if (userId == comment.commentator) {
+                                var deleteBodyElement = $("<button/>", {
+                                    "class": "pull-right glyphicon glyphicon-trash icon btn-delete-comment",
+                                    "value": comment.id
+                                });
+                                mediaBodyElement.append(deleteBodyElement);
+                            }
+                        }
+                        var mediaContent = $("<div/>", {
+                            "html": comment.content
+                        }).append($("<div/>", {
+                            "class": "menu"
+                        }).append($("<span/>", {
+                            "class": "pull-right",
+                            "html": comment.gmtCreate
+                        })));
+                        mediaBodyElement.append(mediaContent);
+
+                        var mediaElement = $("<div/>", {
+                            "class": "media commentInfo"
+                        }).append(mediaLeftElement).append(mediaBodyElement);
+
+                        var commentElement = $("<div/>", {
+                            "class": "col-lg-12 col-md-12 col-sm-12 col-xs-12"
+                        }).append(mediaElement);
+
+                        subCommentContainer.prepend(commentElement);
+                    });
+                }
+            }
         });
-
-
-        // //最外层div
-        // var secondComment = $("<div></div>").addClass("col-lg-12 col-md-12 col-sm-12 col-xs-12 collapse second-comment").attr("id", comment);
-        // //里层同级上面的上面的div
-        // var top = $("<div></div>").addClass("col-lg-12 col-md-12 col-sm-12 col-xs-12");
-        // var topNext = $("<div></div>").addClass("media commentInfo");
-        // var mediaLeft = $("<div></div>").addClass("media-left").append("<a></a>").attr("href", "#").append("<img>").addClass("media-object img-rounded avatar-img").attr("src", "图片地址").attr("alt", "头像");
-        // var mediaBody = $("<div></div>").addClass("media-body").append("<span></span>").append("<a></a>").attr("href", "#").attr("class", "media-heading username").append("用户名");
-        // // var deleteBtn =
     }
     comment.toggleClass("in");
     $(this).toggleClass("active");

@@ -1,6 +1,7 @@
 package com.mralmost.community.mapper;
 
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.Question;
 
 import java.util.Date;
@@ -35,5 +36,12 @@ public interface QuestionCustomMapper {
      */
     int updateViewCountAndGmtModified(Question question);
 
-    int incCommentCount(Question question);
+    /**
+     * 累加问题回复数
+     *
+     * @param question
+     * @return
+     */
+    int incQuestionCommentCount(Question question);
+
 }

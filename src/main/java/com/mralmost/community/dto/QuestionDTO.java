@@ -28,11 +28,11 @@ public class QuestionDTO {
     /**
      * 问题创建时间
      */
-    private Date gmtCreate;
+    private String gmtCreate;
     /**
      * 问题修改时间
      */
-    private Date gmtModified;
+    private String gmtModified;
     /**
      * 问题关联用户的id
      */

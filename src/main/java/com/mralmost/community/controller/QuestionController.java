@@ -1,5 +1,6 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
@@ -62,7 +63,7 @@ public class QuestionController {
             Record record = new Record();
             record.setUserId(user.getId());
             record.setQuestionId(Long.valueOf(id));
-            record.setRecordDate(new Date());
+            record.setRecordDate(DateFormat.dateFormat(new Date()));
             questionService.updateViewCount(record);
         }
 
