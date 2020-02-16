@@ -122,9 +122,13 @@ public class CommentService {
     public void deleteComment(Long id) {
         try {
             Comment comment = commentMapper.selectByPrimaryKey(id);
-            Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
-            question.setCommentCount(question.getCommentCount() - 1);
-            questionMapper.updateByPrimaryKeySelective(question);
+            if (comment.getType() == 1) {
+                Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
+                question.setCommentCount(question.getCommentCount() - 1);
+                questionMapper.updateByPrimaryKeySelective(question);
+            } else {
+                commentCustomMapper.reduceCommentCommentCount(comment);
+            }
             commentMapper.deleteByPrimaryKey(id);
         } catch (Exception e) {
             throw new CustomException(ErrorCode.SYSTEM_ERROR);

@@ -9,6 +9,7 @@ import com.mralmost.community.model.Comment;
  * @date: 2020/2/14
  */
 public interface CommentCustomMapper {
+
     /**
      * 累加回复的回复数
      *
@@ -16,4 +17,12 @@ public interface CommentCustomMapper {
      * @return
      */
     int incCommentCommentCount(Comment comment);
+
+    /**
+     * 删除二级评论时,减少回复数
+     *
+     * @param comment
+     * @return
+     */
+    int reduceCommentCommentCount(Comment comment);
 }

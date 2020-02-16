@@ -1,13 +1,18 @@
-/*回复按钮点击事件*/
+/*发布按钮点击事件*/
 $("#postReplies").click(function () {
     var question_id = $("#question_id").val();
     var comment_content = $("#comment_content").val();
     commentTarget(question_id, 1, comment_content);
 });
 
+/*回复按钮点击事件*/
 $(".second-comment .btn-comment").click(function () {
     var commentId = $(this).attr("data-id");
     var content = $("#input-" + commentId).val();
+    if (!$(".comment-input").val()) {
+        alert(1);
+        return;
+    }
     commentTarget(commentId, 2, content);
 });
 
@@ -48,29 +53,8 @@ function commentTarget(targetId, type, content) {
     });
 }
 
-/*删除按钮点击事件*/
-$(document).on("click", ".btn-delete-comment", function () {
-    var c = confirm("确认删除吗?");
-    if (c) {
-        $.ajax({
-            url: "/comment",
-            type: "DELETE",
-            dataType: "json",
-            data: {
-                "commentId": $(this).val()
-            },
-            success: function (data) {
-                alert("删除成功");
-                location.reload();
-            }
-        });
-    } else {
-        return;
-    }
-});
-
 /*展开二级回复*/
-$(".glyphicon-comment").click(function () {
+$(".open-second-comment").click(function () {
     var commentId = $(this).attr("data-id");
     var comment = $("#comment-" + commentId);
     if (!$(".collapse").hasClass("in")) {
@@ -111,7 +95,10 @@ $(".glyphicon-comment").click(function () {
                         }).append($("<div/>", {
                             "class": "menu"
                         }).append($("<span/>", {
-                            "class": "pull-right community-menu ",
+                            "class": "glyphicon glyphicon-comment three-comment",
+                            "id": comment.user.name + "and" + comment.id
+                        })).append($("<span/>", {
+                            "class": "pull-right community-menu",
                             "html": comment.gmtCreate
                         })));
                         mediaBodyElement.append(mediaContent);
@@ -133,3 +120,47 @@ $(".glyphicon-comment").click(function () {
     comment.toggleClass("in");
     $(this).toggleClass("active");
 });
+
+/*删除按钮点击事件*/
+$(document).on("click", ".btn-delete-comment", function () {
+    var c = confirm("确认删除吗?");
+    if (c) {
+        $.ajax({
+            url: "/comment",
+            type: "DELETE",
+            dataType: "json",
+            data: {
+                "commentId": $(this).val()
+            },
+            success: function (data) {
+                alert("删除成功");
+                location.reload();
+            }
+        });
+    } else {
+        return;
+    }
+});
+
+/*三级回复点击事件*/
+$(document).on("click", ".three-comment", function () {
+    var userInfo = $(this).attr("id");
+    var split = userInfo.split("and");
+    var username = split[0];
+    var id = split[1];
+    $(".comment-input").attr("value", "@" + username);
+
+    // var id = $(this).attr("id");
+    // $.ajax({
+    //     url: "/comment",
+    //     type: "POST",
+    //     data: JSON.stringify({
+    //         "parentId": id,
+    //         "content": $("")
+    //     }),
+    //     success: function (data) {
+    //         alert(data.message);
+    //     }
+    // });
+});
+

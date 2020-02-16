@@ -6,4 +6,9 @@
         comment_count = comment_count+1
         where id = #{parentId,jdbcType=BIGINT}
     </update>
+    <update id="reduceCommentCommentCount" parameterType="com.mralmost.community.model.Comment">
+        update comment set
+        comment_count = comment_count-1
+        where id = #{parentId,jdbcType=BIGINT}
+    </update>
 </mapper>
