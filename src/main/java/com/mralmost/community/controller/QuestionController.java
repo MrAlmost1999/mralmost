@@ -6,6 +6,7 @@ import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
+import com.mralmost.community.model.Question;
 import com.mralmost.community.model.Record;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.CommentService;
@@ -45,13 +46,16 @@ public class QuestionController {
                            HttpServletRequest request,
                            Model model) {
         //获取问题信息
-        QuestionDTO question;
+        QuestionDTO questionDTO;
         List<CommentReturnDTO> comments;
+        List<QuestionDTO> relatedQuestions;
         try {
-            question = questionService.findById(Long.valueOf(id));
+            questionDTO = questionService.findById(Long.valueOf(id));
             comments = commentService.listByTargetId(Long.valueOf(id), CommentTypeEnum.QUESTION);
-            model.addAttribute("question", question);
+            relatedQuestions = questionService.selectRelated(questionDTO);
+            model.addAttribute("question", questionDTO);
             model.addAttribute("comments", comments);
+            model.addAttribute("relatedQuestions", relatedQuestions);
         } catch (Exception e) {
             throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
         }

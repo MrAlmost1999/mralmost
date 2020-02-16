@@ -23,6 +23,17 @@
             <result column="avatar_url" property="avatarUrl"/>
         </association>
     </resultMap>
+    <resultMap id="BaseResultMap" type="com.mralmost.community.model.Question">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="gmt_create" jdbcType="VARCHAR" property="gmtCreate"/>
+        <result column="gmt_modified" jdbcType="VARCHAR" property="gmtModified"/>
+        <result column="creator" jdbcType="BIGINT" property="creator"/>
+        <result column="comment_count" jdbcType="INTEGER" property="commentCount"/>
+        <result column="view_count" jdbcType="INTEGER" property="viewCount"/>
+        <result column="like_count" jdbcType="INTEGER" property="likeCount"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+    </resultMap>
     <sql id="Base_Column_List">
         question.id, title, question.description, question.gmt_create, question.gmt_modified, creator, comment_count, view_count, like_count,
         tag,
@@ -38,6 +49,9 @@
         <include refid="Base_Column_List"/>
         from question,user where question.creator=user.id
         and question.creator=#{creator}
+    </select>
+    <select id="selectRelated" parameterType="com.mralmost.community.model.Question" resultMap="BaseResultMap">
+        select * from question where id!=#{id} and tag regexp #{tag}
     </select>
     <update id="updateViewCountAndGmtModified" parameterType="com.mralmost.community.model.Question">
         update question set
@@ -55,5 +69,6 @@
         comment_count = comment_count+1
         where id = #{id,jdbcType=BIGINT}
     </update>
+
 
 </mapper>

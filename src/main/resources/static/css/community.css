@@ -135,7 +135,30 @@ body {
     margin-top: 15px;
 }
 
+/*评论回复数*/
 .comment-count {
     margin: 0px;
     padding: 0px;
+}
+
+/*问题标签*/
+.question-tag {
+    margin-right: 5px;
+}
+
+/*相关问题*/
+.question-related {
+    line-height: 20px;
+    font-size: 12px;
+    list-style: none;
+    padding-left: 0;
+}
+
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+.question-qq-img {
+    width: 100%;
 }

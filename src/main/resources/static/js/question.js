@@ -111,7 +111,7 @@ $(".glyphicon-comment").click(function () {
                         }).append($("<div/>", {
                             "class": "menu"
                         }).append($("<span/>", {
-                            "class": "pull-right",
+                            "class": "pull-right community-menu ",
                             "html": comment.gmtCreate
                         })));
                         mediaBodyElement.append(mediaContent);

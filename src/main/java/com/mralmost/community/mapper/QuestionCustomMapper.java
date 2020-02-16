@@ -44,4 +44,12 @@ public interface QuestionCustomMapper {
      */
     int incQuestionCommentCount(Question question);
 
+    /**
+     * 根据标签查询问题
+     *
+     * @param question
+     * @return
+     */
+    List<Question> selectRelated(Question question);
+
 }

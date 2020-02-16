@@ -19,22 +19,31 @@
         <!-- 左边 -->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 body_left">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <!--标题-->
                 <h3>
                     [[${question.title}]]
                     <span class="alert alert-danger error" th:if="${error!=null}" th:text="${error}"></span>
                 </h3>
+                <!--发布信息-->
                 <span class="text-desc">
-                作者：[[${question.user.name}]]&nbsp;|&nbsp;
-                发布时间：[[${question.gmtCreate}]]&nbsp;|&nbsp;
-                阅读数：[[${question.viewCount}]]
-            </span>
+                    作者：[[${question.user.name}]]&nbsp;|&nbsp;
+                    发布时间：[[${question.gmtCreate}]]&nbsp;|&nbsp;
+                    阅读数：[[${question.viewCount}]]
+                </span>
                 <hr class="community-ledgement">
-                [[${question.description}]]
+                <!--问题内容-->
+                <span>[[${question.description}]]</span>
                 <hr class="community-ledgement">
+                <!--问题标签-->
+                <span class="label label-info question-tag" th:each="tag : ${question.tag.split(',')}">
+                    <span class="glyphicon glyphicon-tags"></span>
+                    <span th:text="${tag}"></span>
+                </span>
+                <hr class="community-ledgement">
+                <!--问题操作按钮-->
                 <a th:href="@{'/publish/'+${question.id}}" class="community-menu"
                    th:if="${session.user!=null && session.user.id==question.creator}">
-                    <span class="glyphicon glyphicon-pencil icon" aria-hidden="true"></span>
-                    编辑
+                    <span class="glyphicon glyphicon-pencil icon" aria-hidden="true">编辑</span>
                 </a>
             </div>
             <!-- 一级评论 -->
@@ -95,7 +104,7 @@
         <!-- 右边 -->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h5>发起人</h5>
+                <h4>发起人</h4>
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
@@ -110,7 +119,15 @@
             </div>
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <hr class="community-ledgement">
-                <h5>相关问题</h5>
+                <h4>站长QQ</h4>
+                <img class="img-thumbnail question-qq-img" src="/img/QQ.png">
+                <hr class="community-ledgement">
+                <h4>相关问题</h4>
+                <ul class="question-related">
+                    <li th:each="related : ${relatedQuestions}">
+                        <a th:href="@{'/question/'+${related.id}}" th:text="${related.title}"></a>
+                    </li>
+                </ul>
             </div>
         </div>
 

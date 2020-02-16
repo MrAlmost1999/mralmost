@@ -9,12 +9,15 @@ import com.mralmost.community.mapper.QuestionMapper;
 import com.mralmost.community.mapper.RecordMapper;
 import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.model.*;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Lxj
@@ -89,5 +92,21 @@ public class QuestionService {
             question.setId(record.getQuestionId());
             questionCustomMapper.updateViewCountAndGmtModified(question);
         }
+    }
+
+    public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
+        if (StringUtils.isBlank(queryDTO.getTag())) {
+            return new ArrayList<>();
+        }
+        Question question = new Question();
+        question.setId(queryDTO.getId());
+        question.setTag(queryDTO.getTag().replace(",", "|"));
+        List<Question> questions = questionCustomMapper.selectRelated(question);
+        List<QuestionDTO> questionDTOList = questions.stream().map(q -> {
+            QuestionDTO questionDTO = new QuestionDTO();
+            BeanUtils.copyProperties(q, questionDTO);
+            return questionDTO;
+        }).collect(Collectors.toList());
+        return questionDTOList;
     }
 }
