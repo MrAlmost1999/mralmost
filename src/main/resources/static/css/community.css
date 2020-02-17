@@ -143,7 +143,9 @@ body {
 
 /*问题标签*/
 .question-tag {
+    cursor: pointer;
     margin-right: 5px;
+    font-size: 14px;
 }
 
 /*相关问题*/
@@ -161,4 +163,9 @@ a:hover {
 
 .question-qq-img {
     width: 100%;
+}
+
+#publish-select-tag {
+    display: none;
+    margin-top: 10px;
 }

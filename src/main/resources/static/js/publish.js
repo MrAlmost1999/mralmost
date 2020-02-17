@@ -32,3 +32,37 @@ $("#publish").click(function () {
         data: $("#publishQuestion").serialize()
     });
 });
+
+/*标签点击事件*/
+$(".question-tag").click(function () {
+    var tag = $(this).attr("data-id");
+    var previous = $("#tag").val();
+    //判断标签框是否为空
+    if (previous) {
+        //不为空
+        //判断标签框是否包含此次要加入的标签
+        if (previous.split(",").indexOf(tag) == -1) {
+            //不包含,追加逗号和标签
+            $("#tag").val(previous + "," + tag);
+        } else {
+            //包含则删除这个标签
+            var split = previous.split(",");
+            $.each(split, function (index, item) {
+                if (item == tag) {
+                    //splice(索引,删除数量)
+                    split.splice(index, 1);
+                }
+            });
+            //然后将删除完的内容重新赋值上去
+            $("#tag").val(split);
+        }
+    } else {
+        //为空则直接加标题
+        $("#tag").val(tag);
+    }
+});
+
+/*标签输入框获得焦点的事件*/
+$("#tag").focus(function () {
+    $("#publish-select-tag").show();
+});
