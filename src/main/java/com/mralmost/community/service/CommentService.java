@@ -1,7 +1,10 @@
 package com.mralmost.community.service;
 
+import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
+import com.mralmost.community.enums.NotificationEnum;
+import com.mralmost.community.enums.NotificationStatusEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.mapper.*;
@@ -11,10 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -41,13 +41,17 @@ public class CommentService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private NotificationMapper notificationMapper;
+
     /**
      * 添加评论
      *
-     * @param comment 评论信息
+     * @param comment
+     * @param commentator
      */
     @Transactional
-    public void insertSelective(Comment comment) {
+    public void insertSelective(Comment comment, User commentator) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
             throw new CustomException(ErrorCode.TARGET_PARENT_NOT_FOUND);
         }
@@ -60,8 +64,16 @@ public class CommentService {
             if (dbComment == null) {
                 throw new CustomException(ErrorCode.COMMENT_NOT_FOUNT);
             }
+            Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
+            if (question == null) {
+                throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+            }
+            //插入回复
             commentMapper.insertSelective(comment);
+            //累加回复数
             commentCustomMapper.incCommentCommentCount(comment);
+            //创建通知
+            createNotify(comment, dbComment.getCommentator(), commentator.getName(), question.getTitle(), NotificationEnum.REPLY_COMMENT);
         } else {
             //回复问题
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
@@ -70,7 +82,32 @@ public class CommentService {
             }
             commentMapper.insertSelective(comment);
             questionCustomMapper.incQuestionCommentCount(question);
+            //创建通知
+            createNotify(comment, question.getCreator(), commentator.getName(), question.getTitle(), NotificationEnum.REPLY_QUESTION);
         }
+    }
+
+    /**
+     * 创建通知
+     *
+     * @param comment
+     * @param receiver
+     * @param notifierName
+     * @param outerTitle
+     * @param notificationEnum
+     * @return
+     */
+    private void createNotify(Comment comment, Long receiver, String notifierName, String outerTitle, NotificationEnum notificationEnum) {
+        Notification notification = new Notification();
+        notification.setGmtCreate(DateFormat.dateFormat(new Date()));
+        notification.setType(notificationEnum.getType());
+        notification.setOuterId(comment.getParentId());
+        notification.setNotifier(comment.getCommentator());
+        notification.setStatus(NotificationStatusEnum.UNREAD.getStatus());
+        notification.setReceiver(receiver);
+        notification.setNotifierName(notifierName);
+        notification.setOuterTitle(outerTitle);
+        notificationMapper.insert(notification);
     }
 
     /**

@@ -58,7 +58,7 @@ public class CommentController {
         comment.setContent(commentReceiveDTO.getContent());
         comment.setGmtCreate(DateFormat.dateFormat(new Date()));
         comment.setCommentator(user.getId());
-        commentService.insertSelective(comment);
+        commentService.insertSelective(comment, user);
         Map<Object, Object> hashMap = new HashMap<>();
         hashMap.put("message", "成功");
         return ResultDTO.okOf();

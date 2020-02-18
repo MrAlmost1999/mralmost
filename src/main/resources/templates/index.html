@@ -35,7 +35,6 @@
                 <div class="media-body">
                     <a th:href="@{'/question/'+${question.id}}">
                         <span class="media-heading question-title" th:text="${question.title}"></span></a><br>
-                    <span th:text="${question.description}"></span><br>
                     <span class="text-desc">
                             [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
                             th:text="${question.gmtCreate}"></span>

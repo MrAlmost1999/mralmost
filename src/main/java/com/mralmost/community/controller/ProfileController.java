@@ -2,12 +2,13 @@ package com.mralmost.community.controller;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.mralmost.community.dto.NotificationDTO;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.User;
+import com.mralmost.community.service.NotificationService;
 import com.mralmost.community.service.QuestionService;
-import com.mralmost.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,10 +28,11 @@ import java.util.List;
 public class ProfileController {
 
     @Autowired
-    private UserService userService;
+    private QuestionService questionService;
 
     @Autowired
-    private QuestionService questionService;
+    private NotificationService notificationService;
+
 
     /**
      * 处理导航栏"我的问题"请求
@@ -56,23 +58,31 @@ public class ProfileController {
         if ("questions".equals(url)) {
             model.addAttribute("section", "questions");
             model.addAttribute("sectionName", "我的提问");
+            //获取并存储界面数据信息
+            PageHelper.startPage(Integer.parseInt(pageNum), 6);
+            List<QuestionDTO> questionList;
+            try {
+                questionList = questionService.findByCreator(user.getId());
+            } catch (Exception e) {
+                //当访问返回的数据为null时,显示异常信息
+                throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
+            }
+            PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
+            model.addAttribute("pageInfo", pageInfo);
         } else if ("replies".equals(url)) {
+            PageInfo<NotificationDTO> pageInfo;
+            try {
+                pageInfo = notificationService.findAll(Integer.parseInt(pageNum), user.getId());
+                model.addAttribute("notifications", pageInfo);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
             model.addAttribute("section", "replies");
             model.addAttribute("sectionName", "最新回复");
         }
 
-        //获取并存储界面数据信息
-        PageHelper.startPage(Integer.parseInt(pageNum), 5);
-        List<QuestionDTO> questionList = null;
-        try {
-            questionList = questionService.findByCreator(user.getId());
-        } catch (Exception e) {
-            throw new CustomException(ErrorCode.QUESTION_NOT_FOUND);
-        }
-        //当访问返回的数据为null时,显示异常信息
 
-        PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
-        model.addAttribute("pageInfo", pageInfo);
         return "profile";
     }
 }
