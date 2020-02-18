@@ -34,7 +34,7 @@ $("#publish").click(function () {
 });
 
 /*标签点击事件*/
-$(".question-tag").click(function () {
+$(".tag").click(function () {
     var tag = $(this).attr("data-id");
     var previous = $("#tag").val();
     //判断标签框是否为空

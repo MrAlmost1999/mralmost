@@ -35,6 +35,5 @@
         <table tableName="question" domainObjectName="Question"></table>
         <table tableName="record" domainObjectName="Record"></table>
         <table tableName="comment" domainObjectName="Comment"></table>-->
-        <table tableName="tags" domainObjectName="Tags"></table>
     </context>
 </generatorConfiguration>

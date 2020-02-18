@@ -95,13 +95,17 @@ $(".open-second-comment").click(function () {
                         }).append($("<div/>", {
                             "class": "menu"
                         }).append($("<span/>", {
-                            "class": "glyphicon glyphicon-comment three-comment",
-                            "id": comment.user.name + "and" + comment.id
-                        })).append($("<span/>", {
                             "class": "pull-right community-menu",
                             "html": comment.gmtCreate
                         })));
                         mediaBodyElement.append(mediaContent);
+
+                        //三级回复标签
+                        /*.append($("<span/>", {
+                            "class": "glyphicon glyphicon-comment three-comment",
+                            "id": comment.user.name + "and" + comment.id
+                        }))*/
+
 
                         var mediaElement = $("<div/>", {
                             "class": "media commentInfo"
@@ -143,24 +147,24 @@ $(document).on("click", ".btn-delete-comment", function () {
 });
 
 /*三级回复点击事件*/
-$(document).on("click", ".three-comment", function () {
+/*$(document).on("click", ".three-comment", function () {
     var userInfo = $(this).attr("id");
     var split = userInfo.split("and");
     var username = split[0];
     var id = split[1];
     $(".comment-input").attr("value", "@" + username);
 
-    // var id = $(this).attr("id");
-    // $.ajax({
-    //     url: "/comment",
-    //     type: "POST",
-    //     data: JSON.stringify({
-    //         "parentId": id,
-    //         "content": $("")
-    //     }),
-    //     success: function (data) {
-    //         alert(data.message);
-    //     }
-    // });
-});
+    var id = $(this).attr("id");
+    $.ajax({
+        url: "/comment",
+        type: "POST",
+        data: JSON.stringify({
+            "parentId": id,
+            "content": $("")
+        }),
+        success: function (data) {
+            alert(data.message);
+        }
+    });
+});*/
 

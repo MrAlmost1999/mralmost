@@ -40,14 +40,30 @@
                 <div class="form-group">
                     <label for="tag">添加标签:</label>
                     <input type="text" class="form-control" id="tag" name="tag" th:value="${tag}"
-                           placeholder="输入或选择标签,以,号隔开......" autocomplete="off">
+                           placeholder="请选择标签......" autocomplete="off" readonly="readonly">
                 </div>
                 <!--标签-->
                 <div id="publish-select-tag">
-                    <span class="label label-info question-tag" th:data-id="${tag.tagName}" th:each="tag : ${tags}">
-                        <span class="glyphicon glyphicon-tags"></span>
-                        <span th:text="${tag.tagName}"></span>
-                    </span>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" th:each="tagName,tagNameStat : ${tags}"
+                            th:class="${tagNameStat.first ? 'active':''}">
+                            <a th:href="${'#'+tagName.categoryName}" aria-controls="home" role="tab" data-toggle="tab"
+                               th:text="${tagName.categoryName}"></a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane" th:id="${tagName.categoryName}"
+                             th:each="tagName,tagNameStat : ${tags}"
+                             th:classappend="${tagNameStat.first ? 'active':''}">
+                            <span class="label label-info tag" th:data-id="${tag}"
+                                  th:each="tag : ${tagName.tags}">
+                                <span class="glyphicon glyphicon-tags"></span>
+                                    <span th:text="${tag}"></span>
+                            </span>
+                        </div>
+                    </div>
+
                 </div>
                 <button type="submit" class="btn btn-success btn-publish">发布</button>
             </form>

@@ -1,13 +1,12 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.cache.TagCache;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Question;
-import com.mralmost.community.model.Tags;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
-import com.mralmost.community.service.TagsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.List;
 
 /**
  * @author Lxj
@@ -31,19 +29,10 @@ public class PublishController {
     @Autowired
     private QuestionService questionService;
 
-    @Autowired
-    private TagsService tagsService;
-
     //用于去到publish.html(发布问题)界面
     @GetMapping("/publish")
     public String publish(Model model) {
-        List<Tags> tags;
-        try {
-            tags = tagsService.findTags();
-            model.addAttribute("tags", tags);
-        } catch (Exception e) {
-            throw new CustomException(ErrorCode.SYSTEM_ERROR);
-        }
+        model.addAttribute("tags", TagCache.getTags());
         return "publish";
     }
 
@@ -70,6 +59,7 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
+        model.addAttribute("tags", TagCache.getTags());
 
         //判空处理
         if (title == null || title == "") {
@@ -109,11 +99,17 @@ public class PublishController {
     @GetMapping("/publish/{id}")
     public String edit(@PathVariable(name = "id") String id,
                        Model model) {
-        QuestionDTO byId = questionService.findById(Long.valueOf(id));
-        model.addAttribute("title", byId.getTitle());
-        model.addAttribute("description", byId.getDescription());
-        model.addAttribute("tag", byId.getTag());
-        model.addAttribute("id", byId.getId());
+        QuestionDTO byId;
+        try {
+            byId = questionService.findById(Long.valueOf(id));
+            model.addAttribute("title", byId.getTitle());
+            model.addAttribute("description", byId.getDescription());
+            model.addAttribute("tag", byId.getTag());
+            model.addAttribute("id", byId.getId());
+            model.addAttribute("tags", TagCache.getTags());
+        } catch (Exception e) {
+            throw new CustomException(ErrorCode.SYSTEM_ERROR);
+        }
         return "/publish";
     }
 

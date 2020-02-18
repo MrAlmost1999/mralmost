@@ -35,7 +35,7 @@
                 <span>[[${question.description}]]</span>
                 <hr class="community-ledgement">
                 <!--问题标签-->
-                <span class="label label-info question-tag" th:each="tag : ${question.tag.split(',')}">
+                <span class="label label-info tag" th:each="tag : ${question.tag.split(',')}">
                     <span class="glyphicon glyphicon-tags"></span>
                     <span th:text="${tag}"></span>
                 </span>

@@ -14,6 +14,7 @@ body {
 .btn-publish {
     float: right;
     margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 /*回复按钮*/
@@ -142,10 +143,13 @@ body {
 }
 
 /*问题标签*/
-.question-tag {
+.tag {
     cursor: pointer;
     margin-right: 5px;
     font-size: 14px;
+    white-space: normal;
+    margin-top: 8px;
+    display: inline-block;
 }
 
 /*相关问题*/
@@ -154,6 +158,10 @@ body {
     font-size: 12px;
     list-style: none;
     padding-left: 0;
+}
+
+.question-title {
+    font-size: 18px;
 }
 
 a:hover {
@@ -167,5 +175,16 @@ a:hover {
 
 #publish-select-tag {
     display: none;
+    margin-top: 10px;
+}
+
+.publish-tag {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 14px;
+
+}
+
+.tab-pane {
     margin-top: 10px;
 }
