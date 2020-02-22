@@ -7,7 +7,9 @@ public enum ErrorCode implements CustomErrorCode {
     SYSTEM_ERROR(2004, "服务器冒烟了,要不你稍后再试试!"),
     TYPE_PARAM_WRONG(2005, "评论类型错误或不存在!"),
     COMMENT_NOT_FOUNT(2006, "回复的评论不存在了,要不要换个试试?"),
-    COMMENT_IS_EMPTY(2006, "评论内容不能为空!");
+    COMMENT_IS_EMPTY(2007, "评论内容不能为空!"),
+    READ_NOTIFICATION_FAIL(2008, "兄弟,你该不会是程序员吧?"),
+    NOTIFICATION_NOT_FOUND(2009, "消息不翼而飞了?");
 
     private Integer code;
     private String message;

@@ -10,17 +10,13 @@ import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.CommentService;
 import org.apache.commons.lang3.StringUtils;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author Lxj
@@ -37,7 +33,7 @@ public class CommentController {
     /**
      * 发布回复
      *
-     * @param commentReceiveDTO
+     * @param commentReceiveDTO 发布回复的DTO模型
      * @param request
      * @return
      */
@@ -45,10 +41,12 @@ public class CommentController {
     @PostMapping("/comment")
     public Object addComment(@RequestBody CommentReceiveDTO commentReceiveDTO,
                              HttpServletRequest request) {
+        //当用户未登录时提示用户登录
         User user = (User) request.getSession().getAttribute("user");
         if (user == null) {
             return ResultDTO.errorOf(ErrorCode.NO_LOGIN);
         }
+        //评论判空处理
         if (commentReceiveDTO == null || StringUtils.isBlank(commentReceiveDTO.getContent())) {
             return ResultDTO.errorOf(ErrorCode.COMMENT_IS_EMPTY);
         }
@@ -58,12 +56,17 @@ public class CommentController {
         comment.setContent(commentReceiveDTO.getContent());
         comment.setGmtCreate(DateFormat.dateFormat(new Date()));
         comment.setCommentator(user.getId());
+        //插入回复
         commentService.insertSelective(comment, user);
-        Map<Object, Object> hashMap = new HashMap<>();
-        hashMap.put("message", "成功");
         return ResultDTO.okOf();
     }
 
+    /**
+     * 删除回复
+     *
+     * @param commentId 回复id
+     * @return
+     */
     @ResponseBody
     @DeleteMapping("/comment")
     public Object delComment(String commentId) {
@@ -71,6 +74,12 @@ public class CommentController {
         return ResultDTO.okOf();
     }
 
+    /**
+     * 获取所有二级回复
+     *
+     * @param id 二级回复id
+     * @return
+     */
     @ResponseBody
     @GetMapping("/comment/{id}")
     public ResultDTO<List<CommentReturnDTO>> getComments(@PathVariable(name = "id") String id) {

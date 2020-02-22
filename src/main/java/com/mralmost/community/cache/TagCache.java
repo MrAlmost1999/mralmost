@@ -9,11 +9,16 @@ import java.util.List;
 /**
  * @author Lxj
  * @Package com.mralmost.community.cache
- * @Description TODO
+ * @Description TODO 简陋的标签库
  * @date: 2020/2/18
  */
 public class TagCache {
 
+    /**
+     * 获取标签
+     *
+     * @return
+     */
     public static List<TagDTO> getTags() {
         List<TagDTO> tagDTOS = new ArrayList<>();
         TagDTO program = new TagDTO();

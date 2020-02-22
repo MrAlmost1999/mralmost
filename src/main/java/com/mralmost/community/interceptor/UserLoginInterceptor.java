@@ -1,7 +1,7 @@
 package com.mralmost.community.interceptor;
 
-import com.mralmost.community.mapper.UserMapper;
 import com.mralmost.community.model.User;
+import com.mralmost.community.service.NotificationService;
 import com.mralmost.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +24,9 @@ public class UserLoginInterceptor implements HandlerInterceptor {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private NotificationService notificationService;
+
     //执行前
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
@@ -36,6 +39,9 @@ public class UserLoginInterceptor implements HandlerInterceptor {
                     User user = userService.findByToken(token);
                     if (user != null) {
                         request.getSession().setAttribute("user", user);
+                        //未读通知
+                        Long unreadMessage = notificationService.unreadCount(user.getId());
+                        request.setAttribute("unreadMessage", unreadMessage);
                     }
                 }
             }

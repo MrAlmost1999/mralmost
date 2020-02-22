@@ -96,6 +96,13 @@ public class PublishController {
         return "redirect:/";
     }
 
+    /**
+     * 编辑问题
+     *
+     * @param id
+     * @param model
+     * @return
+     */
     @GetMapping("/publish/{id}")
     public String edit(@PathVariable(name = "id") String id,
                        Model model) {

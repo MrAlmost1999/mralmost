@@ -29,7 +29,7 @@ public class CustomizeExceptionHandler {
                          Throwable e,
                          Model model) {
         String contentType = request.getContentType();
-        //时json请求则返回错误信息,不是则返回错误页面
+        //是json请求则返回错误信息,不是则返回错误页面
         if ("application/json".equals(contentType)) {
             ResultDTO resultDTO;
             if (e instanceof CustomException) {

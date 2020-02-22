@@ -1,17 +1,18 @@
 package com.mralmost.community.service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.mralmost.community.dto.NotificationDTO;
 import com.mralmost.community.enums.NotificationEnum;
+import com.mralmost.community.enums.NotificationStatusEnum;
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.mapper.NotificationMapper;
 import com.mralmost.community.model.Notification;
 import com.mralmost.community.model.NotificationExample;
+import com.mralmost.community.model.User;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,22 +33,37 @@ public class NotificationService {
      * @param userId 用户id
      * @return
      */
-    public PageInfo findAll(Integer pageNum, Long userId) {
+    public List<Notification> findAll(Long userId) {
         NotificationExample notificationExample = new NotificationExample();
         notificationExample.createCriteria()
                 .andReceiverEqualTo(userId);
-        //设置起始页码和每页最大显示数量
+        notificationExample.setOrderByClause("gmt_create desc");
         List<Notification> notifications = notificationMapper.selectByExample(notificationExample);
-        PageHelper.startPage(pageNum, 6);
-        List<NotificationDTO> notificationDTOS = new ArrayList<>();
-        for (Notification n : notifications) {
-            NotificationDTO notificationDTO = new NotificationDTO();
-            BeanUtils.copyProperties(n, notificationDTO);
-            notificationDTO.setType(NotificationEnum.nameOfType(n.getType()));
-            notificationDTOS.add(notificationDTO);
+        return notifications;
+    }
+
+    public Long unreadCount(Long userId) {
+        NotificationExample notificationExample = new NotificationExample();
+        notificationExample.createCriteria()
+                .andReceiverEqualTo(userId)
+                .andStatusEqualTo(NotificationStatusEnum.UNREAD.getStatus());
+        return notificationMapper.countByExample(notificationExample);
+    }
+
+    public NotificationDTO read(Long id, User user) {
+        Notification notification = notificationMapper.selectByPrimaryKey(id);
+        if (notification == null) {
+            throw new CustomException(ErrorCode.NOTIFICATION_NOT_FOUND);
         }
-        //设置连续显示的页数
-        PageInfo<NotificationDTO> pageInfo = new PageInfo<NotificationDTO>(notificationDTOS, 5);
-        return pageInfo;
+        if (!notification.getReceiver().equals(user.getId())) {
+            throw new CustomException(ErrorCode.READ_NOTIFICATION_FAIL);
+        }
+        notification.setStatus(NotificationStatusEnum.READ.getStatus());
+        notificationMapper.updateByPrimaryKey(notification);
+
+        NotificationDTO notificationDTO = new NotificationDTO();
+        BeanUtils.copyProperties(notification, notificationDTO);
+        notificationDTO.setTypeName(NotificationEnum.nameOfType(notification.getType()));
+        return notificationDTO;
     }
 }
