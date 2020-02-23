@@ -106,11 +106,12 @@ body {
     color: #499ef3;
 }
 
-.comment-count {
+/*question:回复评论总数*/
+.question-comment-count {
     cursor: pointer;
 }
 
-.comment-count:hover {
+.question-comment-count:hover {
     color: #499ef3;
 }
 
@@ -125,6 +126,7 @@ body {
     color: #499ef3;
 }
 
+/*question:外层二级回复*/
 .second-comment {
     border-radius: 5px;
     margin-top: 10px;
@@ -132,6 +134,7 @@ body {
     padding-top: 5px;
 }
 
+/*question:内层二级回复*/
 .second-comment-box {
     margin-top: 15px;
 }
@@ -160,31 +163,59 @@ body {
     padding-left: 0;
 }
 
-.question-title {
-    font-size: 20px;
+/*所有问题的标题*/
+.questions-title {
+    font-size: 18px;
 }
 
+/*设置a标签获得鼠标移上去的颜色和去掉下划线*/
 a:hover {
     text-decoration: none;
     color: red;
 }
 
+/*question:qq二维码*/
 .question-qq-img {
     width: 100%;
 }
 
+/*publish:选择标签栏*/
 #publish-select-tag {
     display: none;
     margin-top: 10px;
 }
 
+/*publish:*/
 .publish-tag {
     cursor: pointer;
     margin-right: 5px;
     font-size: 14px;
-
 }
 
+/*publish:标签选择组件*/
 .tab-pane {
     margin-top: 10px;
 }
+
+/*profile:右边选择标签选中之后的背景颜色*/
+.profile-active {
+    background: #777;
+}
+
+/*profile:右边选择标签选中之后的a标签颜色*/
+.profile-active a {
+    color: white;
+}
+
+/*profile:右边选择标签未选中a标签颜色*/
+.unchecked a {
+    color: #777;
+}
+
+/*消息提示*/
+.unreadMessage {
+    color: white;
+    background-color: #d9534f;
+}
+
+

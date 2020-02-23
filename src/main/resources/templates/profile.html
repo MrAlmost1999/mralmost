@@ -36,14 +36,14 @@
                         </div>
                         <div class="media-body">
                             <a th:href="@{'/question/'+${question.id}}">
-                            <span class="media-heading question-title"
-                                  th:text="${question.title}"></span>
-                            </a>
-                            <br>
+                                <span class="media-heading questions-title"
+                                      th:text="${question.title}">
+                                </span>
+                            </a><br>
                             <span class="text-desc">
-                            [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
+                                [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
                                     th:text="${question.gmtCreate}"></span>
-                        </span>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -97,11 +97,14 @@
         <!-- 右边 -->
         <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
             <div class="list-group section">
-                <a th:href="@{/profile/questions/1}"
-                   th:class="${section=='questions'}?'list-group-item active':'list-group-item'">我的问题</a>
-                <a th:href="@{/profile/replies/1}"
-                   th:class="${section=='replies'}?'list-group-item active':'list-group-item'">
-                    最新回复<span class="badge" th:text="${unreadMessage}"></span></a>
+                <div th:class="${section=='questions'}?'list-group-item profile-active':'list-group-item unchecked'">
+                    <a th:href="@{/profile/questions/1}">我的问题</a>
+                </div>
+                <div th:class="${section=='replies'}?'list-group-item profile-active':'list-group-item unchecked'">
+                    <a th:href="@{/profile/replies/1}">最新回复
+                        <span class="badge pull-right unreadMessage" th:text="${unreadMessage}"></span>
+                    </a>
+                </div>
             </div>
         </div>
 

@@ -52,4 +52,18 @@ public interface QuestionCustomMapper {
      */
     List<Question> selectRelated(Question question);
 
+    /**
+     * 查询最热问题
+     *
+     * @return
+     */
+    List<Question> selectByHottest();
+
+    /**
+     * 查询最新问题
+     *
+     * @return
+     */
+    List<Question> selectByNewset();
+
 }

@@ -94,6 +94,12 @@ public class QuestionService {
         }
     }
 
+    /**
+     * 根据标签查询相关的内容
+     *
+     * @param queryDTO
+     * @return
+     */
     public List<QuestionDTO> selectRelated(QuestionDTO queryDTO) {
         if (StringUtils.isBlank(queryDTO.getTag())) {
             return new ArrayList<>();
@@ -108,5 +114,23 @@ public class QuestionService {
             return questionDTO;
         }).collect(Collectors.toList());
         return questionDTOList;
+    }
+
+    /**
+     * 查询最热问题
+     *
+     * @return
+     */
+    public List<Question> selectByHottest() {
+        return questionCustomMapper.selectByHottest();
+    }
+
+    /**
+     * 查询最新问题
+     *
+     * @return
+     */
+    public List<Question> selectByNewset() {
+        return questionCustomMapper.selectByNewset();
     }
 }
