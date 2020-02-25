@@ -51,7 +51,6 @@ public class IndexController {
             //设置连续显示的页数
             PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);
             model.addAttribute("pageInfo", pageInfo);
-            model.addAttribute("search", search);
         }
         model.addAttribute("hottest", questionService.selectByHottest());
         model.addAttribute("newset", questionService.selectByNewset());
