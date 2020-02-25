@@ -9,7 +9,9 @@ public enum ErrorCode implements CustomErrorCode {
     COMMENT_NOT_FOUNT(2006, "回复的评论不存在了,要不要换个试试?"),
     COMMENT_IS_EMPTY(2007, "评论内容不能为空!"),
     READ_NOTIFICATION_FAIL(2008, "兄弟,你该不会是程序员吧?"),
-    NOTIFICATION_NOT_FOUND(2009, "消息不翼而飞了?");
+    NOTIFICATION_NOT_FOUND(2009, "消息不翼而飞了?"),
+    FILE_UPLOAD_FAIL(20010, "蹄片上传失败"),
+    ;
 
     private Integer code;
     private String message;

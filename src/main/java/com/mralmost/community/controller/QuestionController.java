@@ -3,6 +3,7 @@ package com.mralmost.community.controller;
 import com.mralmost.community.date.DateFormat;
 import com.mralmost.community.dto.CommentReturnDTO;
 import com.mralmost.community.dto.QuestionDTO;
+import com.mralmost.community.dto.ResultDTO;
 import com.mralmost.community.enums.CommentTypeEnum;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
@@ -13,8 +14,10 @@ import com.mralmost.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
@@ -37,7 +40,7 @@ public class QuestionController {
 
     /**
      * @param id    问题主键id
-     * @param model
+     * @param model 获取问题
      * @return
      */
     @GetMapping("/question/{id}")
@@ -71,6 +74,17 @@ public class QuestionController {
         }
 
         return "question";
+    }
+
+    @ResponseBody
+    @DeleteMapping("/delete")
+    public ResultDTO delete(String id) {
+        try {
+            questionService.deleteByPrimaryKey(Long.valueOf(id));
+        } catch (NumberFormatException e) {
+            throw new CustomException(ErrorCode.SYSTEM_ERROR);
+        }
+        return ResultDTO.okOf();
     }
 
 }

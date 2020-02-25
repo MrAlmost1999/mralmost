@@ -37,11 +37,17 @@ public class NotificationService {
         NotificationExample notificationExample = new NotificationExample();
         notificationExample.createCriteria()
                 .andReceiverEqualTo(userId);
-        notificationExample.setOrderByClause("gmt_create desc");
+        notificationExample.setOrderByClause("gmt_create and status=0 desc");
         List<Notification> notifications = notificationMapper.selectByExample(notificationExample);
         return notifications;
     }
 
+    /**
+     * 未读通知数
+     *
+     * @param userId
+     * @return
+     */
     public Long unreadCount(Long userId) {
         NotificationExample notificationExample = new NotificationExample();
         notificationExample.createCriteria()
@@ -50,6 +56,13 @@ public class NotificationService {
         return notificationMapper.countByExample(notificationExample);
     }
 
+    /**
+     * 所有通知
+     *
+     * @param id
+     * @param user
+     * @return
+     */
     public NotificationDTO read(Long id, User user) {
         Notification notification = notificationMapper.selectByPrimaryKey(id);
         if (notification == null) {

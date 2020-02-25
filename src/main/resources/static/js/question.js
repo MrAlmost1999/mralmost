@@ -83,10 +83,10 @@ $(".open-second-comment").click(function () {
                         var userId = $("#user-id").val();
                         if (userId != null) {
                             if (userId == comment.commentator) {
-                                var deleteBodyElement = $("<button/>", {
-                                    "class": "pull-right glyphicon glyphicon-trash icon btn-delete-comment",
-                                    "value": comment.id
-                                });
+                                var deleteBodyElement = $("<span/>", {
+                                    "class": "pull-right btn-delete-comment icon",
+                                    "data-id": comment.id,
+                                }).append("<img src='/images/delete-btn-18x18.png'/>", {});
                                 mediaBodyElement.append(deleteBodyElement);
                             }
                         }
@@ -134,7 +134,7 @@ $(document).on("click", ".btn-delete-comment", function () {
             type: "DELETE",
             dataType: "json",
             data: {
-                "commentId": $(this).val()
+                "commentId": $(this).attr("data-id")
             },
             success: function (data) {
                 alert("删除成功");

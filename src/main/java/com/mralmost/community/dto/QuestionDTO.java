@@ -57,5 +57,9 @@ public class QuestionDTO {
      * 问题发布用户信息
      */
     private User user;
+    /**
+     * 搜索条件
+     */
+    private String search;
 
 }

@@ -40,10 +40,23 @@ public class QuestionService {
     @Autowired
     private UserMapper userMapper;
 
-    public List<QuestionDTO> findAll() {
-        return questionCustomMapper.selectQuestionWithUser();
+    /**
+     * 查询所有问题
+     *
+     * @return
+     */
+    public List<QuestionDTO> findQuestion(String search) {
+        QuestionDTO questionDTO = new QuestionDTO();
+        questionDTO.setSearch(search);
+        return questionCustomMapper.selectQuestionWithUser(questionDTO);
     }
 
+    /**
+     * 根据问题的creator列查询问题和相关用户信息
+     *
+     * @param creator
+     * @return
+     */
     public List<QuestionDTO> findByCreator(Long creator) {
         return questionCustomMapper.selectQuestionWithUserByCreator(creator);
     }
@@ -133,4 +146,9 @@ public class QuestionService {
     public List<Question> selectByNewset() {
         return questionCustomMapper.selectByNewset();
     }
+
+    public void deleteByPrimaryKey(Long id) {
+        questionMapper.deleteByPrimaryKey(id);
+    }
+
 }

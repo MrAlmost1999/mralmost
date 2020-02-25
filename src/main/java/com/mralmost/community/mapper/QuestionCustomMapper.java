@@ -20,7 +20,7 @@ public interface QuestionCustomMapper {
      *
      * @return
      */
-    List<QuestionDTO> selectQuestionWithUser();
+    List<QuestionDTO> selectQuestionWithUser(QuestionDTO questionDTO);
 
     /**
      * 查询所有问题和相关作者信息

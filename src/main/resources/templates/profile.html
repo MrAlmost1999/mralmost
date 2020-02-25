@@ -19,7 +19,10 @@
         <!-- 左边 -->
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 body_left">
             <h3>
-                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> [[${sectionName}]]
+                <h3>
+                    <img th:src="${sectionName} eq '我的提问' ? '/images/question.png' : '/images/revert.png' ">
+                    [[${sectionName}]]
+                </h3>
                 <span class="alert alert-danger error" th:if="${error!=null}" th:text="${error}"></span>
             </h3>
             <hr>
@@ -43,6 +46,10 @@
                             <span class="text-desc">
                                 [[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
                                     th:text="${question.gmtCreate}"></span>
+                                <a href="javascript:void(0)" class="delete-btn" th:data-id="${question.id}">
+                                    <img class="pull-right" th:if="${session.user!=null}"
+                                         th:src="${session.user.id==question.creator?'/images/delete-btn-18x18.png':''}"/>
+                                </a>
                             </span>
                         </div>
                     </div>
@@ -111,6 +118,6 @@
     </div>
 
 </div>
-
+<script type="application/javascript" src="/js/profile.js" th:src="@{/js/profile.js}"></script>
 </body>
 </html>

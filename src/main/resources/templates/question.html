@@ -77,9 +77,10 @@
                         <span><a href="#" class="media-heading username" th:text="${comment.user.name}"></a></span>
 
                         <span th:if="${session.user!=null}">
-                            <button th:if="${comment.commentator==session.user.getId()}"
-                                    class="pull-right glyphicon glyphicon-trash icon btn-delete-comment"
-                                    th:value="${comment.id}"></button>
+                            <span th:data-id="${comment.id}" class="pull-right btn-delete-comment icon"
+                                  th:if="${comment.commentator==session.user.getId()}">
+                                <img th:src="@{/images/delete-btn-18x18.png}">
+                            </span>
                             <input type="hidden" id="user-id" th:value="${session.user.getId()}">
                         </span>
                         <div th:text="${comment.content}"></div>

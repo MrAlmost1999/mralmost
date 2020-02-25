@@ -5,8 +5,8 @@ body {
 /*设置界面格式*/
 .main {
     margin-top: 2%;
-    margin-right: 13%;
-    margin-left: 13%;
+    margin-right: 3%;
+    margin-left: 3%;
     background-color: white;
 }
 
@@ -37,10 +37,11 @@ body {
 
 /*发布界面主体框*/
 .text-desc {
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     color: #999;
 }
+
 
 /*分页导航*/
 .pagination {
@@ -155,10 +156,10 @@ body {
     display: inline-block;
 }
 
-/*相关问题*/
+/*相关问题&热门话题&最新话题*/
 .question-related {
     line-height: 20px;
-    font-size: 12px;
+    font-size: 16px;
     list-style: none;
     padding-left: 0;
 }
@@ -216,6 +217,13 @@ a:hover {
 .unreadMessage {
     color: white;
     background-color: #d9534f;
+}
+
+.question-not-found {
+    margin-left: 39%;
+    margin-top: 3%;
+    color: #777;
+    font-size: 14px;
 }
 
 
