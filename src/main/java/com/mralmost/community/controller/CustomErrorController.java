@@ -1,5 +1,7 @@
 package com.mralmost.community.controller;
 
+import com.mralmost.community.exception.CustomException;
+import com.mralmost.community.exception.ErrorCode;
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -26,13 +28,13 @@ public class CustomErrorController implements ErrorController {
     }
 
     @RequestMapping(produces = MediaType.TEXT_HTML_VALUE)
-    public ModelAndView errorHtml(HttpServletRequest request, Model model) {
+    public ModelAndView errorHtml(HttpServletRequest request) {
         HttpStatus status = getStatus(request);
         if (status.is4xxClientError()) {
-            model.addAttribute("message", "你这个请求错了吧，要不然换个姿势？");
+            throw new CustomException(ErrorCode.REQUEST_ERROR);
         }
         if (status.is5xxServerError()) {
-            model.addAttribute("message", "服务冒烟了，要不然你稍后再试试！！！");
+            throw new CustomException(ErrorCode.SYSTEM_ERROR);
         }
         return new ModelAndView("error");
     }

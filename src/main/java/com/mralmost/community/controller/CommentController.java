@@ -9,6 +9,7 @@ import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.Comment;
 import com.mralmost.community.model.User;
 import com.mralmost.community.service.CommentService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ import java.util.List;
  * @date: 2020/1/30
  */
 @Controller
+@Slf4j
 public class CommentController {
 
     @Autowired

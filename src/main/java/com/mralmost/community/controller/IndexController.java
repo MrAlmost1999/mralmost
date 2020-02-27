@@ -46,7 +46,11 @@ public class IndexController {
         List<QuestionDTO> questionList = questionService.findQuestion(search);
         //当访问返回的数据为null时,显示异常信息
         if (questionList.size() == 0) {
-            model.addAttribute("questionNotFound", "暂时还没有人发布问题哦,你要成为第一个发起人吗?");
+            if (search != null && search.trim() != null) {
+                model.addAttribute("questionNotFound", "暂时还没有人发布问题哦,你要成为第一个发起人吗?");
+            } else {
+                model.addAttribute("questionNotFound", "你找的问题不存在或者已经删除了,要不再看看其他的吧?");
+            }
         } else {
             //设置连续显示的页数
             PageInfo<QuestionDTO> pageInfo = new PageInfo<QuestionDTO>(questionList, 5);

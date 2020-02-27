@@ -5,6 +5,7 @@ import com.mralmost.community.dto.GithubUser;
 import com.mralmost.community.model.User;
 import com.mralmost.community.provider.GithubProvider;
 import com.mralmost.community.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,7 @@ import java.util.UUID;
  * @date: 2020/1/9
  */
 @Controller
+@Slf4j
 public class AuthorizeController {
 
     @Autowired
@@ -90,6 +92,7 @@ public class AuthorizeController {
         request.getSession().removeAttribute("user");
         Cookie token = new Cookie("token", null);
         token.setMaxAge(0);
+        token.setPath("/");
         response.addCookie(token);
         return "redirect:/";
     }

@@ -17,7 +17,7 @@
 <div class="container-fluid main">
     <div class="row">
         <!-- 左边 -->
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 body_left">
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 body-left">
             <h3>
                 <img th:src="@{/images/discover-24x24.png}"> 发现
                 <span class="alert alert-danger error" th:if="${error!=null}" th:text="${error}"></span>
@@ -25,7 +25,7 @@
             <hr>
 
             <!-- 分页数据 -->
-            <div th:if="${pageInfo!=null}">
+            <div th:if="${pageInfo!=null}" class="main-body">
                 <div class="media" th:each="question : ${pageInfo.list}">
                     <div class="media-left">
                         <a href="#">
@@ -48,7 +48,7 @@
                 </div>
 
                 <!-- 分页栏 -->
-                <nav aria-label="Page navigation pagination">
+                <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li th:if="${not pageInfo.isFirstPage}">
                             <a href="#" th:href="@{/(1)}">
@@ -77,6 +77,7 @@
 
             </div>
             <h5 class="question-not-found" th:text="${questionNotFound}"></h5>
+
         </div>
 
         <!-- 右边 -->
@@ -102,6 +103,11 @@
     </div>
 
 </div>
+
+<!-- 版权信息 -->
+<div th:replace="footer :: foot"></div>
+
+
 <script type="application/javascript">
     $(function () {
         var item = window.localStorage.getItem("closable");

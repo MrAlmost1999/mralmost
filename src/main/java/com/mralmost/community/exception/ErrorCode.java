@@ -10,7 +10,8 @@ public enum ErrorCode implements CustomErrorCode {
     COMMENT_IS_EMPTY(2007, "评论内容不能为空!"),
     READ_NOTIFICATION_FAIL(2008, "兄弟,你该不会是程序员吧?"),
     NOTIFICATION_NOT_FOUND(2009, "消息不翼而飞了?"),
-    FILE_UPLOAD_FAIL(20010, "蹄片上传失败"),
+    FILE_UPLOAD_FAIL(20010, "图片上传失败!"),
+    REQUEST_ERROR(20011, "你这个请求错了吧，要不然换个姿势？"),
     ;
 
     private Integer code;
