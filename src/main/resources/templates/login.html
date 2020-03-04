@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Kodinger">
+    <title>MrAlmost - 登录</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/css/login.css" th:href="@{/css/login.css}">
+</head>
+<body class="my-login-page">
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center h-100">
+            <div class="card-wrapper">
+                <div class="brand">
+                    <a th:href="@{/login}">
+                        <img th:src="@{/images/logo.png}">
+                    </a>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">登录</h4>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="username">账号:</label>
+                                <input id="username" type="username" class="form-control"
+                                       th:value="${session.remember!=null?session.remember.username:''}"
+                                       name="username" required autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">密码:
+                                    <a href="forgot.html" class="float-right">
+                                        忘记密码?
+                                    </a>
+                                </label>
+                                <input id="password" type="password" class="form-control"
+                                       th:value="${session.remember!=null?session.remember.password:''}"
+                                       name="password" required data-eye>
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input type="checkbox" id="remember"
+                                           th:checked="${session.remember!=null?'checked':''}"> 记住我
+                                </label>
+                            </div>
+                            <div class="form-group no-margin">
+                                <button type="button" class="btn btn-primary btn-block" id="btn-login">
+                                    登录
+                                </button>
+                            </div>
+                            <div>
+                                <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.fc94755b2e36e7af',redirect_uri=${#httpServletRequest.getRequestURL()}+'githubCallback',scope='user',state=1)}">
+                                    <img class="login-brand" th:src="@{/images/github.png}">
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <img class="login-brand" th:src="@{/images/QQ.png}">
+                                </a>
+                                <a href="javascript:void(0)">
+                                    <img class="login-brand" th:src="@{/images/wechat.png}">
+                                </a>
+                            </div>
+                            <div class="text-center">
+                                没有账号? <a th:href="@{/register}">创建一个</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="application/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="application/javascript" src="/js/login.js" th:src="@{/js/login.js}"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+alter table register_user add COLUMN email varchar(50) COMMENT '邮箱';

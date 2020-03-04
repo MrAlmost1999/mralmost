@@ -12,10 +12,6 @@ html, body {
     height: 80%;
 }
 
-.main-body {
-    height: 60%;
-}
-
 /*发布按钮*/
 .btn-publish {
     float: right;
@@ -79,6 +75,7 @@ html, body {
 
 /*错误页面*/
 .errorPage {
+    height: 80%;
     margin: 45px;
 }
 

@@ -1,10 +1,10 @@
 package com.mralmost.community.controller;
 
 import com.mralmost.community.dto.AccessTokenDTO;
-import com.mralmost.community.dto.GithubUser;
-import com.mralmost.community.model.User;
+import com.mralmost.community.dto.GithubUserDTO;
+import com.mralmost.community.model.GithubUser;
 import com.mralmost.community.provider.GithubProvider;
-import com.mralmost.community.service.UserService;
+import com.mralmost.community.service.GithubUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -25,7 +25,7 @@ import java.util.UUID;
  */
 @Controller
 @Slf4j
-public class AuthorizeController {
+public class GithubUserController {
 
     @Autowired
     private GithubProvider gitHubProvider;
@@ -40,7 +40,7 @@ public class AuthorizeController {
     private String redirectUri;
 
     @Autowired
-    private UserService userService;
+    private GithubUserService githubUserService;
 
     /**
      * 保存用户信息
@@ -50,10 +50,10 @@ public class AuthorizeController {
      * @param response
      * @return
      */
-    @GetMapping("/callback")
-    public String callback(@RequestParam("code") String code,
-                           @RequestParam("state") String state,
-                           HttpServletResponse response) {
+    @GetMapping("/githubCallback")
+    public String githubCallback(@RequestParam(name = "code") String code,
+                                 @RequestParam(name = "state") String state,
+                                 HttpServletResponse response) {
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setClient_id(clientId);
         accessTokenDTO.setClient_secret(clientSecret);
@@ -61,17 +61,21 @@ public class AuthorizeController {
         accessTokenDTO.setRedirect_uri(redirectUri);
         accessTokenDTO.setState(state);
         String accessToken = gitHubProvider.getAccessToken(accessTokenDTO);
-        GithubUser githubUser = gitHubProvider.getUser(accessToken);
-        if (githubUser != null && githubUser.getId() != null) {
+        GithubUserDTO githubUserDTO = gitHubProvider.getUser(accessToken);
+        if (githubUserDTO != null && githubUserDTO.getId() != null) {
             //登录成功
-            User user = new User();
+            GithubUser githubUser = new GithubUser();
             String token = UUID.randomUUID().toString();
-            user.setToken(token);
-            user.setName(githubUser.getName());
-            user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setAvatarUrl(githubUser.getAvatarUrl());
+            githubUser.setToken(token);
+            githubUser.setUsername(githubUserDTO.getUsername());
+            githubUser.setAccountId(String.valueOf(githubUserDTO.getId()));
+            githubUser.setAvatar(githubUserDTO.getAvatarUrl());
+            Cookie cookie = new Cookie("token", token);
+            cookie.setMaxAge(60 * 60 * 24 * 30);
+            cookie.setPath("/");
+            response.addCookie(cookie);
             //首次登陆则添加,不是则根据实际情况修改用户信息
-            userService.createOrUpdate(user, response);
+            githubUserService.createOrUpdate(githubUser);
             return "redirect:/";
         } else {
             //登录失败
@@ -89,11 +93,15 @@ public class AuthorizeController {
     @GetMapping("/logOut")
     public String logOut(HttpServletRequest request,
                          HttpServletResponse response) {
-        request.getSession().removeAttribute("user");
+        request.getSession().removeAttribute("userInfo");
         Cookie token = new Cookie("token", null);
+        Cookie register = new Cookie("register", null);
         token.setMaxAge(0);
         token.setPath("/");
+        register.setMaxAge(0);
+        register.setPath("/");
         response.addCookie(token);
+        response.addCookie(register);
         return "redirect:/";
     }
 }

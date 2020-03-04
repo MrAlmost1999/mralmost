@@ -25,7 +25,7 @@
             <hr>
 
             <!-- 分页数据 -->
-            <div th:if="${pageInfo!=null}" class="main-body">
+            <div th:if="${pageInfo!=null}">
                 <div class="media" th:each="question : ${pageInfo.list}">
                     <div class="media-left">
                         <a href="#">

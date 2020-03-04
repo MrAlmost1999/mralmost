@@ -2,7 +2,7 @@ package com.mralmost.community.provider;
 
 import com.alibaba.fastjson.JSON;
 import com.mralmost.community.dto.AccessTokenDTO;
-import com.mralmost.community.dto.GithubUser;
+import com.mralmost.community.dto.GithubUserDTO;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -26,17 +26,16 @@ public class GithubProvider {
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-            //  access_token=a0c8b6427ea4ced8bed0555b298f5c40f7a0e328&scope=&token_type=bearer
             String string = response.body().string();
             String token = string.split("&")[0].split("=")[1];
             return token;
         } catch (Exception e) {
             e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
-    public GithubUser getUser(String access_token) {
+    public GithubUserDTO getUser(String access_token) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.github.com/user?access_token=" + access_token)
@@ -44,10 +43,11 @@ public class GithubProvider {
         try {
             Response response = client.newCall(request).execute();
             String string = response.body().string();
-            GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
+            GithubUserDTO githubUser = JSON.parseObject(string, GithubUserDTO.class);
             return githubUser;
         } catch (IOException e) {
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 }

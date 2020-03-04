@@ -1,9 +1,6 @@
 package com.mralmost.community.dto;
 
-import com.mralmost.community.model.User;
 import lombok.Data;
-
-import java.util.Date;
 
 /**
  * @author Lxj
@@ -56,7 +53,7 @@ public class QuestionDTO {
     /**
      * 问题发布用户信息
      */
-    private User user;
+    private Object userInfo;
     /**
      * 搜索条件
      */

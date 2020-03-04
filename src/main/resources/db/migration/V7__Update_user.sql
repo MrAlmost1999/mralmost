@@ -1,0 +1,1 @@
+alter table github_user change name username varchar(50);

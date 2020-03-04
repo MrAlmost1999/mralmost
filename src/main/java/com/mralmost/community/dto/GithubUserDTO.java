@@ -9,7 +9,7 @@ import lombok.Data;
  * @date: 2020/1/9
  */
 @Data
-public class GithubUser {
+public class GithubUserDTO {
     /**
      * 用户id
      */
@@ -17,7 +17,7 @@ public class GithubUser {
     /**
      * 用户昵称
      */
-    private String name;
+    private String username;
     /**
      * 用户个人简历
      */

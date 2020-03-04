@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/css/email.css" th:href="@{/css/email.css}">
+</head>
+<body>
+<div class="content">
+    <h1 class="email-title">验证邮件已发送到您的邮箱
+        请尽快完成注册哦~</h1>
+    <div class="email-content">
+        <img alt="" src="${pageContext.request.contextPath}/res/images/fore/WebsiteImage/email.png">
+        <h4>我们已向[[${session.registerUserDTO.getEmail()}]]发送验证邮箱,登录邮箱点击激活链接即可完成注册</h4><br>
+    </div>
+    <div class="go-login">
+        <h4><a th:href="@{/}" role="button">已注册?去登陆</a></h4>
+    </div>
+</div>
+<!-- 版权信息 -->
+<h5 class="footer">Copying © 2020 · MrAlmost · 服务器赞助：UCloud · 网站程序：Spring Boot · 湘ICP备000001号</h5>
+</body>
+<script type="application/javascript" src="/js/email.js" th:src="@{/js/email.js}"></script>
+</html>
