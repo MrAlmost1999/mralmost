@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mralmost.community.mapper.QuestionCustomMapper">
+    <resultMap id="QuestionWithUserMap" type="com.mralmost.community.dto.QuestionDTO">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="description" jdbcType="LONGVARCHAR" property="description"/>
+        <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+        <result column="modified_time" jdbcType="VARCHAR" property="modifiedTime"/>
+        <result column="creator" jdbcType="BIGINT" property="creator"/>
+        <result column="comment_count" jdbcType="INTEGER" property="commentCount"/>
+        <result column="view_count" jdbcType="INTEGER" property="viewCount"/>
+        <result column="like_count" jdbcType="INTEGER" property="likeCount"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="publish_type" jdbcType="VARCHAR" property="publishType"/>
+        <association property="user" javaType="com.mralmost.community.model.User">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+            <result column="password" property="password"/>
+            <result column="avatar" property="avatar"/>
+            <result column="create_time" property="createTime"/>
+            <result column="last_date" property="lastDate"/>
+            <result column="sign" property="sign"/>
+            <result column="code" property="code"/>
+            <result column="email" property="email"/>
+            <result column="publish_type" property="publishType"/>
+            <result column="account_id" property="accountId"/>
+        </association>
+    </resultMap>
+    <resultMap id="BaseResultMap" type="com.mralmost.community.model.Question">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="create_time" jdbcType="VARCHAR" property="createTime"/>
+        <result column="modified_time" jdbcType="VARCHAR" property="modifiedTime"/>
+        <result column="creator" jdbcType="BIGINT" property="creator"/>
+        <result column="comment_count" jdbcType="INTEGER" property="commentCount"/>
+        <result column="view_count" jdbcType="INTEGER" property="viewCount"/>
+        <result column="like_count" jdbcType="INTEGER" property="likeCount"/>
+        <result column="tag" jdbcType="VARCHAR" property="tag"/>
+        <result column="publish_type" jdbcType="VARCHAR" property="publishType"/>
+        <result column="description" jdbcType="LONGVARCHAR" property="description"/>
+    </resultMap>
+    <sql id="Where_Clause">
+        <if test="search != null">
+            <where>
+                and (q.title regexp #{search} or q.description regexp #{search} or q.tag regexp #{search})
+            </where>
+        </if>
+    </sql>
+    <sql id="Base_Column_List">
+      q.id, q.title, q.create_time, q.modified_time, q.creator, q.comment_count, q.view_count, q.like_count,
+      q.tag, q.publish_type, q.description
+    </sql>
+    <sql id="With_By_User">
+      u.id, u.username, u.password, u.avatar, u.create_time, u.last_date, u.sign, u.code,
+      u.email, u.publish_type,  u.account_id
+    </sql>
+    <select id="findQuestionWithUser" parameterType="com.mralmost.community.dto.QuestionDTO"
+            resultMap="QuestionWithUserMap">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="With_By_User"/>
+        from question q,user u
+        <where>
+            and q.creator=u.id
+        </where>
+        <include refid="Where_Clause"/>
+    </select>
+    <select id="selectByHottestQuestion" resultMap="BaseResultMap">
+        select * from question order by view_count desc,comment_count desc limit 5;
+    </select>
+    <select id="selectByNewsetQuestion" resultMap="BaseResultMap">
+       select * from question order by create_time desc limit 5
+    </select>
+    <select id="selectRelated" parameterType="com.mralmost.community.model.Question" resultMap="BaseResultMap">
+        select * from question where id!=#{id} and tag regexp #{tag}
+    </select>
+    <select id="findByCreator" parameterType="java.lang.Long" resultMap="QuestionWithUserMap">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="With_By_User"/>
+        from question q,user u
+        <where>
+            and q.creator=#{userId} and q.creator=u.id
+        </where>
+    </select>
+    <update id="incQuestionCommentCount" parameterType="com.mralmost.community.model.Question">
+        update question set
+        comment_count = comment_count+1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateViewCountAndModifiedTime" parameterType="com.mralmost.community.model.Question">
+        update question set
+        modified_time = #{modifiedTime,jdbcType=BIGINT},
+        view_count = view_count+1
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -49,7 +49,7 @@
                                 </button>
                             </div>
                             <div>
-                                <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.fc94755b2e36e7af',redirect_uri=${#httpServletRequest.getRequestURL()}+'githubCallback',scope='user',state=1)}">
+                                <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.fc94755b2e36e7af',redirect_uri=${#httpServletRequest.getServletContext().getAttribute('redirectUri')},scope='user',state=1)}">
                                     <img class="login-brand" th:src="@{/images/github.png}">
                                 </a>
                                 <a href="javascript:void(0)">

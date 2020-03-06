@@ -4,8 +4,8 @@ import com.mralmost.community.cache.TagCache;
 import com.mralmost.community.dto.QuestionDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
-import com.mralmost.community.model.GithubUser;
 import com.mralmost.community.model.Question;
+import com.mralmost.community.model.User;
 import com.mralmost.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -76,9 +76,9 @@ public class PublishController {
         }
 
         //获取用户的登录态
-        GithubUser githubUser = (GithubUser) request.getSession().getAttribute("githubUser");
+        User userInfo = (User) request.getSession().getAttribute("userInfo");
         //当用户未登录时添加错误信息和发布的内容用于回显
-        if (githubUser == null) {
+        if (userInfo == null) {
             model.addAttribute("error", "请先登录!");
             return "publish";
         }
@@ -88,8 +88,8 @@ public class PublishController {
         question.setTitle(title);
         question.setDescription(description);
         question.setTag(tag);
-        question.setCreator(githubUser.getId());
-        question.setLoginType("github");
+        question.setCreator(userInfo.getId());
+        question.setPublishType(userInfo.getPublishType());
         if (id != null && !id.equals("")) {
             question.setId(Long.valueOf(id));
         }
@@ -97,28 +97,28 @@ public class PublishController {
         return "redirect:/";
     }
 
-//    /**
-//     * 编辑问题
-//     *
-//     * @param id
-//     * @param model
-//     * @return
-//     */
-//    @GetMapping("/publish/{id}")
-//    public String edit(@PathVariable(name = "id") String id,
-//                       Model model) {
-//        QuestionDTO byId;
-//        try {
-//            byId = questionService.findById(Long.valueOf(id));
-//            model.addAttribute("title", byId.getTitle());
-//            model.addAttribute("description", byId.getDescription());
-//            model.addAttribute("tag", byId.getTag());
-//            model.addAttribute("id", byId.getId());
-//            model.addAttribute("tags", TagCache.getTags());
-//        } catch (Exception e) {
-//            throw new CustomException(ErrorCode.SYSTEM_ERROR);
-//        }
-//        return "/publish";
-//    }
+    /**
+     * 编辑问题
+     *
+     * @param id
+     * @param model
+     * @return
+     */
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable(name = "id") String id,
+                       Model model) {
+        QuestionDTO byId;
+        try {
+            byId = questionService.findById(Long.valueOf(id));
+            model.addAttribute("title", byId.getTitle());
+            model.addAttribute("description", byId.getDescription());
+            model.addAttribute("tag", byId.getTag());
+            model.addAttribute("id", byId.getId());
+            model.addAttribute("tags", TagCache.getTags());
+        } catch (Exception e) {
+            throw new CustomException(ErrorCode.SYSTEM_ERROR);
+        }
+        return "/publish";
+    }
 
 }

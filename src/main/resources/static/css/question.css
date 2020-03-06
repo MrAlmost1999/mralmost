@@ -1,0 +1,185 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #efefef;
+}
+
+/*主体*/
+.main {
+    min-height: 120%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-radius: 5px;
+}
+
+/*除底部之外的主体内容*/
+.main-content {
+    height: 10%;
+}
+
+/*左边*/
+.body-left {
+    height: 100%;
+    border-right: 1px solid #e6e6e6;
+}
+
+/*问题主体*/
+.question-info {
+    height: 98px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/*用户头像*/
+.avatar-img {
+    width: 58px;
+    height: 58px;
+    margin-top: 10px;
+}
+
+/*头像右侧问题内容*/
+.questions-content {
+    padding-top: 16px;
+}
+
+/*问题标题*/
+.questions-title {
+    font-size: 18px;
+}
+
+.text-desc{
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+}
+
+/*相关问题&热门话题&最新话题*/
+.question-related {
+    line-height: 22px;
+    font-size: 16px;
+    list-style: none;
+    padding-left: 0;
+}
+
+/*分页栏*/
+.paging-toolbar {
+    margin-top: 2%;
+}
+
+/*设置a标签获得鼠标移上去的颜色和去掉下划线*/
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+/*错误信息*/
+.error {
+    float: right;
+}
+
+/*横线*/
+.community-ledgement {
+    width: 100%;
+}
+
+/*问题标签*/
+.tag {
+    cursor: pointer;
+    margin-right: 5px;
+    font-size: 14px;
+    white-space: normal;
+    margin-top: 8px;
+    display: inline-block;
+}
+
+/*标签*/
+.community-menu {
+    font-size: 14px;
+    float: right;
+    color: #999;
+}
+
+/*question:回复评论总数*/
+.question-comment-count {
+    cursor: pointer;
+}
+
+/*编辑,删除,点赞,评论等按钮*/
+.icon {
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: #499ef3;
+}
+
+/*回复信息样式*/
+.comment-info {
+    border-bottom: 1px solid #eee;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.btn-delete-comment {
+    border: none;
+    background-color: white;
+}
+
+/*回复按钮*/
+.btn-comment {
+    float: right;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+
+/*回复问题框*/
+.comment {
+    margin: 10px 0;
+}
+
+/*question:外层二级回复*/
+.second-comment {
+    border-radius: 5px;
+    margin-top: 10px;
+    border: 1px solid #eee;
+    padding-top: 5px;
+}
+
+/*question:内层二级回复*/
+.second-comment-box {
+    margin-top: 15px;
+}
+
+/*头像边的用户名样式*/
+.username {
+    padding-top: 28px;
+}
+
+.comment-time{
+    font-size: 14px;
+    color: #999;
+}
+
+/*显示二级回复按钮*/
+.active {
+    color: #499ef3;
+}
+
+/*二级用户名*/
+.second-comment-username{
+    padding-top: 22px;
+}
+
+/*底部*/
+.footer {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    /*使footer固定在contain的底部*/
+    bottom: 0px;
+    margin-left: 25%;
+}

@@ -1,6 +1,6 @@
 package com.mralmost.community.controller;
 
-import com.mralmost.community.dto.RegisterUserDTO;
+import com.mralmost.community.dto.UserDTO;
 import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import org.springframework.stereotype.Controller;
@@ -28,15 +28,15 @@ public class SendmailController {
     /**
      * 发送邮件
      *
-     * @param registerUserDTO 接收到的注册信息
+     * @param userDTO 接收到的注册信息
      */
     @PostMapping("/sendmail")
-    public String sendmail(RegisterUserDTO registerUserDTO,
+    public String sendmail(UserDTO userDTO,
                            HttpServletRequest request) {
         //激活码
         String code = UUID.randomUUID().toString();
         //邮件内容
-        String content = "<h2>尊敬的用户" + registerUserDTO.getUsername() + "你好,欢迎使用本站,激活请点击一下链接:</h2>" +
+        String content = "<h2>尊敬的用户" + userDTO.getUsername() + "你好,欢迎使用本站,激活请点击一下链接:</h2>" +
                 "<h3><a href='http://localhost:8888/activate_user?code=" + code + "'>激活账号</a></h3>";
         Properties properties = new Properties();
         properties.put("mail.transport.protocol", "smtp");// 连接协议，即：邮件协议
@@ -54,8 +54,7 @@ public class SendmailController {
         try {
             message.setFrom(new InternetAddress("2830114286@qq.com"));
             // 设置收件人邮箱地址
-            message.setRecipients(Message.RecipientType.TO, new InternetAddress[]{new InternetAddress(registerUserDTO.getEmail())});
-            //message.setRecipient(Message.RecipientType.TO, new InternetAddress("xxx@qq.com"));//一个收件人
+            message.setRecipients(Message.RecipientType.TO, new InternetAddress[]{new InternetAddress(userDTO.getEmail())});
             // 设置邮件标题
             message.setSubject("请激活您的MrAlmost账号");
             // 设置邮件内容
@@ -68,9 +67,9 @@ public class SendmailController {
             // 发送邮件
             transport.sendMessage(message, message.getAllRecipients());
             transport.close();
-            registerUserDTO.setCode(code);
+            userDTO.setCode(code);
             //存储用户注册信息
-            request.getSession().setAttribute("registerUserDTO", registerUserDTO);
+            request.getSession().setAttribute("registerUser", userDTO);
             return "redirect:/email";
         } catch (Exception e) {
             throw new CustomException(ErrorCode.SYSTEM_ERROR);

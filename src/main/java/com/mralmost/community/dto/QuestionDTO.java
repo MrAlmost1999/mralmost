@@ -1,5 +1,6 @@
 package com.mralmost.community.dto;
 
+import com.mralmost.community.model.User;
 import lombok.Data;
 
 /**
@@ -25,11 +26,11 @@ public class QuestionDTO {
     /**
      * 问题创建时间
      */
-    private String gmtCreate;
+    private String createTime;
     /**
      * 问题修改时间
      */
-    private String gmtModified;
+    private String modifiedTime;
     /**
      * 问题关联用户的id
      */
@@ -51,9 +52,13 @@ public class QuestionDTO {
      */
     private String tag;
     /**
+     * 发布人类别
+     */
+    private String publishType;
+    /**
      * 问题发布用户信息
      */
-    private Object userInfo;
+    private User user;
     /**
      * 搜索条件
      */

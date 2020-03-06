@@ -17,7 +17,7 @@ public class GithubUserDTO {
     /**
      * 用户昵称
      */
-    private String username;
+    private String name;
     /**
      * 用户个人简历
      */

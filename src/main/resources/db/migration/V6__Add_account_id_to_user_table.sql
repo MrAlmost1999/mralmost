@@ -1,0 +1,1 @@
+alter table user add column account_id varchar(20) not null COMMENT 'github用户唯一标识';

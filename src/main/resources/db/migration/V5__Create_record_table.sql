@@ -11,7 +11,7 @@
  Target Server Version : 50728
  File Encoding         : 65001
 
- Date: 02/03/2020 19:27:18
+ Date: 05/03/2020 20:38:06
 */
 
 SET NAMES utf8mb4;
@@ -26,6 +26,7 @@ CREATE TABLE `record`  (
   `user_id` bigint(11) NOT NULL,
   `question_id` bigint(11) NOT NULL,
   `record_time` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `publish_type` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL COMMENT '用户类型',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id_FK`(`user_id`) USING BTREE,
   INDEX `question_id_FK`(`question_id`) USING BTREE

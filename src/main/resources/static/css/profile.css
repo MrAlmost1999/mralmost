@@ -1,0 +1,103 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #efefef;
+}
+
+/*主体*/
+.main {
+    min-height: 120%;
+    height: auto;
+    position: relative;
+    background-color: white;
+    margin-right: 10%;
+    margin-left: 10%;
+    border-radius: 5px;
+}
+
+/*除底部之外的主体内容*/
+.main .main-content {
+    height: 10%;
+}
+
+.main-content .body-left {
+    height: 100%;
+    border-right: 1px solid #e6e6e6;
+}
+
+/*问题主体*/
+.question-info {
+    height: 98px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+/*我的问题界面右边栏*/
+.section {
+    margin-top: 20px;
+}
+
+/*profile:右边选择标签选中之后的背景颜色*/
+.profile-active {
+    background: #777;
+}
+
+/*profile:右边选择标签选中之后的a标签颜色*/
+.profile-active a {
+    color: white;
+}
+
+/*profile:右边选择标签未选中a标签颜色*/
+.unchecked a {
+    color: #777;
+}
+
+/*消息提示*/
+.unreadMessage {
+    color: white;
+    background-color: #d9534f;
+}
+
+/*用户头像*/
+.avatar-img {
+    width: 58px;
+    height: 58px;
+    margin-top: 10px;
+}
+
+/*问题内容*/
+.questions-content {
+    padding-top: 16px;
+}
+
+/*问题标题*/
+.questions-title {
+    font-size: 18px;
+}
+
+.text-desc{
+    font-size: 14px;
+    font-weight: normal;
+    color: #999;
+}
+
+/*分页栏*/
+.paging-toolbar {
+    margin-top: 2%;
+}
+
+/*设置a标签获得鼠标移上去的颜色和去掉下划线*/
+a:hover {
+    text-decoration: none;
+    color: red;
+}
+
+/*底部*/
+.footer {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    /*使footer固定在contain的底部*/
+    bottom: 0px;
+    margin-left: 25%;
+}

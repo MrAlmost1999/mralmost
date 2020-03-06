@@ -1,16 +1,15 @@
-/*发布按钮点击事件*/
+/*发布按钮点击事件:一级回复*/
 $("#postReplies").click(function () {
     var question_id = $("#question_id").val();
     var comment_content = $("#comment_content").val();
     commentTarget(question_id, 1, comment_content);
 });
 
-/*回复按钮点击事件*/
+/*回复按钮点击事件:二级回复*/
 $(".second-comment .btn-comment").click(function () {
     var commentId = $(this).attr("data-id");
     var content = $("#input-" + commentId).val();
-    if (!$(".comment-input").val()) {
-        alert(1);
+    if (!content) {
         return;
     }
     commentTarget(commentId, 2, content);
@@ -32,8 +31,8 @@ function commentTarget(targetId, type, content) {
         contentType: "application/json",
         data: JSON.stringify({
             "parentId": targetId,
-            "content": content,
-            "type": type
+            "type": type,
+            "content": content
         }),
         success: function (data) {
             if (data.code == 200) {
@@ -42,7 +41,7 @@ function commentTarget(targetId, type, content) {
                 if (data.code == 2003) {
                     var flag = confirm(data.message);
                     if (flag) {
-                        window.open("https://github.com/login/oauth/authorize?client_id=Iv1.fc94755b2e36e7af&redirect_uri=http://localhost:8888/callback&scope=user&state=1");
+                        window.open("/login");
                         window.localStorage.setItem("closable", true);
                     }
                 } else {
@@ -66,19 +65,22 @@ $(".open-second-comment").click(function () {
                 if (subCommentContainer.children().length != 1) {
                 } else {
                     $.each(data.data.reverse(), function (index, comment) {
+                        if (comment.user.avatar=="default-avatar.png"){
+                            comment.user.avatar="/images/default-avatar.png";
+                        }
                         var mediaLeftElement = $("<div/>", {
                             "class": "media-left"
                         }).append($("<img/>", {
                             "class": "media-object img-rounded avatar-img",
-                            "src": comment.user.avatarUrl
+                            "src": comment.user.avatar
                         }));
 
                         var mediaBodyElement = $("<div/>", {
-                            "class": "media-body"
+                            "class": "media-body second-comment-username"
                         }).append($("<a/>", {
-                            "html": comment.user.name,
+                            "html": comment.user.username,
                             "href": "#",
-                            "class": "media-heading username"
+                            "class": "media-heading"
                         }));
                         var userId = $("#user-id").val();
                         if (userId != null) {

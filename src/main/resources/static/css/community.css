@@ -44,6 +44,10 @@ html, body {
     color: #999;
 }
 
+.question-description{
+    display: none;
+}
+
 
 /*分页导航*/
 .pagination {
