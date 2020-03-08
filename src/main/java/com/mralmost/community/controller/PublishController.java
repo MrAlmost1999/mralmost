@@ -118,7 +118,7 @@ public class PublishController {
         } catch (Exception e) {
             throw new CustomException(ErrorCode.SYSTEM_ERROR);
         }
-        return "/publish";
+        return "publish";
     }
 
 }

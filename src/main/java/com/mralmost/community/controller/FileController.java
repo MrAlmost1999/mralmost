@@ -2,6 +2,7 @@ package com.mralmost.community.controller;
 
 import com.mralmost.community.dto.FileDTO;
 import com.mralmost.community.provider.UCloudProvider;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ import java.io.IOException;
  * @date: 2020/2/23
  */
 @Controller
+@Slf4j
 public class FileController {
 
     @Autowired
@@ -36,12 +38,12 @@ public class FileController {
             fileDTO.setSuccess(1);
             fileDTO.setUrl(fileName);
             return fileDTO;
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            log.error("图片上传失败", e);
+            FileDTO fileDTO = new FileDTO();
+            fileDTO.setSuccess(0);
+            fileDTO.setMessage("上传失败");
+            return fileDTO;
         }
-        FileDTO fileDTO = new FileDTO();
-        fileDTO.setSuccess(1);
-        fileDTO.setUrl("/images/QQ.png");
-        return fileDTO;
     }
 }

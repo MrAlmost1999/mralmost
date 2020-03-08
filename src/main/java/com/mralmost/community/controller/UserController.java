@@ -80,6 +80,7 @@ public class UserController {
             Cookie cookie = new Cookie("accountId", String.valueOf(githubUserDTO.getId()));
             cookie.setMaxAge(60 * 60 * 24 * 30);
             cookie.setPath("/");
+            cookie.setDomain("mralmost.cn");
             response.addCookie(cookie);
             //首次登陆则添加,不是则根据实际情况修改用户信息
             userService.createOrUpdate(user);
@@ -101,10 +102,11 @@ public class UserController {
     public String logOut(HttpServletRequest request,
                          HttpServletResponse response) {
         request.getSession().removeAttribute("userInfo");
-        Cookie code = new Cookie("accountId", null);
-        code.setMaxAge(0);
-        code.setPath("/");
-        response.addCookie(code);
+        Cookie cookie = new Cookie("accountId", null);
+        cookie.setMaxAge(0);
+        cookie.setPath("/");
+        cookie.setDomain("mralmost.cn");
+        response.addCookie(cookie);
         return "redirect:/";
     }
 
@@ -152,6 +154,7 @@ public class UserController {
         Cookie cookie = new Cookie("accountId", user.getAccountId());
         cookie.setMaxAge(60 * 60 * 24 * 30);
         cookie.setPath("/");
+        cookie.setDomain("mralmost.cn");
         response.addCookie(cookie);
 
         //修改用户的最后一次登录时间
