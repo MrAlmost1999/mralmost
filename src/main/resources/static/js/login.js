@@ -70,11 +70,11 @@ $("#btn-register").click(function () {
     var email = $("#email").val();
     var agreement = $("#agreement").is(":checked")
     if (!userReg.test(username)) {
-        alert("您输入的账号格式不正确,请重新输入~");
+        alert("您输入的账号格式不正确,账号格式应为6-16位,包含字母,数字,下划线~");
         return;
     }
     if (!passReg.test(password)) {
-        alert("您输入的密码格式不正确,请重新输入~");
+        alert("您输入的密码格式不正确,密码格式应为以字母开头,长度在6~18之间,只能包含字母、数字和下划线~");
         return;
     }
     if (!emailReg.test(email)) {
@@ -107,6 +107,33 @@ $("#btn-register").click(function () {
                 });
             } else {
                 alert(data.message);
+            }
+        }
+    });
+});
+
+/*重置密码按钮点击事件*/
+$(".btn-reset-password").click(function () {
+    //密码正则:以字母开头,长度在6~18之间,只能包含字母、数字和下划线
+    var passReg = /^[a-zA-Z]\w{5,17}$/g;
+    var password = $("#new-password").val();
+    if (!passReg.test(password)) {
+        alert("您输入的密码格式不正确,密码格式应为以字母开头,长度在6~18之间,只能包含字母、数字和下划线~");
+        return;
+    }
+    $.ajax({
+        url: "/password",
+        type: "POST",
+        data: {
+            "newPassword": password
+        },
+        success: function (data) {
+            if (data.code == 200) {
+                alert("修改成功,请重新登录!");
+                location.href = "/login";
+            } else {
+                alert(data.message);
+                location.href = "/password";
             }
         }
     });

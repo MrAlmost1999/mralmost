@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>MrAlmost</title>
+    <title>[[${question.title}]]-MrAlmost</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}">
@@ -63,7 +63,7 @@
                     <div class="media-left">
                         <a href="#">
                             <img class="media-object img-rounded avatar-img"
-                                 th:src="${question.user.avatar!='default-avatar.png'?question.user.avatar:'/images/default-avatar.png'}"
+                                 th:src="${session.userInfo.avatar!='default-avatar.png'?session.userInfo.avatar:'/images/default-avatar.png'}"
                                  alt="头像">
                         </a>
                     </div>
@@ -151,5 +151,6 @@
     });
 </script>
 <script type="application/javascript" src="/js/question.js" th:src="@{/js/question.js}"></script>
+<script type="application/javascript" src="/js/editormd.js" th:src="@{/js/editormd.js}"></script>
 <script type="application/javascript" src="/js/navigation.js" th:src="@{/js/navigation.js}"></script>
 </html>

@@ -40,13 +40,6 @@
         <result column="publish_type" jdbcType="VARCHAR" property="publishType"/>
         <result column="description" jdbcType="LONGVARCHAR" property="description"/>
     </resultMap>
-    <sql id="Where_Clause">
-        <if test="search != null">
-            <where>
-                and (q.title regexp #{search} or q.description regexp #{search} or q.tag regexp #{search})
-            </where>
-        </if>
-    </sql>
     <sql id="Base_Column_List">
       q.id, q.title, q.create_time, q.modified_time, q.creator, q.comment_count, q.view_count, q.like_count,
       q.tag, q.publish_type, q.description
@@ -64,8 +57,10 @@
         from question q,user u
         <where>
             and q.creator=u.id
+            <if test="search !=null">
+              and (q.title regexp #{search} or q.description regexp #{search} or q.tag regexp #{search})
+            </if>
         </where>
-        <include refid="Where_Clause"/>
     </select>
     <select id="selectByHottestQuestion" resultMap="BaseResultMap">
         select * from question order by view_count desc,comment_count desc limit 5;

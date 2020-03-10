@@ -4,6 +4,7 @@ import com.mralmost.community.dto.AccessTokenDTO;
 import com.mralmost.community.dto.GithubUserDTO;
 import com.mralmost.community.dto.ResultDTO;
 import com.mralmost.community.dto.UserDTO;
+import com.mralmost.community.exception.ErrorCode;
 import com.mralmost.community.model.User;
 import com.mralmost.community.provider.GithubProvider;
 import com.mralmost.community.service.UserService;
@@ -80,7 +81,8 @@ public class UserController {
             Cookie cookie = new Cookie("accountId", String.valueOf(githubUserDTO.getId()));
             cookie.setMaxAge(60 * 60 * 24 * 30);
             cookie.setPath("/");
-            cookie.setDomain("mralmost.cn");
+//            cookie.setDomain("mralmost.cn");
+            cookie.setDomain("117.50.37.50");
             response.addCookie(cookie);
             //首次登陆则添加,不是则根据实际情况修改用户信息
             userService.createOrUpdate(user);
@@ -105,7 +107,8 @@ public class UserController {
         Cookie cookie = new Cookie("accountId", null);
         cookie.setMaxAge(0);
         cookie.setPath("/");
-        cookie.setDomain("mralmost.cn");
+//        cookie.setDomain("mralmost.cn");
+        cookie.setDomain("117.50.37.50");
         response.addCookie(cookie);
         return "redirect:/";
     }
@@ -154,7 +157,8 @@ public class UserController {
         Cookie cookie = new Cookie("accountId", user.getAccountId());
         cookie.setMaxAge(60 * 60 * 24 * 30);
         cookie.setPath("/");
-        cookie.setDomain("mralmost.cn");
+//        cookie.setDomain("mralmost.cn");
+        cookie.setDomain("117.50.37.50");
         response.addCookie(cookie);
 
         //修改用户的最后一次登录时间
@@ -213,5 +217,39 @@ public class UserController {
         return ResultDTO.okOf();
     }
 
+//    @GetMapping("/userinfo")
+//    public String goUserinfo() {
+//        return "userinfo";
+//    }
+
+    @GetMapping("/password")
+    public String goUserinfo() {
+        return "reset";
+    }
+
+    @ResponseBody
+    @PostMapping("/password")
+    public ResultDTO resetPassword(@RequestParam("newPassword") String newPassword,
+                                   HttpServletRequest request,
+                                   HttpServletResponse response) {
+        User userInfo = (User) request.getSession().getAttribute("userInfo");
+        User user = new User();
+        user.setId(userInfo.getId());
+        user.setPassword(newPassword);
+        if (userService.resetPassword(user)) {
+            request.getSession().removeAttribute("userInfo");
+            request.getSession().removeAttribute("remember");
+            Cookie cookie = new Cookie("accountId", null);
+            cookie.setMaxAge(0);
+            cookie.setPath("/");
+//        cookie.setDomain("mralmost.cn");
+            cookie.setDomain("117.50.37.50");
+            response.addCookie(cookie);
+            return ResultDTO.okOf();
+        } else {
+            return ResultDTO.errorOf(ErrorCode.SYSTEM_ERROR);
+        }
+
+    }
 
 }

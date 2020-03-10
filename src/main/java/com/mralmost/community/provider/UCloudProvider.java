@@ -12,6 +12,7 @@ import com.mralmost.community.exception.CustomException;
 import com.mralmost.community.exception.ErrorCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -24,7 +25,7 @@ import java.util.UUID;
  * @Description TODO
  * @date: 2020/2/24
  */
-@Service
+@Component
 public class UCloudProvider {
 
     @Value("${ucloud.ufile.public-key}")

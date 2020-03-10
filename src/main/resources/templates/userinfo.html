@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>用户信息-MrAlmost</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <script type="application/javascript" src="/js/jquery-3.4.1.js" th:src="@{/js/jquery-3.4.1.js}"></script>
+    <script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" href="/css/userinfo.css" th:href="@{/css/userinfo.css}">
+</head>
+<body>
+<!-- 引入头部导航 -->
+<div th:replace="navigation :: navigation"></div>
+
+<div class="container-fluid main">
+    <div class="main-content">
+        <!-- 左边 -->
+        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 body-left">
+            <h3 class="header">
+                <img th:src="@{/images/userinfo.png}">
+                个人资料
+            </h3>
+            <hr>
+            <div>
+                <div class="col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                    <a href="javascript:void(0)">
+                        <img class="avatar-img"
+                             th:src="${session.userInfo.avatar!='default-avatar.png'?session.userInfo.avatar:'/images/default-avatar.png'}"
+                             alt="头像">
+                    </a>
+                </div>
+                <div class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+                    <span>ID：NO.[[${session.userInfo.id}]]</span><br>
+                    <span>昵称：[[${session.userInfo.username}]]</span><br>
+                    <span>签名：[[${session.userInfo.sign}]]</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右边 -->
+        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+            <div class="list-group section">
+                <div th:class="${section=='questions'}?'list-group-item profile-active':'list-group-item unchecked'">
+                    <a th:href="@{/profile/questions/1}">个人资料</a>
+                </div>
+                <div th:class="${section=='replies'}?'list-group-item profile-active':'list-group-item unchecked'">
+                    <a th:href="@{/profile/replies/1}">修改密码
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="footer :: foot"></div>
+</div>
+</body>
+<script type="application/javascript" src="/js/profile.js" th:src="@{/js/profile.js}"></script>
+<script type="application/javascript" src="/js/navigation.js" th:src="@{/js/navigation.js}"></script>

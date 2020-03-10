@@ -45,7 +45,9 @@ public class QuestionService {
      * @return
      */
     public List<QuestionDTO> findQuestionWithUser(String search) {
-        List<QuestionDTO> questionDTOList = questionCustomMapper.findQuestionWithUser(search);
+        QuestionDTO questionDTO = new QuestionDTO();
+        questionDTO.setSearch(search);
+        List<QuestionDTO> questionDTOList = questionCustomMapper.findQuestionWithUser(questionDTO);
         return questionDTOList;
     }
 

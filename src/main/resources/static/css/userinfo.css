@@ -26,14 +26,20 @@ html, body {
     border-right: 1px solid #e6e6e6;
 }
 
-/*问题主体*/
-.question-info {
-    height: 98px;
-    border-bottom: 1px solid #e6e6e6;
+.header{
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.avatar-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
 }
 
 /*我的问题界面右边栏*/
 .section {
+    width: 200px;
     margin-top: 20px;
 }
 
@@ -54,50 +60,6 @@ html, body {
 
 .unchecked a:hover {
     color: #e53e3e;
-}
-
-/*消息提示*/
-.unreadMessage {
-    color: white;
-    background-color: #d9534f;
-}
-
-/*用户头像*/
-.avatar-img {
-    width: 24px;
-    height: 24px;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    border-radius: 12px;
-}
-
-/*问题内容*/
-.questions-content {
-    padding-top: 16px;
-}
-
-/*问题标题*/
-.questions-title {
-    color: #3d3d3d;
-    font-weight: bolder;
-    font-size: 20px;
-}
-
-.username{
-    color: #3d3d3d;
-    font-weight: bolder;
-    font-size: 13px;
-}
-
-.text-desc{
-    font-size: 14px;
-    font-weight: normal;
-    color: #999;
-}
-
-/*分页栏*/
-.paging-toolbar {
-    margin-top: 2%;
 }
 
 /*设置a标签获得鼠标移上去的颜色和去掉下划线*/

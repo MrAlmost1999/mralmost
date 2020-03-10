@@ -7,6 +7,7 @@ import com.mralmost.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -39,6 +40,7 @@ public class UserService {
      * @param user
      */
     public void createOrUpdate(User user) {
+        user.setAvatar("default-avatar.png");
         UserExample example = new UserExample();
         example.createCriteria().andAccountIdEqualTo(user.getAccountId());
         List<User> users = userMapper.selectByExample(example);
@@ -126,4 +128,13 @@ public class UserService {
         }
         return null;
     }
+
+    public boolean resetPassword(User user) {
+        int i = userMapper.updateByPrimaryKeySelective(user);
+        if (i == 1) {
+            return true;
+        }
+        return false;
+    }
+
 }

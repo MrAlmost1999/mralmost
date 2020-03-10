@@ -35,7 +35,7 @@ public interface QuestionCustomMapper {
      * @param search 查询条件
      * @return
      */
-    List<QuestionDTO> findQuestionWithUser(String search);
+    List<QuestionDTO> findQuestionWithUser(QuestionDTO search);
 
     /**
      * 累加阅读数和修改编辑时间

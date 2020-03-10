@@ -37,7 +37,7 @@ public class NotificationController {
                        HttpServletRequest request,
                        Model model) {
         //获取用户的登录态
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("userInfo");
         //当用户未登录时添加错误信息和发布的内容用于回显
         if (user == null) {
             model.addAttribute("error", "请先登录!");

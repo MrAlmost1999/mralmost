@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>MrAlmost</title>
+    <title>[[${sectionName}]]-MrAlmost</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <script type="application/javascript" src="/js/jquery-3.4.1.js" th:src="@{/js/jquery-3.4.1.js}"></script>
     <script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
@@ -30,13 +30,6 @@
                 <div th:if="${section=='questions'}">
                     <!-- 分页数据 -->
                     <div class="media question-info" th:each="question : ${pageInfo.list}">
-                        <div class="media-left">
-                            <a href="#">
-                                <img class="media-object img-rounded avatar-img"
-                                     th:src="${question.user.avatar!='default-avatar.png'?question.user.avatar:'/images/default-avatar.png'}"
-                                     alt="头像">
-                            </a>
-                        </div>
                         <div class="media-body questions-content">
                             <a th:href="@{'/question/'+${question.id}}">
                                 <span class="media-heading questions-title"
@@ -50,6 +43,19 @@
                                     <img class="pull-right" th:if="${session.user!=null}"
                                          th:src="${session.user.id==question.creator?'/images/delete-btn-18x18.png':''}"/>
                                 </a>
+                                <a href="javascript:void(0)" class="delete-btn" th:data-id="${question.id}">
+                                    <img class="pull-right"
+                                         th:if="${session.userInfo!=null and session.userInfo.getPublishType()==question.publishType}"
+                                         th:src="${session.userInfo.id==question.creator?'/images/delete-btn-18x18.png':''}"/>
+                                </a>
+                                <div>
+                                    <a href="#">
+                                        <img class="avatar-img"
+                                             th:src="${question.user.avatar!='default-avatar.png'?question.user.avatar:'/images/default-avatar.png'}"
+                                             alt="头像">
+                                        <span class="username" th:text="${question.user.username}"></span>
+                                    </a>
+                                </div>
                             </span>
                         </div>
                     </div>

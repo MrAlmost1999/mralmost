@@ -27,6 +27,7 @@ body.my-login-page {
 .my-login-page .card-wrapper {
     margin-left: 30%;
     width: 400px;
+    padding-top: 100px;
 }
 
 .my-login-page .card {
