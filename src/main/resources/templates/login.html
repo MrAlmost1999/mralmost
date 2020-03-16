@@ -29,7 +29,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">密码:
-                                    <a href="forgot.html" class="float-right">
+                                    <a th:href="@{/resetPassword}" class="float-right">
                                         忘记密码?
                                     </a>
                                 </label>
@@ -69,7 +69,7 @@
         </div>
     </div>
 </section>
-
+<footer th:replace="footer :: foot"></footer>
 <script type="application/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
 <script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
 <script type="application/javascript" src="/js/login.js" th:src="@{/js/login.js}"></script>

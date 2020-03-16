@@ -59,5 +59,4 @@ public class IndexController {
         model.addAttribute("newset", questionService.selectByNewsetQuestion());
         return "index";
     }
-
 }

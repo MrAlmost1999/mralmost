@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-	<meta charset="utf-8">
-	<meta name="author" content="Kodinger">
-	<title>修改密码-MrAlmost</title>
-	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
-	<link rel="stylesheet" type="text/css" href="/css/login.css" th:href="@{/css/login.css}">
+    <meta charset="utf-8">
+    <meta name="author" content="Kodinger">
+    <title>修改密码-MrAlmost</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" href="/css/login.css" th:href="@{/css/login.css}">
 </head>
 <body class="my-login-page">
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-md-center align-items-center h-100">
-				<div class="card-wrapper">
-					<div class="brand">
-						<a th:href="@{/login}">
-							<img th:src="@{/images/logo.png}">
-						</a>
-					</div>
-					<div class="card fat">
-						<div class="card-body">
-							<h4 class="card-title">重置密码</h4>
-							<form method="POST">
-								<div class="form-group">
-									<label for="new-password">新密码:</label>
-									<input id="new-password" type="password" class="form-control" name="password" required autofocus data-eye>
-									<div class="form-text text-muted">
-										请牢记您的密码
-									</div>
-								</div>
-								<div class="form-group no-margin">
-									<button type="button" class="btn btn-primary btn-block btn-reset-password">
-										重置
-									</button>
-								</div>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<script type="application/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
-	<script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
-	<script type="application/javascript" src="/js/login.js" th:src="@{/js/login.js}"></script>
-</body>
+<section class="h-100">
+    <div class="container h-100">
+        <div class="row justify-content-md-center align-items-center h-100">
+            <div class="card-wrapper reset">
+                <div class="brand">
+                    <a th:href="@{/password}">
+                        <img th:src="@{/images/logo.png}">
+                    </a>
+                </div>
+                <div class="card fat">
+                    <div class="card-body">
+                        <h4 class="card-title">重置密码</h4>
+                        <form method="POST">
+                            <div class="form-group">
+                                <label for="new-password">新密码:</label>
+                                <input id="new-password" type="password" class="form-control" name="password" required
+                                       autofocus data-eye>
+                                <div class="form-text text-muted">
+                                    请牢记您的密码
+                                </div>
+                            </div>
+                            <div class="form-group no-margin">
+                                <button type="button" class="btn btn-primary btn-block btn-reset-password">
+                                    重置
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<footer th:replace="footer :: foot"></footer>
+<script type="application/javascript" src="/js/jquery.min.js" th:src="@{/js/jquery.min.js}"></script>
+<script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="application/javascript" src="/js/login.js" th:src="@{/js/login.js}"></script>
 </body>
 </html>

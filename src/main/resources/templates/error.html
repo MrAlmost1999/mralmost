@@ -7,17 +7,24 @@
     <script type="application/javascript" src="/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
     <link rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
     <link rel="stylesheet" href="/css/bootstrap-theme.min.css" th:href="@{/css/bootstrap-theme.min.css}">
-    <link rel="stylesheet" href="/css/community.css" th:href="@{/css/community.css}">
+    <link rel="stylesheet" href="/css/error.css" th:href="@{/css/error.css}">
 </head>
 <body>
 <!-- 错误信息 -->
-<div class="jumbotron errorPage">
+<div class="container-fluid main">
+    <div class="main-content error-page">
+        <h1>出错啦!</h1>
+        <h3 th:text="${message!=null?message:'服务器已经送进ICU了,请稍微等待一下吧...'}"></h3>
+        <p><a class="btn btn-primary btn-lg" th:href="@{/}" role="button">回到首页</a></p>
+    </div>
+</div>
+<!--<div class="jumbotron errorPage">
     <h1>出错啦!</h1>
     <p th:text="${message!=null?message:'服务器已经送进ICU了,请稍微等待一下吧...'}"></p>
     <p><a class="btn btn-primary btn-lg" th:href="@{/}" role="button">回到首页</a></p>
-</div>
+</div>-->
 
 <!-- 版权信息 -->
-<div th:replace="footer :: foot"></div>
+<footer th:replace="footer :: foot"></footer>
 </body>
 </html>

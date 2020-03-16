@@ -21,6 +21,15 @@ html, body {
     height: 10%;
 }
 
+/*底部*/
+.footer {
+    width: 100%;
+    height: 5%;
+    position: absolute;
+    text-align: center;
+    color: #666;
+}
+
 /*左边*/
 .body-left {
     height: 100%;
@@ -50,7 +59,7 @@ html, body {
     font-size: 18px;
 }
 
-.text-desc{
+.text-desc {
     font-size: 14px;
     font-weight: normal;
     color: #999;
@@ -159,7 +168,7 @@ a:hover {
     padding-top: 28px;
 }
 
-.comment-time{
+.comment-time {
     font-size: 14px;
     color: #999;
 }
@@ -170,16 +179,6 @@ a:hover {
 }
 
 /*二级用户名*/
-.second-comment-username{
+.second-comment-username {
     padding-top: 22px;
-}
-
-/*底部*/
-.footer {
-    width: 100%;
-    height: 5%;
-    position: absolute;
-    /*使footer固定在contain的底部*/
-    bottom: 0px;
-    margin-left: 25%;
 }

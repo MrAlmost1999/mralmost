@@ -6607,3 +6607,392 @@ Consider defining a bean of type 'com.mralmost.community.service.UserService' in
 2020-03-10 21:29:34.439  INFO 11284 --- [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
 2020-03-10 21:29:34.818  INFO 11284 --- [main] com.mralmost.MralmostApplicationTests    : Started MralmostApplicationTests in 3.511 seconds (JVM running for 4.782)
 2020-03-10 21:29:35.410  INFO 11284 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:31:18.198  INFO 5228 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 5228 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 12:31:18.201  INFO 5228 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 12:31:18.257  INFO 5228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 12:31:18.257  INFO 5228 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 12:31:19.425  INFO 5228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 12:31:19.432  INFO 5228 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 12:31:19.433  INFO 5228 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 12:31:19.522  INFO 5228 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 12:31:19.522  INFO 5228 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1265 ms
+2020-03-16 12:31:20.087  INFO 5228 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:31:20.146  INFO 5228 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 12:31:20.381  INFO 5228 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 12:31:20.423  INFO 5228 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 12:31:20.426  INFO 5228 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 2.657 seconds (JVM running for 3.883)
+2020-03-16 12:31:37.178  INFO 5228 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 12:31:37.178  INFO 5228 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 12:31:37.185  INFO 5228 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 7 ms
+2020-03-16 12:31:37.247  INFO 5228 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 12:31:37.387  INFO 5228 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 12:31:38.639  WARN 5228 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:32:22.913  INFO 1320 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 1320 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 12:32:22.916  INFO 1320 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 12:32:22.972  INFO 1320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 12:32:22.974  INFO 1320 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 12:32:24.266  INFO 1320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 12:32:24.275  INFO 1320 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 12:32:24.276  INFO 1320 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 12:32:24.364  INFO 1320 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 12:32:24.364  INFO 1320 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1390 ms
+2020-03-16 12:32:24.976  INFO 1320 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:32:25.032  INFO 1320 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 12:32:25.276  INFO 1320 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 12:32:25.319  INFO 1320 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 12:32:25.322  INFO 1320 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 2.841 seconds (JVM running for 4.084)
+2020-03-16 12:32:34.777  INFO 1320 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 12:32:34.777  INFO 1320 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 12:32:34.782  INFO 1320 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2020-03-16 12:32:34.839  INFO 1320 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 12:32:34.944  INFO 1320 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 12:32:35.010  WARN 1320 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:32:35.446  WARN 1320 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:33:44.760  INFO 12752 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 12752 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 12:33:44.763  INFO 12752 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 12:33:44.811  INFO 12752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 12:33:44.811  INFO 12752 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 12:33:45.976  INFO 12752 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 12:33:45.983  INFO 12752 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 12:33:45.984  INFO 12752 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 12:33:46.107  INFO 12752 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 12:33:46.108  INFO 12752 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1296 ms
+2020-03-16 12:33:47.037  INFO 12752 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:33:47.185  INFO 12752 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 12:33:47.492  INFO 12752 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 12:33:47.552  INFO 12752 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 12:33:47.582  INFO 12752 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 3.147 seconds (JVM running for 4.324)
+2020-03-16 12:33:51.352  INFO 12752 --- [http-nio-8888-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 12:33:51.352  INFO 12752 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 12:33:51.362  INFO 12752 --- [http-nio-8888-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-03-16 12:33:51.451  INFO 12752 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 12:33:51.573  INFO 12752 --- [http-nio-8888-exec-2] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 12:33:51.638  WARN 12752 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:33:52.166  WARN 12752 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:33:53.532  WARN 12752 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:33:53.634  WARN 12752 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:34:08.479  WARN 12752 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:34:08.573  WARN 12752 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:34:16.628  WARN 12752 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:34:16.725  WARN 12752 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:34:30.661  WARN 12752 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 12:34:30.757  WARN 12752 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:34:51.470  INFO 9676 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 9676 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 12:34:51.472  INFO 9676 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 12:34:51.536  INFO 9676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 12:34:51.536  INFO 9676 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 12:34:53.013  INFO 9676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 12:34:53.028  INFO 9676 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 12:34:53.031  INFO 9676 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 12:34:53.154  INFO 9676 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 12:34:53.154  INFO 9676 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1618 ms
+2020-03-16 12:34:53.776  INFO 9676 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:34:53.841  INFO 9676 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 12:34:54.114  INFO 9676 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 12:34:54.164  INFO 9676 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 12:34:54.168  INFO 9676 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 3.148 seconds (JVM running for 4.414)
+2020-03-16 12:34:58.338  INFO 9676 --- [http-nio-8888-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 12:34:58.339  INFO 9676 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 12:34:58.347  INFO 9676 --- [http-nio-8888-exec-3] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-16 12:34:58.406  INFO 9676 --- [http-nio-8888-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 12:34:58.515  INFO 9676 --- [http-nio-8888-exec-3] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 12:34:59.211  WARN 9676 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:35:20.846  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:36:00.487  WARN 9676 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:36:03.489  WARN 9676 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:37:39.252  WARN 9676 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:39:43.400  WARN 9676 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:39:46.161  WARN 9676 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:39:46.768  WARN 9676 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:40:20.632  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:41:23.922  WARN 9676 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:42:10.763  WARN 9676 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:42:12.682  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:42:27.437  WARN 9676 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:42:41.428  WARN 9676 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:42:48.928  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:43:07.365  WARN 9676 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:43:23.883  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:43:24.665  WARN 9676 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:15.886  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:24.919  WARN 9676 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:31.177  WARN 9676 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:35.326  WARN 9676 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:39.527  WARN 9676 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:44:40.925  WARN 9676 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:45:11.457  INFO 7552 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 7552 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 12:45:11.460  INFO 7552 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 12:45:11.510  INFO 7552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 12:45:11.511  INFO 7552 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 12:45:12.902  INFO 7552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 12:45:12.910  INFO 7552 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 12:45:12.911  INFO 7552 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 12:45:12.997  INFO 7552 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 12:45:12.997  INFO 7552 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1486 ms
+2020-03-16 12:45:13.563  INFO 7552 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 12:45:13.622  INFO 7552 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 12:45:13.858  INFO 7552 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 12:45:13.901  INFO 7552 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 12:45:13.904  INFO 7552 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 2.838 seconds (JVM running for 4.074)
+2020-03-16 12:45:23.299  INFO 7552 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 12:45:23.300  INFO 7552 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 12:45:23.308  INFO 7552 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-16 12:45:23.373  INFO 7552 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 12:45:23.490  INFO 7552 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 12:45:24.227  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:45:43.496  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:46:05.001  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:47:04.942  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:47:19.004  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:47:21.241  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:48:00.628  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:48:46.950  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:48:59.671  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:10.072  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:22.084  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:22.725  WARN 7552 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:41.254  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:43.771  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:49:54.862  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:50:04.793  WARN 7552 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:05.806  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:09.832  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:12.382  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:28.459  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:36.236  WARN 7552 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:37.105  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:37.794  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:51:38.337  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:13.536  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:14.679  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:15.312  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:18.701  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:31.346  WARN 7552 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:32.292  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:33.031  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:33.848  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:43.784  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:55.510  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:52:56.219  WARN 7552 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:53:10.045  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:53:17.735  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:54:29.373  WARN 7552 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:54:31.464  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:54:31.993  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:54:32.482  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:54:33.375  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:55:49.739  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:02.983  WARN 7552 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:19.664  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:20.353  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:20.688  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:21.069  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:21.350  WARN 7552 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:21.642  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:33.629  WARN 7552 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:41.523  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:56:43.342  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:57:00.561  WARN 7552 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:57:01.606  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:57:02.360  WARN 7552 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:57:02.935  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:58:32.107  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:58:32.958  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 12:59:47.330  WARN 7552 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:00:35.205  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:00:37.678  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:00:40.291  WARN 7552 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:00:43.710  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:20.777  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:23.014  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:24.814  WARN 7552 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:27.378  WARN 7552 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:53.334  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:56.010  WARN 7552 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:02:57.907  WARN 7552 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:03:08.386  WARN 7552 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:03:33.197  WARN 7552 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:03:35.148  WARN 7552 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:04:09.728  INFO 12296 --- [restartedMain] com.mralmost.MralmostApplication         : Starting MralmostApplication on AlmostMrFX53VD with PID 12296 (F:\develop\IDEA\javawork\mralmost\target\classes started by administered in F:\develop\IDEA\javawork\mralmost)
+2020-03-16 13:04:09.731  INFO 12296 --- [restartedMain] com.mralmost.MralmostApplication         : No active profile set, falling back to default profiles: default
+2020-03-16 13:04:09.777  INFO 12296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-03-16 13:04:09.778  INFO 12296 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-03-16 13:04:10.918  INFO 12296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8888 (http)
+2020-03-16 13:04:10.926  INFO 12296 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-03-16 13:04:10.926  INFO 12296 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.29]
+2020-03-16 13:04:11.010  INFO 12296 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-03-16 13:04:11.011  INFO 12296 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1233 ms
+2020-03-16 13:04:11.587  INFO 12296 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-16 13:04:11.646  INFO 12296 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-03-16 13:04:11.872  INFO 12296 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-03-16 13:04:11.912  INFO 12296 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8888 (http) with context path ''
+2020-03-16 13:04:11.915  INFO 12296 --- [restartedMain] com.mralmost.MralmostApplication         : Started MralmostApplication in 2.561 seconds (JVM running for 3.781)
+2020-03-16 13:04:17.291  INFO 12296 --- [http-nio-8888-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-03-16 13:04:17.292  INFO 12296 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-03-16 13:04:17.300  INFO 12296 --- [http-nio-8888-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2020-03-16 13:04:17.420  INFO 12296 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-03-16 13:04:17.541  INFO 12296 --- [http-nio-8888-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-03-16 13:04:18.159  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:04:25.547  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:04:26.776  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:04:32.786  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:04:36.752  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:05:27.344  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:08:15.768  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:08:59.104  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:01.960  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:06.901  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:07.518  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:34.013  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:34.795  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:09:35.270  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:10:26.443  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:04.414  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:09.025  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:27.140  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:37.153  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:43.455  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:49.284  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:11:53.359  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:09.016  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:15.060  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:19.664  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:32.674  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:35.155  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:35.575  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:35.943  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:37.142  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:51.923  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:53.354  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:12:55.650  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:02.550  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:06.707  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:48.638  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:50.314  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:50.999  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:52.586  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:54.429  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:55.128  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:13:55.959  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:04.976  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:10.833  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:18.990  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:24.909  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:27.872  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:29.350  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:51.529  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:16:56.307  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:00.307  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:01.494  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:03.357  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:04.709  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:22.446  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:26.869  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:17:33.716  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:18:32.203  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:19:58.184  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:20:02.473  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:20:12.812  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:20:26.408  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:20:35.795  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:15.762  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:27.368  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:39.271  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:50.028  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:56.221  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:58.323  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:21:58.942  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:03.412  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:04.658  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:05.597  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:08.767  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:32.907  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:22:47.612  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:23:47.310  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:23:48.094  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:23:57.502  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:24.331  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:33.152  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:43.181  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:47.613  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:49.473  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:49.645  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:49.904  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.027  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.181  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.349  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.561  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.745  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:55.909  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:24:58.869  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:03.314  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:22.355  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:27.083  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "forgot.html"]
+2020-03-16 13:25:27.153  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:28.741  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:29.370  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:32.155  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:33.087  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:33.688  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:35.243  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:37.762  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:25:38.571  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:26:37.355  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:26:38.475  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "resetPassword"]
+2020-03-16 13:26:38.571  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:26:40.239  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:26:41.140  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:26:44.835  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "asdas"]
+2020-03-16 13:26:44.907  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:27:35.379  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "asdas"]
+2020-03-16 13:27:35.613  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:27:36.239  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "asdas"]
+2020-03-16 13:27:36.360  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:27:40.023  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:27:48.012  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:27:48.182  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:29:07.616  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:29:07.794  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:29:21.289  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:29:21.398  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:30:21.309  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:30:21.413  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:30:28.380  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:30:28.615  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:31:28.167  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:31:28.247  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:31:47.494  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:31:47.567  WARN 12296 --- [http-nio-8888-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:31:48.412  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:31:48.477  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:31:49.086  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:31:49.161  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:32:28.296  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:32:28.378  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:32:43.202  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:32:43.305  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:32:54.623  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:32:54.760  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:33:02.448  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:33:02.572  WARN 12296 --- [http-nio-8888-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:33:24.630  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:33:24.741  WARN 12296 --- [http-nio-8888-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:33:47.109  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:33:47.192  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:08.591  WARN 12296 --- [http-nio-8888-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:34:08.695  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:40.188  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:45.102  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "123123asdasd"]
+2020-03-16 13:34:45.179  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:47.069  WARN 12296 --- [http-nio-8888-exec-3] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:50.499  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:34:50.574  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:34:53.821  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:09.418  WARN 12296 --- [http-nio-8888-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:35:09.501  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:16.617  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.mralmost.community.exception.CustomException: 你这个请求错了吧，要不然换个姿势？]
+2020-03-16 13:35:16.695  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:32.770  WARN 12296 --- [http-nio-8888-exec-6] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:33.406  WARN 12296 --- [http-nio-8888-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:34.468  WARN 12296 --- [http-nio-8888-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]
+2020-03-16 13:35:36.471  WARN 12296 --- [http-nio-8888-exec-4] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [java.lang.NumberFormatException: For input string: "favicon.ico"]

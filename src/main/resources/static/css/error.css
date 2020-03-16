@@ -7,7 +7,7 @@ html, body {
 
 /*主体*/
 .main {
-    min-height: 120%;
+    min-height: 95%;
     height: auto;
     position: relative;
     background-color: white;
@@ -21,28 +21,9 @@ html, body {
     height: 10%;
 }
 
-.body-left {
-    height: 100%;
-    border-right: 1px solid #e6e6e6;
-}
-
-/*publish:标签选择组件*/
-.tab-pane {
-    margin-top: 10px;
-}
-
-/*问题标签*/
-.tag {
-    cursor: pointer;
-    margin-right: 5px;
-    font-size: 14px;
-    white-space: normal;
-    margin-top: 8px;
-    display: inline-block;
-}
-
-.btn-publish{
-    margin-top: 8%;
+.error-page{
+    text-align: center;
+    margin-top: 20%;
 }
 
 /*底部*/

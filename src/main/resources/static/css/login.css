@@ -25,9 +25,9 @@ body.my-login-page {
 }
 
 .my-login-page .card-wrapper {
-    margin-left: 30%;
+    margin-left: 33%;
     width: 400px;
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 .my-login-page .card {
@@ -60,11 +60,16 @@ body.my-login-page {
 }
 
 .my-login-page .footer {
-    margin: 40px 0;
-    color: #888;
+    margin-top: 80px;
+    color: #666;
     text-align: center;
 }
 
 .my-login-page .login-brand{
     margin: 5% 12%;
+}
+
+.reset{
+    margin-top: 100px;
+    margin-bottom: 105px;
 }

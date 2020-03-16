@@ -30,7 +30,7 @@
                             <span class="media-heading questions-title" th:text="${question.title}"></span></a><br>
                         <span class="text-desc">
                             <span>[[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
-                                th:text="${question.createTime}"></span></span>
+                                    th:text="${question.createTime}"></span></span>
                             <a href="javascript:void(0)" class="delete-btn" th:data-id="${question.id}">
                                 <img class="pull-right"
                                      th:if="${session.userInfo!=null and session.userInfo.getPublishType()==question.publishType}"
@@ -98,8 +98,8 @@
             </div>
         </div>
     </div>
-    <div th:replace="footer :: foot"></div>
 </div>
+<footer th:replace="footer :: foot"></footer>
 </body>
 
 <script type="application/javascript">
@@ -113,5 +113,4 @@
 </script>
 <script type="application/javascript" src="/js/navigation.js" th:src="@{/js/navigation.js}"></script>
 <script type="application/javascript" src="/js/index.js" th:src="@{/js/index.js}"></script>
-</body>
 </html>
