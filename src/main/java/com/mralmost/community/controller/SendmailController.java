@@ -37,7 +37,7 @@ public class SendmailController {
         String code = UUID.randomUUID().toString();
         //邮件内容
         String content = "<h2>尊敬的用户" + userDTO.getUsername() + "你好,欢迎使用本站,激活请点击一下链接:</h2>" +
-                "<h3><a href='http://117.50.37.50/activate_user?code=" + code + "'>激活账号</a></h3>";
+                "<h3><a href='http://mralmost.cn/activate_user?code=" + code + "'>激活账号</a></h3>";
         Properties properties = new Properties();
         properties.put("mail.transport.protocol", "smtp");// 连接协议，即：邮件协议
         properties.put("mail.smtp.host", "smtp.qq.com");// 主机名

@@ -31,7 +31,7 @@
                     <!-- 分页数据 -->
                     <div class="media question-info" th:each="question : ${pageInfo.list}">
                         <div class="media-body questions-content">
-                            <a th:href="@{'/question/'+${question.id}}">
+                            <a th:href="@{'/question/'+${question.id}}" target="_blank">
                                 <span class="media-heading questions-title"
                                       th:text="${question.title}">
                                 </span>

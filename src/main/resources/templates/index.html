@@ -26,7 +26,7 @@
             <div th:if="${pageInfo!=null}">
                 <div class="media question-info" th:each="question : ${pageInfo.list}">
                     <div class="media-body questions-content">
-                        <a th:href="@{'/question/'+${question.id}}">
+                        <a th:href="@{'/question/'+${question.id}}" target="_blank">
                             <span class="media-heading questions-title" th:text="${question.title}"></span></a><br>
                         <span class="text-desc">
                             <span>[[${question.commentCount}]] 个回复 • [[${question.viewCount}]] 次浏览 • <span
@@ -37,7 +37,7 @@
                                      th:src="${session.userInfo.id==question.creator?'/images/delete-btn-18x18.png':''}"/>
                             </a>
                             <div>
-                                <a href="javascript:void(0)">
+                                <a href="javascript:void(0)" target="_blank">
                                     <img class="avatar-img"
                                          th:src="${question.user.avatar!='default-avatar.png'?question.user.avatar:'/images/default-avatar.png'}"
                                          alt="头像">
@@ -83,7 +83,7 @@
                 <h3><img th:src="@{/images/hottest-24x24.png}"> 热门话题</h3>
                 <ul class="question-related">
                     <li th:each="hottest : ${hottest}">
-                        <a th:href="@{'/question/'+${hottest.id}}" th:text="${hottest.title}"></a>
+                        <a th:href="@{'/question/'+${hottest.id}}" th:text="${hottest.title}" target="_blank"></a>
                     </li>
                 </ul>
             </div>
@@ -92,7 +92,7 @@
                 <h3><img th:src="@{/images/newset-24x24.png}"> 最新话题</h3>
                 <ul class="question-related">
                     <li th:each="newset : ${newset}">
-                        <a th:href="@{'/question/'+${newset.id}}" th:text="${newset.title}"></a>
+                        <a th:href="@{'/question/'+${newset.id}}" th:text="${newset.title}" target="_blank" ></a>
                     </li>
                 </ul>
             </div>

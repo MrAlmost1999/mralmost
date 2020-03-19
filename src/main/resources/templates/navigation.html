@@ -22,17 +22,14 @@
                     <button type="submit" class="btn btn-default">搜索</button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
-                    <!--<li th:if="${session.githubUser==null}">
-                        <a th:href="@{https://github.com/login/oauth/authorize(client_id='Iv1.fc94755b2e36e7af',redirect_uri=${#httpServletRequest.getRequestURL()}+'githubCallback',scope='user',state=1)}">登录</a>
-                    </li>-->
                     <li th:if="${session.userInfo==null}">
-                        <a th:href="@{/login}">登录</a>
+                        <a th:href="@{/login}" target="_blank">登录</a>
                     </li>
                     <li th:if="${session.userInfo!=null}">
-                        <a class="dropdown-toggle" href="/publish" role="button">提问</a>
+                        <a class="dropdown-toggle" href="/publish" role="button" target="_blank">提问</a>
                     </li>
                     <li th:if="${session.userInfo!=null}">
-                        <a th:href="@{/profile/replies/1}">通知 <span class="badge unreadMessage"
+                        <a th:href="@{/profile/replies/1}" target="_blank">通知 <span class="badge unreadMessage"
                                                                     th:text="${unreadMessage}"></span></a>
                     </li>
                     <li class="dropdown">
@@ -41,8 +38,8 @@
                            aria-expanded="false" th:if="${session.userInfo!=null}">[[${session.userInfo.getUsername()}]]
                             <span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                            <li><a th:href="@{/profile/questions/1}">我的问题</a></li>
-                            <li><a th:href="@{/password}">修改密码</a></li>
+                            <li><a th:href="@{/profile/questions/1}" target="_blank">我的问题</a></li>
+                            <li><a th:href="@{/password}" target="_blank">修改密码</a></li>
                             <!--                            <li><a th:href="@{/logOut}">退出登录</a></li>-->
                             <li><a th:href="@{/logOut}" class="logOut">退出登录</a></li>
                         </ul>

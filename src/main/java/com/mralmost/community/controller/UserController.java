@@ -78,12 +78,7 @@ public class UserController {
             user.setPassword("github");
             user.setAccountId(String.valueOf(githubUserDTO.getId()));
             user.setAvatar(githubUserDTO.getAvatarUrl());
-            Cookie cookie = new Cookie("accountId", String.valueOf(githubUserDTO.getId()));
-            cookie.setMaxAge(60 * 60 * 24 * 30);
-            cookie.setPath("/");
-//            cookie.setDomain("mralmost.cn");
-            cookie.setDomain("117.50.37.50");
-            response.addCookie(cookie);
+            modifyCookie(String.valueOf(githubUserDTO.getId()), response);
             //首次登陆则添加,不是则根据实际情况修改用户信息
             userService.createOrUpdate(user);
             return "redirect:/";
@@ -104,12 +99,7 @@ public class UserController {
     public String logOut(HttpServletRequest request,
                          HttpServletResponse response) {
         request.getSession().removeAttribute("userInfo");
-        Cookie cookie = new Cookie("accountId", null);
-        cookie.setMaxAge(0);
-        cookie.setPath("/");
-//        cookie.setDomain("mralmost.cn");
-        cookie.setDomain("117.50.37.50");
-        response.addCookie(cookie);
+        modifyCookie(null, response);
         return "redirect:/";
     }
 
@@ -154,12 +144,7 @@ public class UserController {
             request.getSession().setAttribute("remember", user);
         }
         //用于标记用户登录状态
-        Cookie cookie = new Cookie("accountId", user.getAccountId());
-        cookie.setMaxAge(60 * 60 * 24 * 30);
-        cookie.setPath("/");
-//        cookie.setDomain("mralmost.cn");
-        cookie.setDomain("117.50.37.50");
-        response.addCookie(cookie);
+        modifyCookie(user.getAccountId(), response);
 
         //修改用户的最后一次登录时间
         userService.updateLastDate(user.getUsername());
@@ -239,17 +224,23 @@ public class UserController {
         if (userService.resetPassword(user)) {
             request.getSession().removeAttribute("userInfo");
             request.getSession().removeAttribute("remember");
-            Cookie cookie = new Cookie("accountId", null);
-            cookie.setMaxAge(0);
-            cookie.setPath("/");
-//        cookie.setDomain("mralmost.cn");
-            cookie.setDomain("117.50.37.50");
-            response.addCookie(cookie);
+            modifyCookie(null, response);
             return ResultDTO.okOf();
         } else {
             return ResultDTO.errorOf(ErrorCode.SYSTEM_ERROR);
         }
+    }
 
+    public void modifyCookie(String value, HttpServletResponse response) {
+        Cookie cookie = new Cookie("accountId", value);
+        if (value == null) {
+            cookie.setMaxAge(0);
+        } else {
+            cookie.setMaxAge(60 * 60 * 24 * 30);
+        }
+        cookie.setPath("/");
+        cookie.setDomain("mralmost.cn");
+        response.addCookie(cookie);
     }
 
 }

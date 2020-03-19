@@ -95,6 +95,15 @@ html, body {
     color: #999;
 }
 
+.questions-title:hover {
+    text-decoration: none;
+    color: #e53e3e;
+}
+
+a:link{
+    text-decoration: none;
+}
+
 /*分页栏*/
 .paging-toolbar {
     margin-top: 2%;

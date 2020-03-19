@@ -59,6 +59,10 @@ html, body {
     color: #e53e3e;
 }
 
+a:link{
+    text-decoration: none;
+}
+
 .text-desc {
     font-size: 14px;
     font-weight: normal;
